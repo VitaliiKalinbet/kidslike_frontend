@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
+import CardsList from '../../components/CardsList';
 import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
 // import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
@@ -9,17 +10,8 @@ const AwardsPage = () => {
     <div>
       <div className={style.present_items}>
         <AwardsTitle />
-        <div className={style.present_cards}>
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-          <div className={style.present_card} />
-        </div>
       </div>
+      <CardsList />
       <AwardsSubmitButton />
     </div>
   );
