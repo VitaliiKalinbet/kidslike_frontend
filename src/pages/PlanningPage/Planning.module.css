@@ -1,0 +1,163 @@
+.planningContainer {
+  margin: 0 auto;
+  max-width: 320px;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.pointsText {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #858598;
+}
+
+.hiddenSpan,
+.hiddenText {
+  display: none;
+}
+
+.pointsAmount {
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 7px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #8ec63f;
+  border-radius: 50%;
+}
+
+.list {
+  padding-top: 115px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+}
+
+.listItem {
+  display: flex;
+  justify-items: center;
+  width: 280px;
+  height: 260px;
+  background-color: grey;
+  margin-bottom: 20px;
+}
+
+.addTaskBtn {
+  display: block;
+  position: absolute;
+  top: -40%;
+  right: 10%;
+  width: 54px;
+  height: 54px;
+  background-color: #eeb844;
+  border-style: none;
+  border-radius: 50%;
+  font-size: 43px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.pointsTaskContainer {
+  margin: 0 auto;
+  position: relative;
+  width: 320px;
+  height: 60px;
+  background-color: #f1f1f1;
+}
+
+@media (min-width: 767px) {
+  .planningContainer {
+    position: relative;
+    max-width: 768px;
+  }
+
+  .pointsTaskContainer {
+    position: absolute;
+    top: 98px;
+    left: 0;
+    width: 768px;
+    height: 86px;
+    background-color: transparent;
+  }
+
+  .list {
+    margin: 0 auto;
+    width: 582px;
+    padding-top: 214px;
+    justify-content: space-between;
+  }
+
+  .hiddenText {
+    display: inline-block;
+    position: absolute;
+    top: 69%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    color: #858598;
+  }
+
+  .hiddenSpan {
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  .pointsText {
+    top: 18%;
+    left: 49%;
+    text-transform: none;
+    font-size: 11px;
+  }
+
+  .addTaskBtn {
+    top: 68%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1279px) {
+  .planningContainer {
+    max-width: 1280px;
+  }
+
+  .pointsTaskContainer {
+    top: 58px;
+    left: 35%;
+    width: 784px;
+    height: 54px;
+  }
+
+  .list {
+    width: 1188px;
+    padding-top: 140px;
+  }
+
+  .hiddenText {
+    width: 300px;
+    top: 50%;
+    left: 71%;
+  }
+
+  .pointsText {
+    top: 50%;
+    left: 13%;
+  }
+
+  .addTaskBtn {
+    top: 50%;
+    left: 96.5%;
+  }
+}
