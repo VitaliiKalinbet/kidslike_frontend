@@ -1,46 +1,26 @@
 import React from 'react';
 import { Progress } from 'react-sweet-progress';
+import PropTypes from 'prop-types';
 import style from './ProgressBar.module.css';
 import 'react-sweet-progress/lib/style.css';
 
-const ProgressBar = () => {
+const ProgressBar = ({ points, allPoints }) => {
   return (
     <>
-      <div className={style.DayList}>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Пн
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Вт
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Ср
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Чт
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Пт
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Сб
-        </label>
-        <label className={style.checkbox} htmlFor="ready">
-          <input id="ready" type="checkbox" />
-          Вс
-        </label>
-      </div>
+      <p>Балів з початку тижня</p>
+      <p className={style.text}>
+        {points}/{allPoints}
+      </p>
       <div className={style.Progress}>
         <Progress percent={88} />
       </div>
     </>
   );
+};
+
+ProgressBar.propTypes = {
+  points: PropTypes.number.isRequired,
+  allPoints: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;
