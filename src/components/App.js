@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import routes from '../routes/routes';
+import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route
           path={routes.AUTH_PAGE.path}
