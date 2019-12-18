@@ -31,7 +31,7 @@ class Header extends Component {
         >
           <HeaderModal onClose={this.closeModal} />
         </CSSTransition>
-        <div className={styles.header}>
+        <header className={styles.header}>
           <Link to={routes.MAIN_PAGE.path}>
             <img className={styles.siteLogo} alt="SiteLogo" src={logoMobile} />
           </Link>
@@ -51,7 +51,7 @@ class Header extends Component {
               </button>
             </div>
           </div>
-        </div>
+        </header>
       </>
     );
   }
