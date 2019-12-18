@@ -1,0 +1,53 @@
+.present_item {
+  margin: 0 auto;
+  width: 280px;
+  position: relative;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 21px;
+  padding: 25px 30px;
+}
+
+.box {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  fill: var(--color-orange);
+  top: 20px;
+}
+
+@media (min-width: 768px) {
+  .present_item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 20px;
+    padding: 30px 40px 25px;
+  }
+
+  .box {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .box {
+    width: 35px;
+    height: 35px;
+  }
+}
