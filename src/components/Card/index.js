@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import s from './Card.module.css';
+import CardBody from '../CardBody/CardBody';
+import CardFooter from '../CardFooter/CardFooter';
+// import s from './Card.module.css';
 
 const Card = ({ img, title, header, interactive }) => {
   const { pathname, search } = useLocation();
@@ -12,17 +15,19 @@ const Card = ({ img, title, header, interactive }) => {
     console.log('pathname :', pathname) ||
     console.log('search :', search) || (
       <article>
-        <img
+        {/* <img
           src={img}
           width="280"
           height="192"
           alt={title}
           className={s.card_img}
-        />
-        <div className={s.card_footer}>
+        /> */}
+        <CardBody />
+        <CardFooter />
+        {/* <div className={s.card_footer}>
           <span>{header}</span>
           <span>{interactive}</span>
-        </div>
+        </div> */}
       </article>
     )
   );

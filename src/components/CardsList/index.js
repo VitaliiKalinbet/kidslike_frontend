@@ -4,7 +4,7 @@ import Card from '../Card';
 import s from './CardsList.module.css';
 import tasks from './tasks';
 
-const CardList = () => {
+const CardsList = () => {
   return (
     <ul className={s.cards_list}>
       {tasks.map(el => {
@@ -19,4 +19,4 @@ const CardList = () => {
   );
 };
 
-export default CardList;
+export default CardsList;
