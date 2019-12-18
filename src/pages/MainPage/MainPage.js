@@ -1,7 +1,8 @@
 import React from 'react';
+import CardList from '../../components/CardList/CardList';
 
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return <CardList />;
 };
 
 export default MainPage;
