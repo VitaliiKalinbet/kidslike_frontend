@@ -1,0 +1,111 @@
+.container {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.auth__title {
+  font-family: 'Montserrat';
+  font-size: 18px;
+  text-align: center;
+  padding: 0 22px 50px 22px;
+}
+
+.auth__bck {
+  height: 89px;
+  background: linear-gradient(
+      to right,
+      rgba(240, 232, 213, 0.3),
+      rgba(240, 232, 213, 0.3)
+    ),
+    url('../../assets/images/auth_page/mobile/auth-bck.png') no-repeat;
+  width: auto;
+  background-position: 0px 0px, bottom;
+  min-height: 100vh;
+}
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+  .auth__bck {
+    background: linear-gradient(
+        to right,
+        rgba(240, 232, 213, 0.3),
+        rgba(240, 232, 213, 0.3)
+      ),
+      url('../../assets/images/auth_page/mobile/auth-bck@2x.png') no-repeat;
+    background-size: cover;
+    width: auto;
+    background-position: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 709px;
+    margin: 0 auto;
+  }
+
+  .auth__title {
+    font-family: 'Montserrat';
+    font-size: 27px;
+    text-align: center;
+    padding: 0 142px 40px 144px;
+  }
+
+  .auth__bck {
+    background: url('../../assets/images/auth_page/tablet/Layer0.png') no-repeat;
+    background-color: #fafafa;
+    background-position: bottom;
+    min-height: 810px;
+  }
+
+  .auth__reg {
+    margin: 0 auto;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 8.66px 30px 0px rgba(0, 0, 0, 0.1);
+    width: 485px;
+    height: 480px;
+  }
+
+  @media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
+    .auth__bck {
+      background: url('../../assets/images/auth_page/tablet/Layer0@2x.png');
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .auth__bck {
+    margin: 0 auto;
+    width: 1214px;
+    background: url('../../assets/images/auth_page/desktop/pic.png') no-repeat;
+    background-position: 0 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .bck__color {
+    background-color: #fafafa;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 405px;
+    margin: 0;
+    margin: 83px 128px 80px 128px;
+  }
+
+  .auth__title {
+    font-family: 'Montserrat';
+    font-size: 29px;
+    text-align: left;
+    padding: 0 0 40px 0;
+  }
+
+  .auth__reg {
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 8.66px 30px 0px rgba(0, 0, 0, 0.1);
+    width: 405px;
+    height: 480px;
+  }
+}
