@@ -125,6 +125,7 @@
     width: 485px;
     border-radius: 6px;
     box-shadow: 5px 8.66px 30px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
   }
 
   .auth__wrapper {
@@ -169,6 +170,7 @@
 @media (min-width: 1280px) {
   .auth {
     width: 405px;
+    margin-bottom: 78px;
   }
 
   .auth__link__wrapper {
