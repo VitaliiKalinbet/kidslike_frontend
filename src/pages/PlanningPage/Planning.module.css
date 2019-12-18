@@ -1,8 +1,13 @@
 .planningContainer {
   margin: 0 auto;
-  max-width: 320px;
+  max-width: 100%;
   min-height: 100vh;
-  background-color: #fafafa;
+  background-color: greenyellow;
+}
+
+.planningWrapper {
+  margin: 0 auto;
+  width: 320px;
 }
 
 .pointsText {
@@ -72,15 +77,18 @@
 .pointsTaskContainer {
   margin: 0 auto;
   position: relative;
-  width: 320px;
+  width: 100%;
   height: 60px;
   background-color: #f1f1f1;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .planningContainer {
     position: relative;
-    max-width: 768px;
+  }
+
+  .planningWrapper {
+    width: 768px;
   }
 
   .pointsTaskContainer {
@@ -128,9 +136,9 @@
   }
 }
 
-@media (min-width: 1279px) {
-  .planningContainer {
-    max-width: 1280px;
+@media (min-width: 1280px) {
+  .planningWrapper {
+    width: 1280px;
   }
 
   .pointsTaskContainer {
