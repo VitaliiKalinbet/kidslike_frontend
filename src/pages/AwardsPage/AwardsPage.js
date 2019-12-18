@@ -1,10 +1,25 @@
 import React from 'react';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import style from './AwardsPage.module.css';
+import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
+import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
 
 const AwardsPage = () => {
   return (
     <div>
-      <ProgressBar />
+      <div className={style.present_items}>
+        <AwardsTitle />
+        <div className={style.present_cards}>
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+          <div className={style.present_card} />
+        </div>
+      </div>
+      <AwardsSubmitButton />
     </div>
   );
 };
