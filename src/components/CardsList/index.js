@@ -6,11 +6,14 @@ import tasks from './tasks';
 const CardList = ({ children }) => {
   return (
     <ul className={s.cards_list}>
-      {tasks.map(el => (
-        <li className={s.card} key={el.id}>
-          {children}
-        </li>
-      ))}
+      {tasks.map(el => {
+        const { id, task } = el;
+        return (
+          <li className={s.card} key={id}>
+            {(children, task)}
+          </li>
+        );
+      })}
     </ul>
   );
 };
