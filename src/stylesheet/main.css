@@ -32,3 +32,11 @@ button:hover {
 button:focus {
   outline: none;
 }
+
+.react-sweet-progress-line-inner-status-active {
+  background-color: #9ecb45 !important;
+}
+
+.react-sweet-progress-symbol {
+  visibility: hidden;
+}
