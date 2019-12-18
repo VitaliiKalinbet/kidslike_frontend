@@ -2,6 +2,7 @@ import React from 'react';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
 import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
+// import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 const AwardsPage = () => {
   return (

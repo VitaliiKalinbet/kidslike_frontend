@@ -26,17 +26,19 @@
     display: flex;
     justify-content: space-between;
     margin: 0;
+    align-items: center;
   }
 
   .title {
     font-size: 18px;
     line-height: 20px;
-    padding: 30px 40px 25px;
+    padding: 40px 35px 35px;
   }
 
   .box {
     width: 30px;
     height: 30px;
+    top: 30px;
   }
 }
 
@@ -44,10 +46,12 @@
   .title {
     font-size: 20px;
     line-height: 22px;
+    padding: 50px 45px 50px;
   }
 
   .box {
     width: 35px;
     height: 35px;
+    top: 40px;
   }
 }

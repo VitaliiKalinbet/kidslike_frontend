@@ -21,6 +21,11 @@
   margin-bottom: 20px;
 }
 
+.present_item {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width: 768px) {
   .present_items {
     max-width: 585px;
