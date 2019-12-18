@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import Card from '../Card';
 import s from './CardsList.module.css';
 import tasks from './tasks';
 
-const CardList = ({ children }) => {
+const CardList = () => {
   return (
     <ul className={s.cards_list}>
       {tasks.map(el => {
         const { id, task } = el;
         return (
           <li className={s.card} key={id}>
-            {(children, task)}
+            <Card {...task} />
           </li>
         );
       })}

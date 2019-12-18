@@ -25,7 +25,16 @@
     max-width: 582px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+  .cards_list li:nth-child(3n),
+  .cards_list li:last-child {
+    margin-right: 0px;
+  }
+
+  .card {
+    margin-right: 22px;
   }
 
   .cards_list li:nth-last-child(-n + 2) {
@@ -36,6 +45,7 @@
 @media (min-width: 900px) {
   .cards_list {
     max-width: 884px;
+    justify-content: space-between;
   }
 }
 
