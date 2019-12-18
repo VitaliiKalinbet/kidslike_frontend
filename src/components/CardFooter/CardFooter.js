@@ -2,6 +2,7 @@ import React from 'react';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import CardControl from '../CardControl/CardControl';
+
 import s from './CardFooter.module.css';
 
 const CardFooter = () => {
@@ -11,9 +12,9 @@ const CardFooter = () => {
         <CardTitle />
         <PointAmount />
       </div>
-      <div>
+      <>
         <CardControl />
-      </div>
+      </>
     </div>
   );
 };
