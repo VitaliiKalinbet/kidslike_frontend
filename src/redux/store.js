@@ -6,6 +6,7 @@ import ReduxThunk from 'redux-thunk';
 // import rootReducer from './rootReducer';
 
 const initialStore = {
+  app: { isFetching: false },
   auth: {
     user: null,
     token: null,
