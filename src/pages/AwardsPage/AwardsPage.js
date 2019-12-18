@@ -1,7 +1,13 @@
 import React from 'react';
+import CardsList from '../../components/CardsList';
 
 const AwardsPage = () => {
-  return <div>AwardsPage</div>;
+  return (
+    <div>
+      AwardsPage
+      <CardsList />
+    </div>
+  );
 };
 
 export default AwardsPage;
