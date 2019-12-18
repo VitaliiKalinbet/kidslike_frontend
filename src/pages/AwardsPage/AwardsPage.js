@@ -1,12 +1,7 @@
 import React from 'react';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 const AwardsPage = () => {
-  return (
-    <div>
-      <ProgressBar />
-    </div>
-  );
+  return <div />;
 };
 
 export default AwardsPage;

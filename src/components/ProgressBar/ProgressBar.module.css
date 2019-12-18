@@ -2,6 +2,24 @@
   max-width: 142px;
 }
 
+.DayList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-color: var(--color-blue);
+  color: var(--bg-color-white);
+  max-width: 100px;
+}
+
+.DayList label {
+  width: 60px;
+}
+
+.DayList input {
+  margin-right: 10px;
+}
+
 @media (min-width: 768px) {
   .Progress {
     max-width: 255px;
