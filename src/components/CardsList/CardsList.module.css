@@ -1,0 +1,60 @@
+.cards_list {
+  max-width: 280px;
+  margin: 0px auto;
+  list-style: none;
+}
+
+.cards_list li:last-child {
+  margin-bottom: 0px;
+}
+
+.card {
+  width: 280px;
+  height: 260px;
+  background-color: grey;
+  margin-bottom: 22px;
+  border-radius: 10px;
+}
+
+.cards_list li:last-child {
+  margin-bottom: 0px;
+}
+
+@media (min-width: 612px) {
+  .cards_list {
+    max-width: 582px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .cards_list li:nth-child(3n),
+  .cards_list li:last-child {
+    margin-right: 0px;
+  }
+
+  .card {
+    margin-right: 22px;
+  }
+
+  .cards_list li:nth-last-child(-n + 2) {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 900px) {
+  .cards_list {
+    max-width: 884px;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cards_list {
+    max-width: 1186px;
+  }
+
+  .cards_list li:nth-last-child(-n + 4) {
+    margin-bottom: 0px;
+  }
+}

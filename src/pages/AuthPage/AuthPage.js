@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './AuthPage.module.css';
+import AuthForm from '../../components/AuthForm/AuthForm';
+import Footer from '../../components/Footer/Footer';
 
 const AuthPage = () => {
   return (
@@ -10,9 +12,10 @@ const AuthPage = () => {
             <h2 className={styles.auth__title}>
               Виконуй завдання, отримай класні призи!
             </h2>
-            <div className={styles.auth__reg}>Registration</div>
+            <AuthForm />
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

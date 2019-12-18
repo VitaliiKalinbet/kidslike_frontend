@@ -1,0 +1,15 @@
+.Progress {
+  max-width: 142px;
+}
+
+@media (min-width: 768px) {
+  .Progress {
+    max-width: 255px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Progress {
+    max-width: 255px;
+  }
+}
