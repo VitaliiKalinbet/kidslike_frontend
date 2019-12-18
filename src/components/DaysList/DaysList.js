@@ -13,7 +13,11 @@ const DaysList = ({ daysJson }) => {
               <input id={day.name} type="checkbox" className={style.input} />
               {day.days}
               <span className={style.checkmark}>
-                <Done className={style.checkmark_icon} width="15px" />
+                <Done
+                  className={style.checkmark_icon}
+                  width="15px"
+                  height="15px"
+                />
               </span>
             </label>
           </li>
