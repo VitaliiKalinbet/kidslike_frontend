@@ -1,13 +1,7 @@
 import React from 'react';
-import CardList from '../../components/CardsList';
 
 const PlanningPage = () => {
-  return (
-    <div>
-      PlanningPage
-      <CardList />
-    </div>
-  );
+  return <div>PlanningPage</div>;
 };
 
 export default PlanningPage;
