@@ -4,7 +4,7 @@ import s from './PointAmount.module.css';
 const PointAmount = () => {
   return (
     <div className={s.point_amount}>
-      <p className={s.point_amount_p}>20 бали</p>
+      <p className={s.point_amount_p}>200 баллiв</p>
     </div>
   );
 };
