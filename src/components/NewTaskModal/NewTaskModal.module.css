@@ -1,0 +1,86 @@
+.taskModal {
+  width: 280px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.taskImage {
+  height: 130px;
+  background-color: #fff;
+  position: relative;
+}
+
+.taskCloseButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 15px;
+  border: none;
+}
+
+.taskForm {
+  background-color: #ffbc33;
+  height: 150px;
+  position: relative;
+}
+
+.form {
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.taskInput {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: transparent;
+  /* appearance: none; */
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-top: 25px;
+  text-align: center;
+  width: 224px;
+  font-style: italic;
+}
+::placeholder {
+  color: #ffffff;
+}
+
+.taskIconEdit {
+  position: absolute;
+  top: 20px;
+  left: 29px;
+  /* color: #ffffff; */
+  filter: invert(1);
+}
+
+.taskSubmitButton {
+  padding: 10px 20px;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-style: none;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
+  font-weight: 500;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #c8c8c8;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 999;
+}
