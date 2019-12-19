@@ -3,18 +3,12 @@
   flex-direction: column;
   align-content: center;
   margin: 0 auto;
+  padding-top: 90px;
 }
 
 .present_cards {
   margin: 0 auto;
   padding-bottom: 50px;
-}
-
-.present_card {
-  width: 280px;
-  height: 265px;
-  border: 1px solid red;
-  background-color: green;
 }
 
 .present_card:not(:last-child) {
@@ -29,14 +23,6 @@
 @media (min-width: 768px) {
   .present_items {
     max-width: 585px;
-  }
-
-  .present_cards {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 56px;
   }
 
   .present_card:not(:nth-child(n - 2)) {

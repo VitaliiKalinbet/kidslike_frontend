@@ -18,11 +18,6 @@
 }
 
 @media (min-width: 768px) {
-  .button {
-    font-size: 18px;
-    line-height: 20px;
-  }
-
   .present_button {
     padding-bottom: 55px;
   }
@@ -32,10 +27,5 @@
   .present_button {
     max-width: 1184px;
     margin: 0 auto;
-  }
-
-  .button {
-    font-size: 20px;
-    line-height: 22px;
   }
 }
