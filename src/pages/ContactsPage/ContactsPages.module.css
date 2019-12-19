@@ -37,6 +37,16 @@
   margin-bottom: 40px;
   border-radius: 20px;
 }
+
+.contacts_card:hover {
+  transform: translateX(-8px);
+  border-color: #fff;
+  background-color: #e7e7e7;
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 8px 4px rgba(1, 20, 82, 0.7);
+}
+
 .contacts_img {
   margin-bottom: 20px;
   background-size: cover;
