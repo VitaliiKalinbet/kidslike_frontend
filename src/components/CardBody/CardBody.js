@@ -1,14 +1,8 @@
 import React from 'react';
+import s from './CardBody.module.css';
 
 const CardBody = () => {
-  return (
-    <img
-      src="https://img4.goodfon.ru/wallpaper/nbig/d/fa/material-design-color-tekstura-fon-linii-background.jpg"
-      alt=""
-      width="280"
-      height="194"
-    />
-  );
+  return <img className={s.CardBody} src="" alt="" width="280" height="192" />;
 };
 
 export default CardBody;
