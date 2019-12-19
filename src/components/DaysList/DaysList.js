@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import style from './DaysList.module.css';
 import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black-outline.svg';
 import daysJsonArr from './DaysList.json';
@@ -9,7 +10,7 @@ const DaysList = ({ daysJson }) => {
     <form>
       <ul className={style.DayList}>
         {daysJson.map(day => (
-          <li key={day.name}>
+          <li key={shortid.generate()}>
             <label className={style.container_checkbox} htmlFor={day.name}>
               <input id={day.name} type="checkbox" className={style.input} />
               {day.days}
