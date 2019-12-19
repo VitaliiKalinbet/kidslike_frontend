@@ -1,21 +1,25 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Card from '../Card';
 import s from './CardsList.module.css';
+import popTransition from './pop.module.css';
 import tasks from './tasks';
 
 const CardsList = () => {
   return (
-    <ul className={s.cards_list}>
+    <TransitionGroup component="ul" className={s.cards_list}>
       {tasks.map(el => {
-        const { id, task } = el;
+        const { id, ...task } = el;
         return (
-          <li className={s.card} key={id}>
-            <Card {...task} />
-          </li>
+          <CSSTransition key={id} timeout={5000} classNames={popTransition}>
+            <li className={s.card}>
+              <Card {...task} />
+            </li>
+          </CSSTransition>
         );
       })}
-    </ul>
+    </TransitionGroup>
   );
 };
 
