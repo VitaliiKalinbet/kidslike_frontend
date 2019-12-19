@@ -67,7 +67,7 @@ const contactsInfoArr = [
   },
   {
     avatar: Member8,
-    name: 'Kristina Guravleva',
+    name: 'Kristina Zhuravleva',
     position: 'Front-End Developer',
     description: 'some text will be here',
     id: 8,
