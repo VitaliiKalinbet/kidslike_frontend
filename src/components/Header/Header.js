@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import * as moment from 'moment';
 import slideTransition from '../../transitions/fade.module.css';
-import routes from '../../routes/routes';
 import Navigation from '../Navigation/Navigation';
 import HeaderModal from '../HeaderModal/HeaderModal';
 import styles from './Header.module.css';
@@ -21,6 +21,8 @@ class Header extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const unixDate = Date.now();
+    const currentDay = moment().format('dddd');
     return (
       <>
         <CSSTransition
@@ -32,7 +34,12 @@ class Header extends Component {
           <HeaderModal onClose={this.closeModal} />
         </CSSTransition>
         <header className={styles.header}>
-          <Link to={routes.MAIN_PAGE.path}>
+          <Link
+            to={{
+              pathname: '/',
+              search: `?day=${currentDay}&unix-date=${unixDate}`,
+            }}
+          >
             <img className={styles.siteLogo} alt="SiteLogo" src={logoMobile} />
           </Link>
           <div className={styles.navControls}>
