@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './DaysList.module.css';
 import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black-outline.svg';
+import daysJsonArr from './DaysList.json';
 
 const DaysList = ({ daysJson }) => {
   return (
@@ -27,39 +28,12 @@ const DaysList = ({ daysJson }) => {
   );
 };
 
+DaysList.defaultProps = {
+  daysJson: daysJsonArr,
+};
+
 DaysList.propTypes = {
-  daysJson: PropTypes.shape([]).isRequired,
+  daysJson: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default DaysList;
-
-// <div className={style.DayList}>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Пн
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Вт
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Ср
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Чт
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Пт
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Сб
-// </label>
-// <label className={style.checkbox} htmlFor="ready">
-//   <input id="ready" type="checkbox" />
-//   Вс
-// </label>
-// </div>
