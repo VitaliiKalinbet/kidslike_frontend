@@ -5,10 +5,10 @@ import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black
 
 const DaysList = ({ daysJson }) => {
   return (
-    <form action="">
+    <form>
       <ul className={style.DayList}>
         {daysJson.map(day => (
-          <li key={day.id}>
+          <li key={day.name}>
             <label className={style.container_checkbox} htmlFor={day.name}>
               <input id={day.name} type="checkbox" className={style.input} />
               {day.days}

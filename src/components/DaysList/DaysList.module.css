@@ -1,8 +1,8 @@
 .DayList {
+  padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
   background-color: var(--color-blue);
   color: var(--bg-color-white);
   max-width: 100px;
@@ -26,15 +26,19 @@
   width: 70px;
 }
 
+.DayList :last-of-type label {
+  margin-bottom: 0;
+}
+
 /* Hide the browser's default checkbox */
-.container_checkbox .input {
+.input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
 /* Create a custom checkbox */
-.container_checkbox .checkmark {
+.checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,11 +75,3 @@
   transform: translate(-50%, -50%);
   fill: #eee;
 }
-
-/* .DayList label {
-  width: 50px;
-}
-
-.DayList .input {
-  margin-right: 15px;
-} */
