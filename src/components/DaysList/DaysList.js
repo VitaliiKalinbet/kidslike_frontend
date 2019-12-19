@@ -6,28 +6,33 @@ import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black
 import daysJsonArr from './DaysList.json';
 
 const DaysList = ({ daysJson }) => {
+  // const id = shortid.generate();
+
+  const renderDays = daysJson.map(day => {
+    const key = shortid.generate();
+    return (
+      <li key={key}>
+        <label
+          className={style.container_checkbox}
+          htmlFor={`${day.name}-${key}`}
+        >
+          <input
+            id={`${day.name}-${key}`}
+            type="checkbox"
+            className={style.input}
+          />
+          {day.days}
+          <span className={style.checkmark}>
+            <Done className={style.checkmark_icon} width="15px" height="15px" />
+          </span>
+        </label>
+      </li>
+    );
+  });
   return (
     <form>
-      <ul className={style.DayList}>
-        {daysJson.map(day => (
-          <li key={shortid.generate()}>
-            <label className={style.container_checkbox} htmlFor={day.name}>
-              <input
-                id={shortid.generate()}
-                type="checkbox"
-                className={style.input}
-              />
-              {day.days}
-              <span className={style.checkmark}>
-                <Done
-                  className={style.checkmark_icon}
-                  width="15px"
-                  height="15px"
-                />
-              </span>
-            </label>
-          </li>
-        ))}
+      <ul className={style.DayList} id={shortid.generate()}>
+        {renderDays}
       </ul>
     </form>
   );
