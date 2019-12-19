@@ -12,7 +12,11 @@ const DaysList = ({ daysJson }) => {
         {daysJson.map(day => (
           <li key={shortid.generate()}>
             <label className={style.container_checkbox} htmlFor={day.name}>
-              <input id={day.name} type="checkbox" className={style.input} />
+              <input
+                id={shortid.generate()}
+                type="checkbox"
+                className={style.input}
+              />
               {day.days}
               <span className={style.checkmark}>
                 <Done
