@@ -1,14 +1,17 @@
 .DayList {
-  padding: 5px;
+  padding: 6px 0px 6px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--color-blue);
   color: var(--bg-color-white);
-  max-width: 100px;
+  max-width: 150px;
   font-size: 14px;
   border-radius: 5px;
   list-style: none;
+  position: absolute;
+  bottom: 70px;
+  right: -10px;
 }
 
 /* The container */
@@ -16,18 +19,16 @@
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin: 6px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: bold;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 70px;
-}
-
-.DayList :last-of-type label {
-  margin-bottom: 0;
+  width: 80px;
 }
 
 /* Hide the browser's default checkbox */
@@ -40,10 +41,10 @@
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0;
+  top: -3px;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
 }
 
