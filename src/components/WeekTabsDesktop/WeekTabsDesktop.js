@@ -1,31 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import CardsList from '../CardsList';
 import s from './WeekTabsDesktop.module.css';
 
 const WeekTabsDesktop = ({ days }) => (
-  <div className={s.weekDays}>
-    <ul className={s.weekDaysList}>
-      {days.map(el => (
-        <li key={`${el.id}`} className={s.weekDaysListItem}>
-          <NavLink
-            exact
-            isActive={(match, location) => {
-              if (location.search === `?day=${el.url}`) {
-                return true;
-              }
-              return false;
-            }}
-            activeClassName={s.active}
-            className={s.weekDaysListLink}
-            to={location => `${location.pathname}?day=${el.url}`}
-          >
-            {el.name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-  </div>
+  <>
+    <div className={s.weekDays}>
+      <ul className={s.weekDaysList}>
+        {days.map(el => (
+          <li key={`${el.id}`} className={s.weekDaysListItem}>
+            <NavLink
+              exact
+              isActive={(match, location) => {
+                if (location.search === `?day=${el.url}`) {
+                  return true;
+                }
+                return false;
+              }}
+              activeClassName={s.active}
+              className={s.weekDaysListLink}
+              to={location => `${location.pathname}?day=${el.url}`}
+            >
+              {el.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <CardsList />
+  </>
 );
 
 WeekTabsDesktop.propTypes = {

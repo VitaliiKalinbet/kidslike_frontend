@@ -5,29 +5,35 @@ import SelectDays from '../SelectDays/SelectDays';
 import TaskToggle from '../TaskToggle/TaskToggle';
 
 const CardControl = () => {
-  const { search } = useLocation();
-  // baseUrl?day=monday&unix-date=1576503044283
-  const urlDate = Number(new URLSearchParams(search).get('unix-date'));
-  const today =
-    moment()
-      .date()
-      .toString() +
-    (moment().month() + 1).toString() +
-    moment()
-      .year()
-      .toString();
+  const { search, pathname } = useLocation();
 
-  const urlDay =
-    moment(urlDate)
-      .date()
-      .toString() +
-    (moment(urlDate).month() + 1).toString() +
-    moment(urlDate)
-      .year()
-      .toString();
+  const today = moment().day();
+  // baseUrl?day=monday&unix-date=1576503044283
+  const urlDay = new URLSearchParams(search).get('day');
+  const url = moment()
+    .day(urlDay)
+    .weekday();
+
+  // const today =
+  //   moment()
+  //     .date()
+  //     .toString() +
+  //   (moment().month() + 1).toString() +
+  //   moment()
+  //     .year()
+  //     .toString();
+
+  // const urlDay =
+  //   moment(urlDate)
+  //     .date()
+  //     .toString() +
+  //   (moment(urlDate).month() + 1).toString() +
+  //   moment(urlDate)
+  //     .year()
+  //     .toString();
 
   const renderElement = () => {
-    if (!urlDate) {
+    if (pathname === '/planning') {
       return <SelectDays />;
     }
     if (Number(today) === urlDay) {
@@ -36,7 +42,12 @@ const CardControl = () => {
     return null;
   };
 
-  return renderElement();
+  return (
+    console.log('today :', today) ||
+    console.log('url :', url) ||
+    console.log('test :', test) ||
+    renderElement()
+  );
 };
 
 export default CardControl;
