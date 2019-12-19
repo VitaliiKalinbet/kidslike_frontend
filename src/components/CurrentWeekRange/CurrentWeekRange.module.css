@@ -1,0 +1,33 @@
+.week {
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.wrapper {
+  padding-top: 20px;
+}
+
+@media (max-width: 1280px) and (min-width: 760px) {
+  .week {
+    position: absolute;
+    left: 90px;
+    bottom: 80px;
+  }
+  .wrapper {
+    position: relative;
+  }
+}
+
+@media (min-width: 1280px) {
+  .week {
+    font-size: 18px;
+    justify-content: start;
+  }
+  .wrapper {
+    width: 270px;
+  }
+}

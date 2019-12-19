@@ -1,15 +1,37 @@
 .Progress {
-  max-width: 142px;
+  min-width: 142px;
+  padding: 20px 0;
 }
 
 @media (min-width: 768px) {
   .Progress {
-    max-width: 255px;
+    min-width: 255px;
   }
 }
 
 @media (min-width: 1280px) {
   .Progress {
-    max-width: 255px;
+    min-width: 380px;
   }
+}
+
+.progressBarDiv {
+  display: flex;
+  font-size: 12px;
+  line-height: 21px;
+}
+
+.progressText {
+  display: block;
+  font-size: 12px;
+  line-height: 21px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.progressNumbers {
+  width: 150px;
+  font-size: 14px;
 }

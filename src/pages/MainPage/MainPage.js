@@ -5,7 +5,6 @@ import WeekTabsDesktop from '../../components/WeekTabsDesktop/WeekTabsDesktop';
 import days from '../../utils/days.json';
 import windowWidth from '../../utils/windowWidth';
 import WeekTabsContent from '../../components/WeekTabsContent/WeekTabsContent';
-// import moduleName from '../../components/';
 import s from './MainPage.module.css';
 
 const MainPage = () => (
