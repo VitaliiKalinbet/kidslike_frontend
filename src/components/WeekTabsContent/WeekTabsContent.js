@@ -13,7 +13,9 @@ const WeekTabsContent = () => {
         <CurrentDay />
         <ProgressBar />
       </div>
-      <CardList />
+      <div className={s.cardWrapper}>
+        <CardList />
+      </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import s from './CurrentDay.module.css';
 
 const CurrentDay = () => (
   <div className={s.wrapper}>
-    <h2 className={s.task}>Мoi завдання:</h2>
+    <h2 className={s.task}>Мoї завдання:</h2>
     <p className={s.day}>СЕРЕДА, 09.10.2019</p>
   </div>
 );
