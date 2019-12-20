@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CardsList from '../CardsList';
 import s from './WeekTabsDesktop.module.css';
 
 const WeekTabsDesktop = ({ days }) => (
@@ -28,7 +27,6 @@ const WeekTabsDesktop = ({ days }) => (
         ))}
       </ul>
     </div>
-    <CardsList />
   </>
 );
 
