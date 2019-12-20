@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import routes from '../routes/routes';
+import * as authOperations from '../redux/auth/authOperation';
 import Header from './Header/Header';
-import styles from './App.module.css';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Header />
-      <div className={styles.container}>
+class App extends Component {
+  static propTypes = {
+    onRefresh: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    const { onRefresh } = this.props;
+    onRefresh();
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Header />
         <Switch>
           <Route
             path={routes.AUTH_PAGE.path}
             component={routes.AUTH_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             path={routes.PLANNING_PAGE.path}
             component={routes.PLANNING_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             path={routes.AWARDS_PAGE.path}
             component={routes.AWARDS_PAGE.component}
           />
@@ -33,9 +45,13 @@ const App = () => {
           />
           <Redirect to={routes.AUTH_PAGE.path} />
         </Switch>
-      </div>
-    </BrowserRouter>
-  );
-};
+      </BrowserRouter>
+    );
+  }
+}
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  onRefresh: () => dispatch(authOperations.refresh()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

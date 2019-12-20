@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './AuthPage.module.css';
 import AuthForm from '../../components/AuthForm/AuthForm';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 import Footer from '../../components/Footer/Footer';
 
 const AuthPage = () => {
@@ -21,4 +22,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default withAuthRedirect(AuthPage);
