@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-// import { css } from 'react-toastify';
-// import { Slide, ToastContainer, toast } from 'react-toastify';
-import PropTypes from 'prop-types';
-// import 'react-toastify/dist/ReactToastify.minimal.css';
 
-// import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
 
 import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
@@ -13,13 +9,9 @@ import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.s
 import style from './NewTaskModal.module.css';
 import createTaskOperation from '../../redux/newTask/newTaskOperations';
 
-// const notify = () =>
-//   toast.error('Success Notification !', {
-//     autoClose: 2000,
-//     position: toast.POSITION.RIGHT,
-//   });
-
 class NewTaskModal extends Component {
+  overlayRef = createRef();
+
   static propTypes = {
     onSave: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
@@ -30,30 +22,58 @@ class NewTaskModal extends Component {
     number: '',
   };
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const { text, number } = this.state;
+
+    this.props.onSave({ text, number });
+
+    this.setState({ text: '', number: '' });
+    const { onClose } = this.props;
+    onClose();
+  };
+
   handleChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value,
     });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleKeyPress = e => {
+    const { onClose } = this.props;
+    if (e.code !== 'Escape') return;
+    onClose();
+  };
 
-    const { text, number } = this.state;
-    // const { onClose } = this.props;
-
-    this.props.onSave({ text, number });
-    // notify();
-    this.setState({ text: '', number: '' });
+  handleBackdropClick = e => {
+    const { onClose } = this.props;
+    const { current } = this.overlayRef;
+    if (current && e.target !== current) {
+      return;
+    }
+    onClose();
   };
 
   render() {
     const { text, number } = this.state;
     const { onClose } = this.props;
 
-    // const { closeModal } = this.props;
     return (
-      <div onClick={onClose} role="presentation" className={style.overlay}>
+      <div
+        onClick={this.handleBackdropClick}
+        role="presentation"
+        className={`${style.wrapper} ${style.overlay}`}
+        ref={this.overlayRef}
+      >
         <div className={style.taskModal}>
           <div className={style.taskImage}>
             <button type="button" className={style.taskCloseButton}>
@@ -92,7 +112,6 @@ class NewTaskModal extends Component {
             </form>
           </div>
         </div>
-        {/* <ToastContainer transition={Slide} draggablePercent={60} /> */}
       </div>
     );
   }

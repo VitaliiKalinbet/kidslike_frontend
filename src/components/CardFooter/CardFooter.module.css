@@ -1,0 +1,12 @@
+.card_footer {
+  width: 280px;
+  height: 68px;
+  background-color: var(--color-orange);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}

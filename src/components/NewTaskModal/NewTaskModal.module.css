@@ -48,6 +48,7 @@
   font-style: italic;
   margin-bottom: 20px;
 }
+
 ::placeholder {
   color: #ffffff;
 }
@@ -102,9 +103,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #c8c8c8;
+  background-color: rgba(44, 44, 44, 0.719);
   display: flex;
   justify-content: center;
   align-content: center;
   z-index: 2;
 }
+
+/* ============== */
