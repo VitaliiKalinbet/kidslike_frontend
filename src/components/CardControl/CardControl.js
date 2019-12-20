@@ -10,9 +10,9 @@ const CardControl = () => {
   const today = moment().day();
   // baseUrl?day=monday&unix-date=1576503044283
   const urlDay = new URLSearchParams(search).get('day');
-  const url = moment()
-    .day(urlDay)
-    .weekday();
+  // const url = moment()
+  //   .day(urlDay)
+  //   .weekday();
 
   // const today =
   //   moment()
@@ -44,8 +44,7 @@ const CardControl = () => {
 
   return (
     console.log('today :', today) ||
-    console.log('url :', url) ||
-    console.log('test :', test) ||
+    // console.log('url :', url) ||
     renderElement()
   );
 };
