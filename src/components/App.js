@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import routes from '../routes/routes';
 import * as authOperations from '../redux/auth/authOperation';
+import Header from './Header/Header';
 
 class App extends Component {
   static propTypes = {
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <Header />
         <Switch>
           <Route
             path={routes.AUTH_PAGE.path}
