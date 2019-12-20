@@ -1,45 +1,30 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import moment from 'moment';
-import SelectDays from '../SelectDays/SelectDays';
-import TaskToggle from '../TaskToggle/TaskToggle';
+// import React from 'react';
 
-const CardControl = () => {
-  const { search } = useLocation();
-  // baseUrl?day=monday&unix-date=1576503044283
-  const urlDate = Number(new URLSearchParams(search).get('unix-date'));
-  const today =
-    moment()
-      .date()
-      .toString() +
-    (moment().month() + 1).toString() +
-    moment()
-      .year()
-      .toString();
+// const CardControl = () => {
+//   // baseUrl?day=monday&unix-date=1576503044283
 
-  const urlDay =
-    moment(urlDate)
-      .date()
-      .toString() +
-    (moment(urlDate).month() + 1).toString() +
-    moment(urlDate)
-      .year()
-      .toString();
+//   // const today =
+//   //   moment()
+//   //     .date()
+//   //     .toString() +
+//   //   (moment().month() + 1).toString() +
+//   //   moment()
+//   //     .year()
+//   //     .toString();
 
-  const renderElement = () => {
-    if (!urlDate) {
-      return <SelectDays />;
-    }
-    if (Number(today) === urlDay) {
-      return <TaskToggle />;
-    }
-    return null;
-  };
+//   // const urlDay =
+//   //   moment(urlDate)
+//   //     .date()
+//   //     .toString() +
+//   //   (moment(urlDate).month() + 1).toString() +
+//   //   moment(urlDate)
+//   //     .year()
+//   //     .toString();
 
-  return renderElement();
-};
+//   return renderElement() || null;
+// };
 
-export default CardControl;
+// export default CardControl;
 
 // logic
 
