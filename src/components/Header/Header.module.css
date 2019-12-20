@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 2px 3.464px 8px 0px rgba(29, 29, 27, 0.1);
+    background-color: var(--bg-color-white);
   }
   .siteLogo {
     width: 100px;
