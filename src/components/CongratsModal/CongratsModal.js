@@ -7,8 +7,9 @@ import * as styleCongratsModal from './CongratsModal.module.css';
 import prizeImage1 from '../../assets/images/AwardsPage/1.png';
 import prizeImage2 from '../../assets/images/AwardsPage/2.png';
 import catTop from '../../assets/images/AwardsPage/catTransparent.png';
+import * as styleModalLogout from '../ModalLogout/ModalLogout.module.css';
 
-export default class App extends React.Component {
+export default class CongratsModal extends React.Component {
   state = {
     open: false,
   };
@@ -61,8 +62,15 @@ export default class App extends React.Component {
 
               {/* item close */}
             </div>
+
+            <p className={styleCongratsModal.prizeContainerItemText}>
+              Сумарна кількість балів: 150
+            </p>
+
             <div className={styleCongratsModal.buttonContainer}>
-              <button className={styleCongratsModal.button}>button</button>
+              <button className={styleModalLogout.point_amount_long}>
+                <p className={styleModalLogout.point_amount_p}>Підтвердити!</p>
+              </button>
             </div>
           </div>
         </Modal>
