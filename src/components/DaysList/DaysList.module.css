@@ -9,6 +9,9 @@
   font-size: 14px;
   border-radius: 5px;
   list-style: none;
+}
+
+.form {
   position: absolute;
   bottom: 74px;
   right: -10px;

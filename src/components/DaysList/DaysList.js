@@ -28,7 +28,7 @@ const DaysList = ({ daysJson }) => {
     );
   });
   return (
-    <form>
+    <form className={style.form}>
       <ul className={style.DayList} id={shortid.generate()}>
         {renderDays}
       </ul>

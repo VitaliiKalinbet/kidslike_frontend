@@ -1,6 +1,6 @@
 .cards_list {
   max-width: 280px;
-  margin: 0px auto;
+  margin: 0px auto 40px;
   list-style: none;
 }
 
@@ -9,7 +9,7 @@
   height: 260px;
   font-size: 0px;
   background-color: var(--bg-color-white);
-  margin-bottom: 22px;
+  margin-bottom: 30px;
   border-radius: 10px;
 }
 
