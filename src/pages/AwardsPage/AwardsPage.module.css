@@ -4,16 +4,14 @@
 
 .present_items {
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  justify-content: space-between;
   margin: 0 auto;
-
-  padding-top: 85px;
+  padding-top: 65px;
+  align-items: center;
 }
 
 .present_cards {
   margin: 0 auto;
-  /* padding-bottom: 50px; */
 }
 
 .present_item {
@@ -23,6 +21,7 @@
 
 @media (min-width: 768px) {
   .present_items {
+    padding-top: 75px;
     max-width: 585px;
   }
 }

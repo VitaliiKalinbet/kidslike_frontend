@@ -5,21 +5,12 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 21px;
-}
-
-.wrapper {
-  /* width: 300px; */
-  padding-top: 20px;
+  margin-top: 64px;
 }
 
 @media (max-width: 1280px) and (min-width: 760px) {
   .week {
-    position: absolute;
-    left: 90px;
-    bottom: 80px;
-  }
-  .wrapper {
-    position: relative;
+    padding: 24px 45px 24px 95px;
   }
 }
 
@@ -27,8 +18,5 @@
   .week {
     font-size: 18px;
     justify-content: start;
-  }
-  .wrapper {
-    width: 270px;
   }
 }
