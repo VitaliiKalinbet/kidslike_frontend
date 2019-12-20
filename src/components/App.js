@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import routes from '../routes/routes';
 import * as authOperations from '../redux/auth/authOperation';
 import Header from './Header/Header';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 
 class App extends Component {
   static propTypes = {
@@ -25,16 +26,16 @@ class App extends Component {
             path={routes.AUTH_PAGE.path}
             component={routes.AUTH_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             path={routes.PLANNING_PAGE.path}
             component={routes.PLANNING_PAGE.component}
           />
-          <Route
+          <ProtectedRoute
             path={routes.AWARDS_PAGE.path}
             component={routes.AWARDS_PAGE.component}
           />
