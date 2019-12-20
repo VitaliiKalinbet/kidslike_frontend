@@ -8,9 +8,9 @@ const CardsList = () => {
   return (
     <ul className={s.cards_list}>
       {tasks.map(el => {
-        const { id, task } = el;
+        const { id, ...task } = el;
         return (
-          <li className={s.card} key={id}>
+          <li key={id} className={s.card}>
             <Card {...task} />
           </li>
         );
