@@ -1,36 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
-// import s from './Card.module.css';
 
-const Card = ({ img, title, header, interactive }) => {
-  const { pathname, search } = useLocation();
-
-  useEffect(() => {}, [pathname, search]);
-
-  return (
-    console.log('pathname :', pathname) ||
-    console.log('search :', search) || (
-      <article>
-        {/* <img
-          src={img}
-          width="280"
-          height="192"
-          alt={title}
-          className={s.card_img}
-        /> */}
-        <CardBody />
-        <CardFooter />
-        {/* <div className={s.card_footer}>
-          <span>{header}</span>
-          <span>{interactive}</span>
-        </div> */}
-      </article>
-    )
-  );
-};
+const Card = () => (
+  <article>
+    <CardBody />
+    <CardFooter />
+  </article>
+);
 
 export default Card;

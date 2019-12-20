@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import CurrentWeekRange from '../CurrentWeekRange/CurrentWeekRange';
+import windowWidth from '../../utils/windowWidth';
 import s from './WeekTabsTablet.module.css';
 
 const WeekTabsTablet = ({ days }) => (
   <div className={s.weekDays}>
+    {windowWidth >= 768 && windowWidth < 1280 && <CurrentWeekRange />}
     <ul className={s.weekDaysList}>
       {days.map(el => (
         <li key={`${el.id}`} className={s.weekDaysListItem}>
