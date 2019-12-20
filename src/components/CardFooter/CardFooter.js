@@ -44,10 +44,7 @@ const CardFooter = () => {
         <CardTitle />
         <PointAmount />
       </div>
-      <>
-        {renderElement()}
-        {/* <CardControl /> */}
-      </>
+      <>{renderElement()}</>
     </div>
   );
 };
