@@ -14,3 +14,7 @@ export const setToken = token => ({
 });
 
 export const w = () => null;
+
+const baseUrl = 'http://localhost:9000/tasks';
+
+export const postNote = data => axios.post(baseUrl, data);
