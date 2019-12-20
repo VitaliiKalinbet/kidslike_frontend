@@ -16,10 +16,6 @@
 }
 
 .select_days_span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;

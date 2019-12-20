@@ -6,8 +6,6 @@ import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black
 import daysJsonArr from './DaysList.json';
 
 const DaysList = ({ daysJson }) => {
-  // const id = shortid.generate();
-
   const renderDays = daysJson.map(day => {
     const key = shortid.generate();
     return (

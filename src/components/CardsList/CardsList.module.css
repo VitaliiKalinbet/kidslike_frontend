@@ -8,7 +8,7 @@
   width: 280px;
   height: 260px;
   font-size: 0px;
-  background-color: grey;
+  background-color: var(--bg-color-white);
   margin-bottom: 22px;
   border-radius: 10px;
 }
@@ -24,6 +24,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   .cards_list li:nth-last-child(-n + 2) {
     margin-bottom: 0px;
   }

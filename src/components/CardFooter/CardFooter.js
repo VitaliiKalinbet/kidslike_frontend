@@ -12,9 +12,9 @@ const CardFooter = () => {
         <CardTitle />
         <PointAmount />
       </div>
-      <>
+      <div>
         <CardControl />
-      </>
+      </div>
     </div>
   );
 };
