@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
 import CardsList from '../../components/CardsList';
 import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
 
-const AwardsPage = () => {
-  return (
-    <div>
-      <div className={style.present_items}>
-        <AwardsTitle />
+class AwardsPage extends Component {
+  state = {
+    // isOpen: false;
+  };
+
+  handelOpen = () => {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen,
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        <div className={style.present_items}>
+          <AwardsTitle />
+        </div>
+
+        <div className={style.present_cards}>
+          <div className={style.wrapper_cards}>
+            <CardsList />
+          </div>
+        </div>
+        <AwardsSubmitButton openModal={this.handelOpen} />
       </div>
-      <div className={style.present_cards}>
-        <CardsList />
-      </div>
-      <AwardsSubmitButton />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default AwardsPage;
