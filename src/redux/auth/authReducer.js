@@ -5,7 +5,12 @@ const user = (state = null, { type, payload }) => {
   switch (type) {
     case types.SUCCESS_REGISTER:
     case types.SUCCESS_LOGIN:
-      return payload.data.user;
+      return {
+        // eslint-disable-next-line no-underscore-dangle
+        userId: payload.data.user._id,
+        email: payload.data.user.email,
+        points: payload.data.user.points,
+      };
 
     case types.ERROR_REGISTER:
     case types.ERROR_LOGIN:
@@ -14,7 +19,12 @@ const user = (state = null, { type, payload }) => {
       return null;
 
     case types.SUCCESS_REFRESH_USER:
-      return payload.data;
+      return {
+        // eslint-disable-next-line no-underscore-dangle
+        userId: payload.data._id,
+        email: payload.data.email,
+        points: payload.data.points,
+      };
 
     default:
       return state;
