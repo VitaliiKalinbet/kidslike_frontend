@@ -9,25 +9,24 @@ class AwardsPage extends Component {
     // isOpen: false;
   };
 
-  handelOpen = () => {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen,
-    }));
-  };
+  // handelOpen = () => {
+  //   this.setState(prevState => ({
+  //     isOpen: !prevState.isOpen,
+  //   }));
+  // };
 
   render() {
     return (
-      <div>
+      <div className={style.wrapper_awards}>
         <div className={style.present_items}>
           <AwardsTitle />
         </div>
-
         <div className={style.present_cards}>
-          <div className={style.wrapper_cards}>
+          <div>
             <CardsList />
           </div>
         </div>
-        <AwardsSubmitButton openModal={this.handelOpen} />
+        <AwardsSubmitButton />
       </div>
     );
   }
