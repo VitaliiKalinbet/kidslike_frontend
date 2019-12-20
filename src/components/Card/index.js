@@ -12,24 +12,21 @@ const Card = ({ img, title, header, interactive }) => {
   useEffect(() => {}, [pathname, search]);
 
   return (
-    console.log('pathname :', pathname) ||
-    console.log('search :', search) || (
-      <article>
-        {/* <img
+    <article>
+      {/* <img
           src={img}
           width="280"
           height="192"
           alt={title}
           className={s.card_img}
         /> */}
-        <CardBody />
-        <CardFooter />
-        {/* <div className={s.card_footer}>
+      <CardBody />
+      <CardFooter />
+      {/* <div className={s.card_footer}>
           <span>{header}</span>
           <span>{interactive}</span>
         </div> */}
-      </article>
-    )
+    </article>
   );
 };
 

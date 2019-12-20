@@ -5,13 +5,15 @@
 
 @media (min-width: 768px) {
   .Progress {
-    min-width: 255px;
+    min-width: 400px;
+    display: flex;
   }
 }
 
 @media (min-width: 1280px) {
   .Progress {
     min-width: 380px;
+    display: block;
   }
 }
 

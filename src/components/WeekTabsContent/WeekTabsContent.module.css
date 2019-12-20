@@ -1,8 +1,13 @@
 .body {
   background-color: var(--bg-color-gray);
-  height: 100vh;
   width: 100%;
-  padding: 45px 100px;
+  padding: 45px 100px 0 100px;
+}
+
+@media (max-width: 1280px) and (min-width: 768px) {
+  .body {
+    padding: 0;
+  }
 }
 
 .div2 {
@@ -10,7 +15,20 @@
   justify-content: space-between;
 }
 
+@media (max-width: 1280px) and (min-width: 768px) {
+  .div2 {
+    flex-direction: column-reverse;
+  }
+}
+
 .cardWrapper {
-  height: 550px;
+  height: calc(100vh - 64px - 45px - 21px - 77px);
+  padding-top: 20px;
   overflow: auto;
 }
+
+/* @media (max-width: 1280px) and (min-width: 768px) {
+  .cardWrapper {
+    height: calc(100vh - 64px - 45px - 21px - 77px);
+  }
+} */

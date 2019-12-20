@@ -7,7 +7,7 @@ const ProgressBar = () => {
   return (
     <>
       <div className={style.Progress}>
-        <p className={style.progressText}>Набрано балiв:</p>
+        <p className={style.progressText}>Набрано балiв: </p>
         <div className={style.progressBarDiv}>
           <p className={style.progressNumbers}>
             <span>400 / </span>810

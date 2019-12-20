@@ -12,7 +12,7 @@ import s from './CurrentWeekRange.module.css';
 
 const CurrentWeekRange = ({
   dayFrom = new Date('2019-12-16T02:00:00.000Z'),
-  dayTo = new Date('2019-12-22T22:59:59.000Z'),
+  dayTo = new Date('2019-12-21T22:59:59.000Z'),
 }) => {
   // функция получения дней недели (от и до какой даты) из того, что в сторе
   const dateStart = dayFrom.getDate();

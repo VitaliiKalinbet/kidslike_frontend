@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import routes from '../routes/routes';
 import Header from './Header/Header';
 import styles from './App.module.css';
+// import Footer from './Footer/Footer';
 
 const App = () => {
   return (

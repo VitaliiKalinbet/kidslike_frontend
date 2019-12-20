@@ -9,12 +9,7 @@
 
 @media (max-width: 1280px) and (min-width: 760px) {
   .week {
-    position: absolute;
-    left: 90px;
-    bottom: 80px;
-  }
-  .wrapper {
-    position: relative;
+    padding: 24px 45px 24px 95px;
   }
 }
 
@@ -24,6 +19,6 @@
     justify-content: start;
   }
   .wrapper {
-    width: 270px;
+    /* width: 270px; */
   }
 }

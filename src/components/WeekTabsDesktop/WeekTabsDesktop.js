@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import s from './WeekTabsDesktop.module.css';
 
-// const unixDate = Date.now();
-
 const WeekTabsDesktop = ({ days }) => (
   <div className={s.weekDays}>
     <ul className={s.weekDaysList}>
