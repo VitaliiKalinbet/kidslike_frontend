@@ -1,0 +1,52 @@
+.task {
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #858598;
+  padding-top: 26px;
+}
+.day {
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  /* width: 300px; */
+  margin: 0 auto;
+  letter-spacing: 0.16em;
+}
+
+@media (min-width: 780px) {
+  .wrapper {
+    /* width: 760px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 30px;
+  }
+  .day {
+    padding-top: 26px;
+    padding-left: 6px;
+  }
+}
+@media (min-width: 1280px) {
+  .wrapper {
+    width: 400px;
+    justify-content: start;
+    padding-top: 36px;
+    font-size: 12px;
+  }
+
+  .day {
+    padding-left: 6px;
+  }
+}

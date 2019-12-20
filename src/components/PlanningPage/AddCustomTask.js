@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from '../../pages/PlanningPage/Planning.module.css';
+import NewTaskModal from '../NewTaskModal/NewTaskModal';
 
-const AddCustomTask = () => {
-  return (
-    <>
-      <p className={styles.hiddenText}>
-        Хочеш отримати більше призів - додай завдання
-        <span role="img" aria-label="	SMILING FACE WITH SMILING EYES">
-          &#128522;
-        </span>
-      </p>
-      <button className={styles.addTaskBtn} type="button">
-        &#43;
-      </button>
-    </>
-  );
-};
+export default class AddCustomTask extends Component {
+  state = {
+    isOpenModal: false,
+  };
 
-export default AddCustomTask;
+  openModal = () => this.setState({ isOpenModal: true });
+
+  closeModal = () => this.setState({ isOpenModal: false });
+
+  render() {
+    const { isOpenModal } = this.state;
+
+    return (
+      <>
+        <p className={styles.hiddenText}>
+          Хочеш отримати більше призів - додай завдання
+          <span role="img" aria-label="	SMILING FACE WITH SMILING EYES">
+            &#128522;
+          </span>
+        </p>
+        <button
+          className={styles.addTaskBtn}
+          type="button"
+          onClick={this.openModal}
+        >
+          &#43;
+        </button>
+        {isOpenModal && <NewTaskModal onClose={this.closeModal} />}
+      </>
+    );
+  }
+}

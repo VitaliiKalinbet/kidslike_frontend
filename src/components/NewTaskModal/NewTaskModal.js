@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 // import shortid from 'shortid';
 import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
@@ -6,31 +7,56 @@ import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.s
 
 import style from './NewTaskModal.module.css';
 
-class NewTaskModal extends Component {
+export default class NewTaskModal extends Component {
   state = {
-    // isOpenModal: false,
     // text: '',
   };
 
-  closeModal = () => {};
+  static propTypes = {
+    onClose: propTypes.func.isRequired,
+  };
 
-  handleChange = () => {};
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyPress);
+  }
 
-  handleSubmit = () => {};
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress = e => {
+    if (e.keyCode !== 27) {
+      return;
+    }
+
+    this.props.onClose();
+  };
+
+  handleBackdropClick = e => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+
+    this.props.onClose();
+  };
 
   render() {
     const { text } = this.state;
+    const { onClose } = this.props;
     return (
-      <div onClose={this.onClose} className={style.overlay}>
+      <div
+        className={style.overlay}
+        onClick={this.handleBackdropClick}
+        role="presentation"
+      >
         <div className={style.taskModal}>
           <div className={style.taskImage}>
             <button
-              onClick={this.closeModal}
+              onClick={onClose}
               type="button"
               className={style.taskCloseButton}
             >
-              {' '}
-              <Cancel />{' '}
+              <Cancel />
             </button>
             <img src={imageRobot} alt="robot" />
           </div>
@@ -55,5 +81,3 @@ class NewTaskModal extends Component {
     );
   }
 }
-
-export default NewTaskModal;

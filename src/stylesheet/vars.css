@@ -1,5 +1,6 @@
 :root {
   --color-white: #ffffff;
+  --color-light-orange: #f6da98;
   --color-orange: #efbb43;
   --color-dark-orange: #ddac3a;
   --color-pale-gray: #f5f7fa;
@@ -11,5 +12,6 @@
   --bg-color-gray: #fafafa;
 
   --text-color-black: #000000;
+  --text-color-white: #ffffff;
   --text-color-gray: #858598;
 }
