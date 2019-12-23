@@ -1,22 +1,31 @@
 import React from 'react';
 import { Progress } from 'react-sweet-progress';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import style from './ProgressBar.module.css';
 import 'react-sweet-progress/lib/style.css';
 
-const ProgressBar = () => {
+const ProgressBar = ({ points }) => {
   return (
     <>
       <div className={style.Progress}>
         <p className={style.progressText}>Набрано балiв: </p>
         <div className={style.progressBarDiv}>
           <p className={style.progressNumbers}>
-            <span>400 / </span>810
+            <span>{points} / 0</span>
           </p>
-          <Progress percent={88} />
+          <Progress percent={points} />
         </div>
       </div>
     </>
   );
 };
+ProgressBar.propTypes = {
+  points: PropTypes.number.isRequired,
+};
 
-export default ProgressBar;
+const mapStateToProps = state => ({
+  points: state.auth.user.points,
+});
+
+export default connect(mapStateToProps)(ProgressBar);

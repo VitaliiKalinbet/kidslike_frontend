@@ -18,6 +18,9 @@ const types = {
   // ----------Loader----------------------------
   APP_FETCHING_START: 'APP_FETCHING_START',
   APP_FETCHING_SUCCESS: ' APP_FETCHING_SUCCESS',
+
+  // awards
+  ADD_AWARDS: 'ADD_AWARDS',
 };
 
 export default types;
