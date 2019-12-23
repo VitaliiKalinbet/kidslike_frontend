@@ -63,6 +63,4 @@ const MDTP = dispatch => ({
   openModal: () => dispatch(NewTaskModalOpen),
 });
 
-console.log(MDTP);
-
 export default connect(MSTP, MDTP)(AddCustomTask);
