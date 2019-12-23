@@ -1,13 +1,25 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-
+import { validateAll } from 'indicative/validator';
 import PropTypes from 'prop-types';
-
 import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
 import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.svg';
 import style from './NewTaskModal.module.css';
 import createTaskOperation from '../../redux/newTask/newTaskOperations';
+
+const validationRules = {
+  title: 'max:20|required',
+  taskPoints: 'number|integer|range:1,9|required',
+};
+
+const validationMessages = {
+  'title.required': "Це обов'язкове поле",
+  'taskPoints.required': "Це обов'язкове поле",
+  'title.min': 'не менше 4 символів',
+  'title.max': 'не більше 20 символів',
+  'taskPoints.range': 'має бути від 1 до 9 балів',
+};
 
 class NewTaskModal extends Component {
   overlayRef = createRef();
@@ -18,8 +30,9 @@ class NewTaskModal extends Component {
   };
 
   state = {
-    text: '',
-    number: '',
+    title: '',
+    taskPoints: '',
+    error: null,
   };
 
   componentDidMount() {
@@ -32,14 +45,24 @@ class NewTaskModal extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { title, taskPoints } = this.state;
 
-    const { text, number } = this.state;
-
-    this.props.onSave({ text, number });
-
-    this.setState({ text: '', number: '' });
-    const { onClose } = this.props;
-    onClose();
+    validateAll({ title, taskPoints }, validationRules, validationMessages)
+      .then(data => {
+        this.props.onSave(data);
+        this.setState({ title: '', taskPoints: '', error: null });
+        const { onClose } = this.props;
+        onClose();
+      })
+      .catch(errors => {
+        const formatedErrors = {};
+        errors.forEach(error => {
+          formatedErrors[error.field] = error.message;
+        });
+        this.setState({
+          error: formatedErrors,
+        });
+      });
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -64,7 +87,7 @@ class NewTaskModal extends Component {
   };
 
   render() {
-    const { text, number } = this.state;
+    const { title, taskPoints, error } = this.state;
     const { onClose } = this.props;
 
     return (
@@ -84,28 +107,38 @@ class NewTaskModal extends Component {
           </div>
           <div className={style.taskForm}>
             <form className={style.form} onSubmit={this.handleSubmit}>
-              <Edit className={style.taskIconEdit} />
-              <input
-                className={style.taskInput}
-                placeholder="Додати завдання..."
-                type="text"
-                name="text"
-                value={text}
-                onChange={this.handleChange}
-                required
-              />
-              <Edit className={style.gradeIconEdit} />
-              <input
-                className={style.taskPoints}
-                type="number"
-                value={number}
-                name="number"
-                min="1"
-                max="100"
-                placeholder="Додати бали..."
-                onChange={this.handleChange}
-                required
-              />
+              <label htmlFor="text" className={style.textSection}>
+                <Edit className={style.taskIconEdit} />
+                <input
+                  className={style.taskInput}
+                  placeholder="Додати завдання..."
+                  type="text"
+                  name="title"
+                  value={title}
+                  onChange={this.handleChange}
+                />
+                {error && (
+                  <span className={`${style.titleError} ${style.error}`}>
+                    {error.title}
+                  </span>
+                )}
+              </label>
+              <label htmlFor="number" className={style.pointsSection}>
+                <Edit className={style.gradeIconEdit} />
+                <input
+                  className={style.taskPoints}
+                  type="number"
+                  value={taskPoints}
+                  name="taskPoints"
+                  placeholder="Додати бали..."
+                  onChange={this.handleChange}
+                />
+                {error && (
+                  <span className={`${style.pointError} ${style.error}`}>
+                    {error.taskPoints}
+                  </span>
+                )}
+              </label>
               <button className={style.taskSubmitButton} type="submit">
                 Ок
               </button>

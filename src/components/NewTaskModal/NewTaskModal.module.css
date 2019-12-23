@@ -24,7 +24,7 @@
 
 .taskForm {
   background-color: #ffbc33;
-  height: 150px;
+  height: 190px;
   position: relative;
 }
 
@@ -46,7 +46,7 @@
   text-align: center;
   width: 224px;
   font-style: italic;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 ::placeholder {
@@ -64,21 +64,21 @@
   text-align: center;
   width: 224px;
   font-style: italic;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .taskIconEdit {
   position: absolute;
   top: 15px;
-  left: 29px;
+  left: 20px;
 
   filter: invert(1);
 }
 
 .gradeIconEdit {
   position: absolute;
-  top: 54px;
-  left: 29px;
+  top: -5px;
+  left: 20px;
 
   filter: invert(1);
 }
@@ -111,3 +111,37 @@
 }
 
 /* ============== */
+.pointError {
+  top: 15px;
+  display: block;
+  color: #ef6537;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -1rem;
+  font-size: 8px;
+  margin-left: 30px;
+}
+
+.titleError {
+  display: block;
+  color: #ef6537;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -1rem;
+  font-size: 8px;
+  margin-left: 30px;
+
+  top: 35px;
+}
+
+.form label .error::first-letter {
+  text-transform: uppercase;
+}
+
+.textSection {
+  position: relative;
+}
+
+.pointsSection {
+  position: relative;
+}

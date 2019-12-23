@@ -22,16 +22,16 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route
+          {/* <Route
             path={routes.AUTH_PAGE.path}
-            component={routes.AUTH_PAGE.component}
-          />
+            component={routes.AUTH_PAGE.component} */}
+          {/* /> */}
           <ProtectedRoute
             exact
             path={routes.MAIN_PAGE.path}
             component={routes.MAIN_PAGE.component}
           />
-          <ProtectedRoute
+          <Route
             path={routes.PLANNING_PAGE.path}
             component={routes.PLANNING_PAGE.component}
           />
