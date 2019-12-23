@@ -1,10 +1,20 @@
 import { combineReducers } from 'redux';
-// import authReducers from './auth/authReducer';
-import appReducer from './app/appReducer';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import authReducers from './auth/authReducer';
+import tasksReducer from './tasks/tasksReducer';
+import globalReducer from './global/globalReducer';
+
+const persistAuth = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 const rootReducer = combineReducers({
-  app: appReducer,
-  // auth: authReducers,
+  auth: persistReducer(persistAuth, authReducers),
+  global: globalReducer,
+  tasks: tasksReducer,
 });
 
 export default rootReducer;

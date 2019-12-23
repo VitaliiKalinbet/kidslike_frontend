@@ -3,23 +3,21 @@
   height: 30px;
   background-color: #fff;
   border-radius: 50%;
-  position: relative;
   border: none;
+
+  position: relative;
 }
 
 .addPlusButton {
   fill: var(--color-green);
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  position: absolute;
 }
 
 .select_days_span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;

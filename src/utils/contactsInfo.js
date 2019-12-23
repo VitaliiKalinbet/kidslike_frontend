@@ -1,19 +1,19 @@
-import Member1 from '../assets/images/Member1.png';
-import Member2 from '../assets/images/Member2.png';
-import Member3 from '../assets/images/Member3.png';
-import Member4 from '../assets/images/Member4.png';
-import Member5 from '../assets/images/Member5.png';
-import Member6 from '../assets/images/Member6.png';
-import Member7 from '../assets/images/Member7.png';
-import Member8 from '../assets/images/Member8.png';
-import Member9 from '../assets/images/Member9.png';
-import Member10 from '../assets/images/Member10.png';
-import Member11 from '../assets/images/Member11.png';
-import Member12 from '../assets/images/Member12.png';
-import Member13 from '../assets/images/Member13.png';
-import Member14 from '../assets/images/Member14.png';
-import Member15 from '../assets/images/Member15.png';
-import Member16 from '../assets/images/Member16.png';
+import Member1 from '../assets/images/MembersImages/Member1.png';
+import Member2 from '../assets/images/MembersImages/Member2.png';
+import Member3 from '../assets/images/MembersImages/Member3.png';
+import Member4 from '../assets/images/MembersImages/Member4.png';
+import Member5 from '../assets/images/MembersImages/Member5.png';
+import Member6 from '../assets/images/MembersImages/Member6.png';
+import Member7 from '../assets/images/MembersImages/Member7.png';
+import Member8 from '../assets/images/MembersImages/Member8.png';
+import Member9 from '../assets/images/MembersImages/Member9.png';
+import Member10 from '../assets/images/MembersImages/Member10.png';
+import Member11 from '../assets/images/MembersImages/Member11.png';
+import Member12 from '../assets/images/MembersImages/Member12.png';
+import Member13 from '../assets/images/MembersImages/Member13.png';
+import Member14 from '../assets/images/MembersImages/Member14.png';
+import Member15 from '../assets/images/MembersImages/Member15.png';
+import Member16 from '../assets/images/MembersImages/Member16.png';
 
 const contactsInfoArr = [
   {
@@ -67,7 +67,7 @@ const contactsInfoArr = [
   },
   {
     avatar: Member8,
-    name: 'Kristina Guravleva',
+    name: 'Kristina Zhuravleva',
     position: 'Front-End Developer',
     description: 'some text will be here',
     id: 8,

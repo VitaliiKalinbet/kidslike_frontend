@@ -1,7 +1,8 @@
 .weekDays {
-  background-color: var(--color-dark-orange);
-  width: 240px;
-  height: 100vh;
+  background-color: var(--color-orange);
+  width: 25%;
+  /* height: 100vh; */
+  height: 100% - 64px;
   position: relative;
 }
 
@@ -27,10 +28,6 @@
   text-decoration: none;
   color: var(--text-color-black);
 }
-
-/* .weekDaysListLink:hover {
-  background-color: var(--bg-color-white);
-} */
 
 .weekDaysListItem:last-of-type {
   margin-bottom: 0;

@@ -11,7 +11,7 @@ const WeekTabsDesktop = ({ days }) => (
           <NavLink
             exact
             isActive={(match, location) => {
-              if (location.search === `?day=${el.url}`) {
+              if (location.search.includes(`${el.url}`)) {
                 return true;
               }
               return false;
