@@ -6,6 +6,7 @@ import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
 import TaskToggle from '../TaskToggle/TaskToggle';
+import TaskStatus from '../TaskStatus/TaskStatus';
 
 import s from './CardFooter.module.css';
 
@@ -35,6 +36,9 @@ const CardFooter = () => {
     }
     if (url > today) {
       return null;
+    }
+    if (url < today) {
+      return <TaskStatus />;
     }
   };
 
