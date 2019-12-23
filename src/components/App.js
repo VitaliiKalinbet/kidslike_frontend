@@ -6,10 +6,13 @@ import routes from '../routes/routes';
 import * as authOperations from '../redux/auth/authOperation';
 import Header from './Header/Header';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import * as globalSelectors from '../redux/global/globalSelectors';
+import Loader from './Loader/Loader';
 
 class App extends Component {
   static propTypes = {
     onRefresh: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {
@@ -18,8 +21,10 @@ class App extends Component {
   }
 
   render() {
+    const { isLoading } = this.props;
     return (
       <BrowserRouter>
+        {isLoading && <Loader />}
         <Header />
         <Switch>
           <Route
@@ -49,9 +54,12 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = store => ({
+  isLoading: globalSelectors.getIsLoading(store),
+});
 
 const mapDispatchToProps = dispatch => ({
   onRefresh: () => dispatch(authOperations.refresh()),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
