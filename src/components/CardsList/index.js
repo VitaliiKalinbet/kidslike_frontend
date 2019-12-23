@@ -10,7 +10,7 @@ import s from './CardsList.module.css';
 
 let url;
 
-const CardsList = ({ tasks, onClick }) => {
+const CardsList = ({ tasks }) => {
   const { search, pathname } = useLocation();
 
   const getCurrentTasks = taskArr => {

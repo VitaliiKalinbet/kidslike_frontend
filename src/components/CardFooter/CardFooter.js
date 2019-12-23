@@ -30,11 +30,15 @@ const CardFooter = ({ ...taskInfo }) => {
 
   const renderElement = () => {
     const urlDay = new URLSearchParams(search).get('day');
+    console.log('urlDay :', urlDay);
     if (urlDay) {
       url = moment()
         .day(urlDay)
-        .isoWeekday();
+        .wxeekday();
     }
+
+    console.log(url, today);
+
     if (pathname === '/planning') {
       return <SelectDays />;
     }
