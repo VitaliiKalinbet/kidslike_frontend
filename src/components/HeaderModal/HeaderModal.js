@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
 import styles from './HeaderModal.module.css';
 
-const HeaderModal = ({ isAuth, onClose }) => {
+const HeaderModal = ({ isAuth = true, onClose }) => {
   const currentDay = moment().format('dddd');
   const menuItemsArr = [
     {
@@ -61,8 +60,4 @@ HeaderModal.defaultProps = {
   onClose: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  isAuth: state.auth.isAuth,
-});
-
-export default connect(mapStateToProps)(HeaderModal);
+export default HeaderModal;
