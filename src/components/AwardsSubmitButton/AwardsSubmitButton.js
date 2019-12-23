@@ -5,7 +5,7 @@ const AwardsSubmitButton = () => {
   return (
     <div className={style.present_button}>
       <button className={style.button} type="submit">
-        Підтвердити
+        ОК
       </button>
     </div>
   );

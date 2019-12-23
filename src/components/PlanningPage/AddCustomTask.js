@@ -38,7 +38,7 @@ import NewTaskModal from '../NewTaskModal/NewTaskModal';
 // }
 
 // eslint-disable-next-line react/prop-types
-const AddCustomTask = ({ isOpenModal, openModal }) => {
+const AddCustomTask = ({ isNewTaskModalOpen, openModal }) => {
   return (
     <>
       <p className={styles.hiddenText}>
@@ -50,17 +50,17 @@ const AddCustomTask = ({ isOpenModal, openModal }) => {
       <button className={styles.addTaskBtn} type="button" onClick={openModal}>
         &#43;
       </button>
-      {isOpenModal && <NewTaskModal />}
+      {isNewTaskModalOpen && <NewTaskModal />}
     </>
   );
 };
 
 const MSTP = store => ({
-  isOpenModal: store.global,
+  isNewTaskModalOpen: store.global.isNewTaskModalOpen,
 });
 
 const MDTP = dispatch => ({
-  openModal: () => dispatch(NewTaskModalOpen),
+  openModal: () => dispatch(NewTaskModalOpen()),
 });
 
 export default connect(MSTP, MDTP)(AddCustomTask);
