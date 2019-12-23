@@ -4,11 +4,17 @@ import React from 'react';
 import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 
-const Card = () => (
-  <article>
-    <CardBody />
-    <CardFooter />
-  </article>
-);
+const Card = ({ ...task }) => {
+  // console.log('task :', task);
+
+  const { imgName, ...taskInfo } = task;
+
+  return (
+    <article>
+      <CardBody img={imgName} />
+      <CardFooter {...taskInfo} />
+    </article>
+  );
+};
 
 export default Card;

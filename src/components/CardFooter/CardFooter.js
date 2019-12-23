@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
@@ -13,8 +14,11 @@ import s from './CardFooter.module.css';
 const today = moment().day();
 let url;
 
-const CardFooter = () => {
+const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+
+  // console.log('taskInfo :', taskInfo);
+  const { days, title, taskPoints } = taskInfo;
 
   const renderElement = () => {
     const urlDay = new URLSearchParams(search).get('day');
@@ -23,7 +27,6 @@ const CardFooter = () => {
         .day(urlDay)
         .isoWeekday();
     }
-
     if (pathname === '/planning') {
       return <SelectDays />;
     }
@@ -45,8 +48,8 @@ const CardFooter = () => {
   return (
     <div className={s.card_footer}>
       <div>
-        <CardTitle />
-        <PointAmount />
+        <CardTitle title={title} />
+        <PointAmount point={taskPoints} />
       </div>
       <>{renderElement()}</>
     </div>

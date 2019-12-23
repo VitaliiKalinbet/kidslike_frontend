@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import moment from 'moment';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import CardList from '../CardsList/index';
@@ -14,6 +15,7 @@ let date;
 
 const WeekTabsContent = () => {
   const { search } = useLocation();
+  const tasks = useSelector(state => state.tasks);
 
   const getWeekDay = () => {
     let url;
@@ -39,7 +41,7 @@ const WeekTabsContent = () => {
         <ProgressBar />
       </div>
       <div className={s.cardWrapper}>
-        <CardList />
+        <CardList tasks={tasks} />
       </div>
     </div>
   );
