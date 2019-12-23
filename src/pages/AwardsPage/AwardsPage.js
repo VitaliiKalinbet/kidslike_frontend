@@ -1,5 +1,5 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
 import CardsList from '../../components/CardsList';
@@ -7,6 +7,7 @@ import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmit
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 const AwardsPage = () => {
+  const awards = useSelector(state => state.awards.arrayAwards);
   return (
     <div className={style.wrapper_awards}>
       <div className={style.present_items}>
@@ -15,7 +16,7 @@ const AwardsPage = () => {
       </div>
       <div className={style.present_cards}>
         <div>
-          <CardsList />
+          <CardsList tasks={awards} />
         </div>
       </div>
       <AwardsSubmitButton />

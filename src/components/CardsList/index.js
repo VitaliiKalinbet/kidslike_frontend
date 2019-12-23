@@ -10,7 +10,7 @@ import s from './CardsList.module.css';
 
 let url;
 
-const CardsList = ({ tasks = [] }) => {
+const CardsList = ({ tasks, onClick }) => {
   const { search, pathname } = useLocation();
 
   const getCurrentTasks = taskArr => {
@@ -20,8 +20,6 @@ const CardsList = ({ tasks = [] }) => {
         .day(urlDay)
         .weekday();
 
-      console.log('yes');
-
       return taskArr.map(el => ({
         id: el._id,
         title: el.title,
@@ -30,7 +28,6 @@ const CardsList = ({ tasks = [] }) => {
         isDone: el.days[url].isDone,
       }));
     } else {
-      console.log('no');
       return taskArr;
     }
   };
@@ -43,10 +40,10 @@ const CardsList = ({ tasks = [] }) => {
     currentTasks && (
       <ul className={s.cards_list}>
         {currentTasks.map(el => {
-          const { id, ...task } = el;
+          const { id } = el;
           return (
             <li key={id} className={s.card}>
-              <Card {...task} />
+              <Card {...el} />
             </li>
           );
         })}
