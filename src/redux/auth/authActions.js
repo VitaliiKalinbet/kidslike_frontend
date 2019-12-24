@@ -56,3 +56,15 @@ export const googleToken = userToken => ({
   type: types.SET_TOKEN_IN_STORE,
   payload: { token: userToken },
 });
+
+// set name to redux store
+export const setName = name => ({
+  type: types.SET_USER_NAME_TO_STORE,
+  payload: { name },
+});
+
+// set avatar to redux store
+export const setAvatar = avatar => ({
+  type: types.SET_USER_AVATAR_TO_STORE,
+  payload: { avatar },
+});
