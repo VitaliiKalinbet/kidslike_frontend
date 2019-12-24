@@ -1,6 +1,7 @@
 import React from 'react';
 import * as moment from 'moment';
 // import 'moment/locale/uk';
+import PropTypes from 'prop-types';
 import s from './CurrentWeekRange.module.css';
 
 const CurrentWeekRange = () => {
@@ -40,5 +41,12 @@ const CurrentWeekRange = () => {
     </div>
   );
 };
+
+CurrentWeekRange.propTypes = {
+  // dateStart: PropTypes.string.isRequired,
+  // dateTo: PropTypes.string.isRequired,
+  dayTo: PropTypes.string,
+  dayFrom: PropTypes.string,
+}.isRequired;
 
 export default CurrentWeekRange;
