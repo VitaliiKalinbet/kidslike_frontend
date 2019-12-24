@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from '../../pages/PlanningPage/Planning.module.css';
 
-const PlanningPoints = () => {
-  return (
-    <p className={styles.pointsText}>
-      <span className={styles.hiddenSpan}>Визначено завдань на</span>
-      <span className={styles.pointsAmount}>333</span>
-      бали
-    </p>
-  );
-};
+class PlanningPoints extends Component {
+  state = {
+    weekPoints: 0,
+  };
+
+  render() {
+    const { weekPoints } = this.state;
+    return (
+      <p className={styles.pointsText}>
+        <span className={styles.hiddenSpan}>Визначено завдань на</span>
+        <span className={styles.pointsAmount}>{weekPoints}</span>
+        бали
+      </p>
+    );
+  }
+}
 
 export default PlanningPoints;
