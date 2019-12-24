@@ -22,7 +22,7 @@ class App extends Component {
       <BrowserRouter>
         <Header />
         <Switch>
-          <ProtectedRoute
+          <Route
             path={routes.AUTH_PAGE.path}
             component={routes.AUTH_PAGE.component}
           />

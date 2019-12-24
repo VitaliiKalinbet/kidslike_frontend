@@ -16,7 +16,7 @@ const validationRules = {
 const validationMessages = {
   'title.required': "Це обов'язкове поле",
   'taskPoints.required': "Це обов'язкове поле",
-  'title.min': 'не менше 4 символів',
+  // 'title.min': 'не менше 4 символів',
   'title.max': 'не більше 20 символів',
   'taskPoints.range': 'має бути від 1 до 9 балів',
 };
