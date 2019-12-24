@@ -1,8 +1,7 @@
 .weekDays {
   background-color: var(--color-orange);
   width: 25%;
-  /* height: 100vh; */
-  height: 100% - 64px;
+  height: 100vh;
   position: relative;
 }
 
@@ -12,7 +11,8 @@
   font-weight: bold;
   position: absolute;
   right: 0;
-  top: 140px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .weekDaysListLink {
