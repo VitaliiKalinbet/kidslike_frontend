@@ -33,7 +33,7 @@ export default class SelectDays extends Component {
             <span className={s.select_days_span}>OK</span>
           </button>
         )}
-        {showDayList && <DaysList />}
+        {showDayList && <DaysList {...this.props} />}
       </>
     );
   }
