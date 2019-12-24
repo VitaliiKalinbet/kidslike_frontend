@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './Planning.module.css';
 import PlanningPoints from '../../components/PlanningPage/PlanningPoints';
-import CardsList from '../../components/CardsList';
+import ContainerList from '../../components/CardsList';
 import CurrentWeekPlaning from '../../components/CurrentWeekPlaning/CurrentWeekPlaning';
 import AddCustomTask from '../../components/PlanningPage/AddCustomTask';
 
@@ -13,7 +13,7 @@ const PlanningPage = () => {
   return (
     <div className={styles.planningContainer}>
       <div className={styles.list}>
-        <CardsList tasks={tasks} />{' '}
+        {tasks && <ContainerList arr={tasks} />}
       </div>
 
       <div className={styles.pointsTaskContainer}>

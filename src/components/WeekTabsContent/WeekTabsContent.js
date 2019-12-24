@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import ProgressBar from '../ProgressBar/ProgressBar';
-import CardList from '../CardsList/index';
+import ContainerList from '../CardsList/index';
 import CurrentWeekRange from '../CurrentWeekRange/CurrentWeekRange';
 import CurrentDay from '../CurrentDay/CurrentDay';
 import windowWidth from '../../utils/windowWidth';
@@ -41,7 +41,7 @@ const WeekTabsContent = () => {
         <ProgressBar />
       </div>
       <div className={s.cardWrapper}>
-        <CardList tasks={tasks} />
+        {tasks && <ContainerList arr={tasks} />}
       </div>
     </div>
   );
