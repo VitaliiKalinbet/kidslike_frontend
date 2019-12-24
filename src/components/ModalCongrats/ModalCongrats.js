@@ -3,8 +3,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import prizeImage1 from '../../assets/images/AwardsPage/1.png';
-import prizeImage2 from '../../assets/images/AwardsPage/2.png';
+// import prizeImage1 from '../../assets/images/AwardsPage/1.png';
+// import prizeImage2 from '../../assets/images/AwardsPage/2.png';
 import catTop from '../../assets/images/Modal/catTransparent.png';
 import styleModalLogout from '../ModalLogout/ModalLogout.module.css';
 import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
@@ -24,11 +24,11 @@ const ModalCongrats = ({ onClose }) => {
             {/* item open */}
 
             <div className={styleModalCongrats.prizeContainerItem}>
-              <img
+              {/* <img
                 className={styleModalCongrats.imagePrize}
                 src={prizeImage1}
                 alt=""
-              />
+              /> */}
               <p className={styleModalCongrats.prizeContainerItemText}>
                 75 балів
               </p>
@@ -37,11 +37,11 @@ const ModalCongrats = ({ onClose }) => {
             {/* item open */}
 
             <div className={styleModalCongrats.prizeContainerItem}>
-              <img
+              {/* <img
                 className={styleModalCongrats.imagePrize}
                 src={prizeImage2}
                 alt=""
-              />
+              /> */}
               <p className={styleModalCongrats.prizeContainerItemText}>
                 75 балів
               </p>

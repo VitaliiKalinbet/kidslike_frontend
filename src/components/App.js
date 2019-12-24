@@ -1,57 +1,34 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import routes from '../routes/routes';
-import * as authOperations from '../redux/auth/authOperation';
-import Header from './Header/Header';
-import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+// import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+// import routes from '../routes/routes';
+// import Header from './Header/Header';
+// import styles from './App.module.css';
+import ModalBackdrop from './ModalBackdrop/ModalBackdrop';
+import ModalCongrats from './ModalCongrats/ModalCongrats';
+import ModalLogout from './ModalLogout/ModalLogout';
 
 class App extends Component {
-  static propTypes = {
-    onRefresh: PropTypes.func.isRequired,
+  state = {
+    isModalOpen: false,
   };
 
-  componentDidMount() {
-    const { onRefresh } = this.props;
-    onRefresh();
-  }
+  openModal = () => this.setState({ isModalOpen: true });
+
+  closeModal = () => this.setState({ isModalOpen: false });
 
   render() {
+    const { isModalOpen } = this.state;
     return (
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route
-            path={routes.AUTH_PAGE.path}
-            component={routes.AUTH_PAGE.component}
-          />
-          <ProtectedRoute
-            exact
-            path={routes.MAIN_PAGE.path}
-            component={routes.MAIN_PAGE.component}
-          />
-          <ProtectedRoute
-            path={routes.PLANNING_PAGE.path}
-            component={routes.PLANNING_PAGE.component}
-          />
-          <ProtectedRoute
-            path={routes.AWARDS_PAGE.path}
-            component={routes.AWARDS_PAGE.component}
-          />
-          <Route
-            path={routes.CONTACTS_PAGE.path}
-            component={routes.CONTACTS_PAGE.component}
-          />
-          <Redirect to={routes.AUTH_PAGE.path} />
-        </Switch>
-      </BrowserRouter>
+      <div className="App">
+        <button type="button" onClick={this.openModal}>
+          Open Modal
+        </button>
+
+        {isModalOpen && <ModalLogout onClose={this.closeModal} />}
+      </div>
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  onRefresh: () => dispatch(authOperations.refresh()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
