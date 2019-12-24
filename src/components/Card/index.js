@@ -5,13 +5,12 @@ import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 
 const Card = ({ ...task }) => {
-  // console.log('task :', task);
-
   const { imgName, ...taskInfo } = task;
+  const { title } = taskInfo;
 
   return (
     <article>
-      <CardBody img={imgName} />
+      <CardBody img={imgName} alt={title} />
       <CardFooter {...taskInfo} />
     </article>
   );
