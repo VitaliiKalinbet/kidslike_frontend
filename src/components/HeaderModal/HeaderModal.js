@@ -51,7 +51,7 @@ const HeaderModal = ({ isAuth = true, onClose }) => {
 };
 
 HeaderModal.propTypes = {
-  isAuth: PropTypes.func,
+  isAuth: PropTypes.bool,
   onClose: PropTypes.func,
 };
 

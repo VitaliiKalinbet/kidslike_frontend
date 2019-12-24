@@ -48,7 +48,7 @@ const Navigation = ({ isAuth = true }) => {
   );
 };
 Navigation.propTypes = {
-  isAuth: PropTypes.func,
+  isAuth: PropTypes.bool,
 };
 Navigation.defaultProps = {
   isAuth: PropTypes.bool,
