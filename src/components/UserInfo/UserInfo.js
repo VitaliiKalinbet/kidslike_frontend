@@ -1,14 +1,18 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import logo from '../../assets/images/imageRobot.png';
+import userlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
+// import AuthForm from '../AuthForm/AuthForm';
+// import PropTypes from 'prop-types';
 
 const UserInfo = () => (
   <div>
-    <span className={styles.box}>
-      <img className={styles.logo} alt="logo" src={logo} />
-      <p className={styles.name}>Ваня</p>
-      <button type="button">Выйти </button>
-    </span>
+    <div className={styles.userinfobox}>
+      <img className={styles.userinfologo} alt="userlogo" src={userlogo} />
+      <p className={styles.userinfoname}>Ваня</p>
+      <button type="button" className={styles.userinfobutton}>
+        Вийти
+      </button>
+    </div>
   </div>
 );
 
