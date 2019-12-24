@@ -1,50 +1,33 @@
+.wrapper_awards {
+  background: var(--bg-color-gray);
+}
+
 .present_items {
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  justify-content: space-between;
   margin: 0 auto;
+  padding-top: 65px;
+  align-items: center;
 }
 
 .present_cards {
   margin: 0 auto;
-  padding-bottom: 50px;
 }
 
-.present_card {
-  width: 280px;
-  height: 265px;
-  border: 1px solid red;
-  background-color: green;
-}
-
-.present_card:not(:last-child) {
-  margin-bottom: 20px;
+.present_item {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
   .present_items {
+    padding-top: 75px;
     max-width: 585px;
-  }
-
-  .present_cards {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 56px;
-  }
-
-  .present_card:not(:nth-child(n - 2)) {
-    margin-bottom: 20px;
   }
 }
 
 @media (min-width: 1280px) {
   .present_items {
     max-width: 1184px;
-  }
-
-  .present_card:not(:nth-child(n - 4)) {
-    margin-bottom: 20px;
   }
 }
