@@ -49,12 +49,19 @@ export const refresh = () => (dispatch, getState) => {
   if (!token) {
     return;
   }
+
   setToken(token);
 
   API.refreshUser()
     .then(res => {
       unsetToken();
       dispatch(authActions.successRefreshUser(res.data.user));
+      if (res.data.user.photo) {
+        dispatch(authActions.setAvatar(res.data.user.photo));
+      }
+      if (res.data.user.name) {
+        dispatch(authActions.setName(res.data.user.name));
+      }
     })
     .catch(error => dispatch(authActions.errorRefreshUser(error)));
 };

@@ -10,7 +10,7 @@ import s from './CardsList.module.css';
 
 let url;
 
-const CardsList = ({ tasks = [] }) => {
+const CardsList = ({ tasks }) => {
   const { search, pathname } = useLocation();
 
   const getCurrentTasks = taskArr => {
@@ -40,10 +40,10 @@ const CardsList = ({ tasks = [] }) => {
     currentTasks && (
       <ul className={s.cards_list}>
         {currentTasks.map(el => {
-          const { id, ...task } = el;
+          const { id } = el;
           return (
             <li key={id} className={s.card}>
-              <Card {...task} />
+              <Card {...el} />
             </li>
           );
         })}
