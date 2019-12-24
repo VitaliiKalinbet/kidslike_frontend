@@ -5,11 +5,6 @@ import style from './AwardsSubmitButton.module.css';
 import { ModalCongratsOpen } from '../../redux/global/globalActions';
 
 const AwardsSubmitButton = ({ isOpen }) => {
-  // handelOpenModalCongrats = () => {
-  //   const { isModalCongratsOpen } = this.props;
-  //   isModalCongratsOpen =
-  // };
-
   return (
     <div className={style.present_button}>
       <button onClick={isOpen} className={style.button} type="submit">
@@ -20,7 +15,7 @@ const AwardsSubmitButton = ({ isOpen }) => {
 };
 
 AwardsSubmitButton.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
