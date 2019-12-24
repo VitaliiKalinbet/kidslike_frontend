@@ -5,7 +5,6 @@ import {
   successCreateTaskAction,
   errorCreateTaskAction,
 } from './newTaskActions';
-// import { notify } from '../../components/NewTaskModal/NewTaskModal';
 import { postTask } from '../../services/api';
 
 toast.configure();
@@ -15,7 +14,7 @@ const createTaskOperation = data => dispatch => {
 
   postTask(data)
     .then(res => {
-      toast.success('wOW');
+      toast.success('Завдання додано');
       dispatch(successCreateTaskAction(res.data));
     })
     .catch(err => {

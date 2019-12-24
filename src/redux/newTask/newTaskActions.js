@@ -1,6 +1,5 @@
 import types from '../types';
 
-// create note
 export const startCreateTaskAction = () => ({
   type: types.START_CREATE_TASK,
 });
