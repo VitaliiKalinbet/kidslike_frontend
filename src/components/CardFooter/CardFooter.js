@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -16,23 +17,34 @@ let url;
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
-
+  const awards = useSelector(state => state.awards.arrayAwards);
+  const dispatch = useDispatch;
+  const { id, title, taskPoints } = taskInfo;
   // console.log('taskInfo :', taskInfo);
-  const { days, title, taskPoints } = taskInfo;
+
+  const handleChangeAwards = ({ target }) => {
+    const value = target.checked ? taskPoints : 0 - taskPoints;
+    // console.log('target.id :', target.id);
+    // console.log('value :', value);
+  };
 
   const renderElement = () => {
     const urlDay = new URLSearchParams(search).get('day');
+    console.log('urlDay :', urlDay);
     if (urlDay) {
       url = moment()
         .day(urlDay)
-        .isoWeekday();
+        .weekday();
     }
+
+    console.log(url, today);
+
     if (pathname === '/planning') {
       return <SelectDays />;
     }
 
     if (pathname === '/awards') {
-      return <TaskToggle />;
+      return <TaskToggle onChange={handleChangeAwards} id={id} />;
     }
     if (today === url) {
       return <TaskToggle />;
