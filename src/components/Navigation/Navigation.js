@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
 import styles from './Navigation.module.css';
 
-const Navigation = ({ isAuth = true }) => {
+const Navigation = ({ isAuth }) => {
   const currentDay = moment().format('dddd');
   const menuItemsArr = [
     {

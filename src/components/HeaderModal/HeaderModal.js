@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
 import styles from './HeaderModal.module.css';
 
-const HeaderModal = ({ isAuth = true, onClose }) => {
+const HeaderModal = ({ isAuth, onClose }) => {
   const currentDay = moment().format('dddd');
   const menuItemsArr = [
     {
@@ -51,13 +51,12 @@ const HeaderModal = ({ isAuth = true, onClose }) => {
 };
 
 HeaderModal.propTypes = {
-  isAuth: PropTypes.bool,
-  onClose: PropTypes.func,
+  isAuth: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
-HeaderModal.defaultProps = {
-  isAuth: PropTypes.bool,
-  onClose: PropTypes.func,
+HeaderModal.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
 };
 
 export default HeaderModal;
