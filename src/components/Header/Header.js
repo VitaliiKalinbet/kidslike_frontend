@@ -53,7 +53,7 @@ class Header extends Component {
           <div className={styles.navControls}>
             {!isAuth && <Navigation />}
             <div className={styles.authModule}>
-              {!isAuth && <UserInfo />}
+              <UserInfo />
               <button
                 onClick={this.openModal}
                 className={styles.button}
