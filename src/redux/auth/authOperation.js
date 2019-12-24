@@ -49,6 +49,7 @@ export const refresh = () => (dispatch, getState) => {
   if (!token) {
     return;
   }
+
   setToken(token);
 
   API.refreshUser()

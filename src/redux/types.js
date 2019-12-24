@@ -30,6 +30,9 @@ const types = {
   // ----------ModalLogout-------------------
   MODAL_LOGOUT_OPEN: 'MODAL_LOGOUT_OPEN',
   MODAL_LOGOUT_CLOSED: 'MODAL_LOGOUT_CLOSED',
+
+  // -----------Set Token to Store------------
+  SET_TOKEN_IN_STORE: 'SET_TOKEN_IN_STORE ',
 };
 
 export default types;

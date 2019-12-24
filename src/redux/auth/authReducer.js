@@ -42,6 +42,9 @@ const token = (state = null, { type, payload }) => {
     case types.SUCCESS_LOGOUT:
       return null;
 
+    case types.SET_TOKEN_IN_STORE:
+      return payload.token;
+
     default:
       return state;
   }

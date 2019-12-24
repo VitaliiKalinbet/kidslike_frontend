@@ -51,8 +51,8 @@ const CurrentWeekRange = ({
 CurrentWeekRange.propTypes = {
   // dateStart: PropTypes.string.isRequired,
   // dateTo: PropTypes.string.isRequired,
-  dayFrom: PropTypes.string.isRequired,
-  dayTo: PropTypes.string.isRequired,
-};
+  dayTo: PropTypes.string,
+  dayFrom: PropTypes.string,
+}.isRequired;
 
 export default CurrentWeekRange;
