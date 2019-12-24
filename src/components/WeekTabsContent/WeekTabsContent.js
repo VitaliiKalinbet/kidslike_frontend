@@ -9,8 +9,8 @@ import windowWidth from '../../utils/windowWidth';
 import days from '../../utils/days.json';
 import s from './WeekTabsContent.module.css';
 
-let dayName;
-let date;
+let dayName = null;
+let date = null;
 
 const WeekTabsContent = () => {
   const { search } = useLocation();

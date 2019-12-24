@@ -2,6 +2,7 @@
   background-color: var(--color-orange);
   height: 70px;
   display: flex;
+  padding-top: 64px;
 }
 
 .weekDaysList {
