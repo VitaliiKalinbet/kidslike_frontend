@@ -34,7 +34,7 @@ const CardFooter = ({ ...taskInfo }) => {
     if (urlDay) {
       url = moment()
         .day(urlDay)
-        .wxeekday();
+        .weekday();
     }
 
     console.log(url, today);
