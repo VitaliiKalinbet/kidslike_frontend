@@ -6,16 +6,21 @@ import {
   errorCreateTaskAction,
 } from './newTaskActions';
 import { postTask } from '../../services/api';
+import 'react-toastify/dist/ReactToastify.css';
+import { getToken } from '../auth/authSelectors';
 
 toast.configure();
 
-const createTaskOperation = data => dispatch => {
+const createTaskOperation = task => (dispatch, getState) => {
   dispatch(startCreateTaskAction());
+  const token = getToken(getState());
 
-  postTask(data)
+  if (!token) return;
+
+  postTask(task, token)
     .then(res => {
-      toast.success('Завдання додано');
       dispatch(successCreateTaskAction(res.data));
+      toast.success('Завдання додано');
     })
     .catch(err => {
       toast.error();
