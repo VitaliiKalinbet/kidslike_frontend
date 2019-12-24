@@ -1,4 +1,7 @@
 const types = {
+  START_CREATE_TASK: 'START_CREATE_TASK',
+  SUCCESS_CREATE_TASK: 'SUCCESS_CREATE_TASK',
+  ERROR_CREATE_TASK: 'ERROR_CREATE_TASK',
   START_REGISTER: 'START_REGISTER',
   SUCCESS_REGISTER: 'SUCCESS_REGISTER',
   ERROR_REGISTER: 'ERROR_REGISTER',
@@ -44,6 +47,8 @@ const types = {
   // -------Add name and photo to store-------
   SET_USER_NAME_TO_STORE: 'SET_USER_NAME_TO_STORE',
   SET_USER_AVATAR_TO_STORE: 'SET_USER_AVATAR_TO_STORE',
-};
 
+  // ----- Count total week plan points -----
+  COUNT_WEEK_PLAN_POINTS: 'COUNT_WEEK_PLAN_POINTS',
+};
 export default types;

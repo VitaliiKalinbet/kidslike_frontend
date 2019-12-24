@@ -1,10 +1,19 @@
 import types from '../types';
+import totalWeekPlanPoints from '../../utils/totalWeekPlanPoints';
 
-const tasks = (state = null, { type, payload }) => {
+const initialState = {
+  items: null,
+  weekPlanTaskPoints: 0,
+};
+
+const tasks = (state = initialState, { type, payload }) => {
   switch (type) {
     case types.SUCCESS_REGISTER:
     case types.SUCCESS_LOGIN:
-      return payload.data.user.tasks;
+      return {
+        items: payload.data.user.tasks,
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.user.tasks),
+      };
 
     case types.ERROR_REGISTER:
     case types.ERROR_LOGIN:
@@ -13,7 +22,10 @@ const tasks = (state = null, { type, payload }) => {
       return null;
 
     case types.SUCCESS_REFRESH_USER:
-      return payload.data.tasks;
+      return {
+        items: payload.data.tasks,
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
+      };
 
     default:
       return state;

@@ -20,8 +20,9 @@ const newTaskModalReducer = (state = false, action) => {
   switch (action.type) {
     case types.NEW_TASK_MODAL_OPEN:
       return true;
-    case types.NEW_TASK_MODAL_CLOSED:
+    case types.NEW_TASK_MODAL_CLOSED: {
       return false;
+    }
 
     default:
       return state;

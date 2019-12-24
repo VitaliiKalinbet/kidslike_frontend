@@ -8,7 +8,7 @@ import CurrentWeekPlaning from '../../components/CurrentWeekPlaning/CurrentWeekP
 import AddCustomTask from '../../components/PlanningPage/AddCustomTask';
 
 const PlanningPage = () => {
-  const tasks = useSelector(state => state.tasks);
+  const tasks = useSelector(state => state.tasks.items);
 
   return (
     <div className={styles.planningContainer}>
