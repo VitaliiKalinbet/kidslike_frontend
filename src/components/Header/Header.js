@@ -7,15 +7,16 @@ import * as moment from 'moment';
 import slideTransition from '../../transitions/fade.module.css';
 import Navigation from '../Navigation/Navigation';
 import HeaderModal from '../HeaderModal/HeaderModal';
+import ModalLogout from '../ModalLogout/ModalLogout';
 import UserInfo from '../UserInfo/UserInfo';
 import styles from './Header.module.css';
 import { ReactComponent as Logo } from '../../assets/icons/header-icons/burger.svg';
 import logoMobile from '../../assets/icons/header-icons/Logo_mobile.png';
-// import Zaglushka from '../../assets/icons/header-icons/Zaglushka.jpg';
 
 class Header extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
+    isModalLogoutOpen: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -31,6 +32,8 @@ class Header extends Component {
     const unixDate = Date.now();
     const currentDay = moment().format('dddd');
     const { isAuth } = this.props;
+    const { isModalLogoutOpen } = this.props;
+
     return (
       <>
         <CSSTransition
@@ -53,7 +56,7 @@ class Header extends Component {
           <div className={styles.navControls}>
             {!isAuth && <Navigation />}
             <div className={styles.authModule}>
-              <UserInfo />
+              {!isAuth && <UserInfo />}
               <button
                 onClick={this.openModal}
                 className={styles.button}
@@ -64,6 +67,7 @@ class Header extends Component {
             </div>
           </div>
         </header>
+        {isModalLogoutOpen && <ModalLogout />}
       </>
     );
   }
@@ -71,6 +75,7 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   isAuth: state.auth.isAuth,
+  isModalLogoutOpen: state.global.isModalLogoutOpen,
 });
 
 export default connect(mapStateToProps)(Header);

@@ -44,7 +44,7 @@ const ModalCongratsReducer = (state = false, action) => {
 
 // ----------ModalLogoutReducer -------------------
 
-const ModalLogoutReducer = (state = false, action) => {
+const ModalLogoutReducer = (state = true, action) => {
   switch (action.type) {
     case types.MODAL_LOGOUT_OPEN:
       return true;

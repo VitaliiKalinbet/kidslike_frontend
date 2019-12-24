@@ -24,25 +24,19 @@
   justify-content: space-between;
   align-items: center;
 }
-/* .userName {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #858598;
-} */
+
 .authModule {
-  width: 200px;
+  max-width: 200px;
   padding: 0 5;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .button {
   background: none;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: block;
 }
 
