@@ -5,7 +5,7 @@ axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
-axios.defaults.baseURL = 'http://localhost:8080/api';
+axios.defaults.baseURL = 'http://kidslike.herokuapp.com/api';
 
 export const registerUser = data => axios.post('/auth/signup', data);
 

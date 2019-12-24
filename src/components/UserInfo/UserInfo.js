@@ -1,19 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './UserInfo.module.css';
+import { ModalLogoutOpen } from '../../redux/global/globalActions';
 import userlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
-// import AuthForm from '../AuthForm/AuthForm';
-// import PropTypes from 'prop-types';
 
-const UserInfo = () => (
+const UserInfo = ({ isModalLogoutOpen }) => (
   <div>
     <div className={styles.userinfobox}>
       <img className={styles.userinfologo} alt="userlogo" src={userlogo} />
       <p className={styles.userinfoname}>Ваня</p>
-      <button type="button" className={styles.userinfobutton}>
+      <button
+        onClick={isModalLogoutOpen}
+        type="button"
+        className={styles.userinfobutton}
+      >
         Вийти
       </button>
     </div>
   </div>
 );
 
-export default UserInfo;
+UserInfo.propTypes = {
+  isModalLogoutOpen: PropTypes.bool.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  isModalLogoutOpen: () => dispatch(ModalLogoutOpen()),
+});
+
+export default connect(null, mapDispatchToProps)(UserInfo);

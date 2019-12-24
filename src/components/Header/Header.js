@@ -54,9 +54,9 @@ class Header extends Component {
             <img className={styles.siteLogo} alt="SiteLogo" src={logoMobile} />
           </Link>
           <div className={styles.navControls}>
-            {!isAuth && <Navigation />}
+            <Navigation />
             <div className={styles.authModule}>
-              {!isAuth && <UserInfo />}
+              {isAuth && <UserInfo />}
               <button
                 onClick={this.openModal}
                 className={styles.button}

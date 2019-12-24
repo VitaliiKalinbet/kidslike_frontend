@@ -49,10 +49,7 @@ const Navigation = ({ isAuth }) => {
   );
 };
 Navigation.propTypes = {
-  isAuth: PropTypes.bool,
-};
-Navigation.defaultProps = {
-  isAuth: PropTypes.bool,
+  isAuth: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
