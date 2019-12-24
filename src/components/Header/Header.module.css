@@ -24,13 +24,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.userName {
+/* .userName {
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
   text-transform: uppercase;
   color: #858598;
-}
+} */
 .authModule {
   width: 200px;
   padding: 0 5;
