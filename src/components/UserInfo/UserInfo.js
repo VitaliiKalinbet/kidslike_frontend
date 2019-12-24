@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
 import userlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
-// import AuthForm from '../AuthForm/AuthForm';
-// import PropTypes from 'prop-types';
 
 const UserInfo = () => (
   <div>
