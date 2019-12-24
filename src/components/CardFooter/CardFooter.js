@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -13,23 +15,36 @@ import s from './CardFooter.module.css';
 const today = moment().day();
 let url;
 
-const CardFooter = () => {
+const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+  const awards = useSelector(state => state.awards.arrayAwards);
+  const dispatch = useDispatch;
+  const { id, title, taskPoints } = taskInfo;
+  // console.log('taskInfo :', taskInfo);
+
+  const handleChangeAwards = ({ target }) => {
+    const value = target.checked ? taskPoints : 0 - taskPoints;
+    // console.log('target.id :', target.id);
+    // console.log('value :', value);
+  };
 
   const renderElement = () => {
     const urlDay = new URLSearchParams(search).get('day');
+    console.log('urlDay :', urlDay);
     if (urlDay) {
       url = moment()
         .day(urlDay)
-        .isoWeekday();
+        .weekday();
     }
+
+    console.log(url, today);
 
     if (pathname === '/planning') {
       return <SelectDays />;
     }
 
     if (pathname === '/awards') {
-      return <TaskToggle />;
+      return <TaskToggle onChange={handleChangeAwards} id={id} />;
     }
     if (today === url) {
       return <TaskToggle />;
@@ -45,13 +60,10 @@ const CardFooter = () => {
   return (
     <div className={s.card_footer}>
       <div>
-        <CardTitle />
-        <PointAmount />
+        <CardTitle title={title} />
+        <PointAmount point={taskPoints} />
       </div>
-      <>
-        {renderElement()}
-        {/* <CardControl /> */}
-      </>
+      <>{renderElement()}</>
     </div>
   );
 };
