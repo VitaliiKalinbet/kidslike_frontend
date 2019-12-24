@@ -8,10 +8,14 @@ import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
 import { ModalLogoutClosed } from '../../redux/global/globalActions';
 import { logout } from '../../redux/auth/authOperation';
 
-const ModalLogout = ({ onOpenModalLogout, onLogout }) => {
+const ModalLogout = ({ onCloseModalLogout, onLogout }) => {
+  const handleLogout = () => {
+    onLogout();
+    onCloseModalLogout();
+  };
   return (
     <>
-      <ModalBackdrop onClose={onOpenModalLogout}>
+      <ModalBackdrop onClose={onCloseModalLogout}>
         <div className={styleModalLogout.modalSize}>
           <h2 className={styleModalLogout.modalTitleText}>
             Ви дійсно бажаєте вийти?
@@ -21,12 +25,12 @@ const ModalLogout = ({ onOpenModalLogout, onLogout }) => {
           <div className={styleModalLogout.buttonContainer}>
             <button
               className={styleModalLogout.point_amount}
-              onClick={onLogout}
+              onClick={handleLogout}
             >
               Так
             </button>
             <button
-              onClick={onOpenModalLogout}
+              onClick={onCloseModalLogout}
               className={styleModalLogout.point_amount}
             >
               Ні
@@ -37,10 +41,8 @@ const ModalLogout = ({ onOpenModalLogout, onLogout }) => {
     </>
   );
 };
-
 const mapDispatchToProps = dispatch => ({
-  onOpenModalLogout: () => dispatch(ModalLogoutClosed()),
+  onCloseModalLogout: () => dispatch(ModalLogoutClosed()),
   onLogout: () => dispatch(logout()),
 });
-
 export default connect(null, mapDispatchToProps)(ModalLogout);

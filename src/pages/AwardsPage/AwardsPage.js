@@ -19,7 +19,7 @@ const AwardsPage = ({ isOpen }) => {
           <ProgressBar />
         </div>
         <div className={style.card_list_wrapper}>
-          <CardsList tasks={awards} />
+          <CardsList arr={awards} />
         </div>
         <AwardsSubmitButton />
       </div>

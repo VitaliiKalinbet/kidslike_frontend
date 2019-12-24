@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import prizeImage1 from '../../assets/images/AwardsPage/1.jpg';
 import prizeImage2 from '../../assets/images/AwardsPage/2.jpg';
+import CardBody from '../CardBody/CardBody';
 import catTop from '../../assets/images/Modal/catTransparent.png';
 import styleModalLogout from '../ModalLogout/ModalLogout.module.css';
 import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
@@ -32,7 +33,8 @@ const ModalCongrats = ({ onClose, awards }) => {
               {filteredAwards.map(el => (
                 <li key={el.id}>
                   {/* {el.title} */}
-                  <img src={`.${el.imgName}`} alt="" />
+                  {/* <img src={`.${el.imgName}`} alt="" /> */}
+                  <CardBody img={el.imgName} alt={el.title} />
 
                   <p className={styleModalCongrats.prizeContainerItemText}>
                     {el.taskPoints}
