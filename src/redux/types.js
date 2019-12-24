@@ -34,6 +34,8 @@ const types = {
   MODAL_LOGOUT_OPEN: 'MODAL_LOGOUT_OPEN',
   MODAL_LOGOUT_CLOSED: 'MODAL_LOGOUT_CLOSED',
 
+  // -----------Set Token to Store------------
+  SET_TOKEN_IN_STORE: 'SET_TOKEN_IN_STORE ',
   // ----------Awards Card-------------------
   ADD_AWARDS_SELECTED: 'ADD_AWARDS_SELECTED',
   REMOVE_AWARDS_SELECTED: 'REMOVE_AWARDS_SELECTED',

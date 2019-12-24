@@ -50,3 +50,9 @@ export const errorRefreshUser = error => ({
   type: types.ERROR_REFRESH_USER,
   payload: { error },
 });
+
+// set token to redux
+export const googleToken = userToken => ({
+  type: types.SET_TOKEN_IN_STORE,
+  payload: { token: userToken },
+});
