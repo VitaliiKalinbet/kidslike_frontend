@@ -10,9 +10,9 @@ const ProgressBar = () => {
         <p className={style.progressText}>Набрано балiв: </p>
         <div className={style.progressBarDiv}>
           <p className={style.progressNumbers}>
-            <span>400 / </span>810
+            <span>0 / 0</span>
           </p>
-          <Progress percent={88} />
+          <Progress percent={0} />
         </div>
       </div>
     </>

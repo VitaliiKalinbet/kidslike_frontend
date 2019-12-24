@@ -18,6 +18,26 @@ const types = {
   // ----------Loader----------------------------
   APP_FETCHING_START: 'APP_FETCHING_START',
   APP_FETCHING_SUCCESS: ' APP_FETCHING_SUCCESS',
+
+  LOADER_START: 'LOADER_START',
+  LOADER__STOP: 'LOADER__STOP',
+
+  // -----------NewTaskModal------------------
+  NEW_TASK_MODAL_OPEN: 'NEW_TASK_MODAL_OPEN',
+  NEW_TASK_MODAL_CLOSED: 'NEW_TASK_MODAL_CLOSED',
+
+  // ----------ModalCongrats-----------------
+  MODAL_CONGRATS_OPEN: 'MODAL_CONGRATS_OPEN',
+  MODAL_CONGRATS_CLOSED: ' MODAL_CONGRATS_CLOSED',
+
+  // ----------ModalLogout-------------------
+  MODAL_LOGOUT_OPEN: 'MODAL_LOGOUT_OPEN',
+  MODAL_LOGOUT_CLOSED: 'MODAL_LOGOUT_CLOSED',
+
+  // ----------Awards Card-------------------
+  ADD_AWARDS_SELECTED: 'ADD_AWARDS_SELECTED',
+  REMOVE_AWARDS_SELECTED: 'REMOVE_AWARDS_SELECTED',
+  SUM_AWARDS_SELECTED: 'SUM_AWARDS_SELECTED',
 };
 
 export default types;

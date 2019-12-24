@@ -1,22 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as moment from 'moment';
+// import 'moment/locale/uk';
 import s from './CurrentWeekRange.module.css';
 
-// const CurrentWeekRange = () => (
-//   <div className={s.wrapper}>
-//     <p className={s.week}>Тиждень: {weekDay}-13 жовтня</p>
-//   </div>
-// );
-
-// export default CurrentWeekRange;
-
-const CurrentWeekRange = ({
-  dayFrom = new Date('2019-12-16T02:00:00.000Z'),
-  dayTo = new Date('2019-12-21T22:59:59.000Z'),
-}) => {
-  // функция получения дней недели (от и до какой даты) из того, что в сторе
-  const dateStart = dayFrom.getDate();
-  const dateTo = dayTo.getDate();
+const CurrentWeekRange = () => {
+  const startOfWeek = moment()
+    .startOf('week')
+    .format('DD');
+  const endOfWeek = moment()
+    .endOf('week')
+    .format('DD');
 
   // функция получения месяца, из того что в сторе
   function getThisMonth() {
@@ -35,24 +28,17 @@ const CurrentWeekRange = ({
       'грудня',
     ];
 
-    return monthes[dayFrom.getMonth()];
+    return monthes[moment().get('M')];
   }
-  const month = getThisMonth(dayFrom);
+  const month = getThisMonth(moment().get('M'));
 
   return (
     <div className={s.wrapper}>
       <p className={s.week}>
-        Тиждень: {dateStart}-{dateTo} {month}
+        Тиждень: {Number(startOfWeek)}-{Number(endOfWeek)} {month}
       </p>
     </div>
   );
-};
-
-CurrentWeekRange.propTypes = {
-  // dateStart: PropTypes.string.isRequired,
-  // dateTo: PropTypes.string.isRequired,
-  dayFrom: PropTypes.string.isRequired,
-  dayTo: PropTypes.string.isRequired,
 };
 
 export default CurrentWeekRange;
