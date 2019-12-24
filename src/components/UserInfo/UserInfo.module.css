@@ -1,13 +1,7 @@
 .userinfobox {
-  margin: 30px, 30px;
-  margin-right: 20px;
   background: white;
-  width: auto;
-  height: auto;
-  padding: 100px, 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .userinfoname {
   font-size: 12px;
