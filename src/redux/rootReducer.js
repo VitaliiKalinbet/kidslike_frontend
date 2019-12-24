@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducers from './auth/authReducer';
 import tasksReducer from './tasks/tasksReducer';
 import globalReducer from './global/globalReducer';
+import awardsReducer from './awards/awardsReducer';
 
 const persistAuth = {
   key: 'auth',
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   auth: persistReducer(persistAuth, authReducers),
   global: globalReducer,
   tasks: tasksReducer,
+  awards: awardsReducer,
 });
 
 export default rootReducer;

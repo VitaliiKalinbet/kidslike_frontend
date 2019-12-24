@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { connect } from 'react-redux';
 import * as moment from 'moment';
+import { connect } from 'react-redux';
 import slideTransition from '../../transitions/fade.module.css';
 import Navigation from '../Navigation/Navigation';
 import HeaderModal from '../HeaderModal/HeaderModal';
@@ -17,6 +17,7 @@ class Header extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
     isModalLogoutOpen: PropTypes.bool.isRequired,
+    onLogout: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -29,6 +30,7 @@ class Header extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const { onLogout } = this.props;
     const unixDate = Date.now();
     const currentDay = moment().format('dddd');
     const { isAuth } = this.props;
@@ -66,6 +68,9 @@ class Header extends Component {
               </button>
             </div>
           </div>
+          <button type="button" onClick={onLogout}>
+            Вийти
+          </button>
         </header>
         {isModalLogoutOpen && <ModalLogout />}
       </>
