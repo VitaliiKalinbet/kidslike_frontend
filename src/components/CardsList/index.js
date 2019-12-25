@@ -1,31 +1,46 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import moment from 'moment';
+
 import CardsList from './CardsList';
 
+const momentObj = moment();
+
 const ContainerList = ({ arr }) => {
-  const { pathname } = useLocation();
+  const { search, pathname } = useLocation();
 
   const currentCards = cardsArr => {
-    if (pathname === '/awards' || pathname === '/planning') {
-      return cardsArr;
-    }
     if (pathname === '/') {
-      // const currentCards = cardsArr.map(el => {
-      //   el.days.map(el => {
-      //     console.log('el :', el);
-      //     el.isActive;
-      //   });
-      //   console.log('days :', el.days);
-      // });
-      return cardsArr;
+      let url;
+      const result = [];
+      const urlDay = new URLSearchParams(search).get('day');
+
+      if (urlDay) {
+        url = momentObj.day(urlDay).isoWeekday();
+
+        cardsArr.forEach(el => {
+          const { _id, title, imgName, taskPoints } = el;
+          const day = el.days[url - 1];
+          const transit = { ...day, _id, title, imgName, taskPoints };
+
+          !day.isActive && result.push(transit);
+        });
+      }
+      return result;
     }
+    return cardsArr;
   };
 
   const cards = currentCards(arr);
 
-  return arr ? <CardsList tasks={cards} /> : <h3>Where are tasks? </h3>;
+  return cards.length ? (
+    <CardsList tasks={cards} />
+  ) : (
+    <h3>Where are tasks? </h3>
+  );
 };
 
 export default ContainerList;
