@@ -1,5 +1,5 @@
 import types from '../types';
-import totalWeekPlanPoints from '../../utils/totalWeekPlanPoints';
+import totalWeekPlanPoints from '../../utils/totalweekPlanPoints';
 
 const initialState = {
   items: null,
