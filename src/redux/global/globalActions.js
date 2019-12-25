@@ -29,8 +29,10 @@ export const ModalCongratsClosed = () => ({
 // ----------ModalLogout-------------------
 export const ModalLogoutOpen = () => ({
   type: types.MODAL_LOGOUT_OPEN,
+  payload: true,
 });
 
 export const ModalLogoutClosed = () => ({
   type: types.MODAL_LOGOUT_CLOSED,
+  payload: false,
 });

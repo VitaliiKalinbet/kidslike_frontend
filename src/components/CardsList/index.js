@@ -1,55 +1,31 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-else-return */
+/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import moment from 'moment';
-import Card from '../Card';
-import s from './CardsList.module.css';
+import CardsList from './CardsList';
 
-let url;
+const ContainerList = ({ arr }) => {
+  const { pathname } = useLocation();
 
-const CardsList = ({ tasks }) => {
-  const { search, pathname } = useLocation();
-
-  const getCurrentTasks = taskArr => {
-    const urlDay = new URLSearchParams(search).get('day');
-    if (urlDay) {
-      url = moment()
-        .day(urlDay)
-        .weekday();
-
-      return taskArr.map(el => ({
-        id: el._id,
-        title: el.title,
-        taskPoints: el.taskPoints,
-        imgName: el.imgName,
-        isDone: el.days[url].isDone,
-      }));
-    } else {
-      return taskArr;
+  const currentCards = cardsArr => {
+    if (pathname === '/awards' || pathname === '/planning') {
+      return cardsArr;
+    }
+    if (pathname === '/') {
+      // const currentCards = cardsArr.map(el => {
+      //   el.days.map(el => {
+      //     console.log('el :', el);
+      //     el.isActive;
+      //   });
+      //   console.log('days :', el.days);
+      // });
+      return cardsArr;
     }
   };
 
-  useEffect(() => {}, [search, tasks]);
+  const cards = currentCards(arr);
 
-  const currentTasks = getCurrentTasks(tasks);
-
-  return (
-    currentTasks && (
-      <ul className={s.cards_list}>
-        {currentTasks.map(el => {
-          const { id } = el;
-          return (
-            <li key={id} className={s.card}>
-              <Card {...el} />
-            </li>
-          );
-        })}
-      </ul>
-    )
-  );
+  return arr ? <CardsList tasks={cards} /> : <h3>Where are tasks? </h3>;
 };
 
-export default CardsList;
+export default ContainerList;
