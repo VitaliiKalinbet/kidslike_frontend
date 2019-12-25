@@ -1,5 +1,6 @@
 .wrapper_awards {
-  background: var(--bg-color-gray);
+  height: 100%;
+  background-color: var(--bg-color-gray);
 }
 
 .present_items {
@@ -11,12 +12,19 @@
 }
 
 .present_cards {
+  height: 100vh;
   margin: 0 auto;
 }
 
 .present_item {
   display: flex;
   justify-content: space-between;
+}
+
+.card_list_wrapper {
+  height: calc(100vh - 250px);
+  overflow: auto;
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {
