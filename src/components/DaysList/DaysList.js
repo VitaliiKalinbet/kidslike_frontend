@@ -5,7 +5,6 @@ import style from './DaysList.module.css';
 import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black-outline.svg';
 
 const DaysList = ({ id, days, onChange }) => {
-  console.log('onChange :', onChange);
   const renderDays = days.map(day => {
     const key = `${id}_${day.date}`;
     return (
@@ -16,7 +15,7 @@ const DaysList = ({ id, days, onChange }) => {
             type="checkbox"
             className={style.input}
             name={`${day.name}`}
-            checked={!day.isActive}
+            checked={day.isActive}
             onChange={onChange}
           />
           {day.title}

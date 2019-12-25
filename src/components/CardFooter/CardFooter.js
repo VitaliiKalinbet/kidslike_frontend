@@ -2,9 +2,8 @@
 /* eslint-disable consistent-return */
 import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { getIsActive } from '../../redux/tasks/tasksSelector';
 import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
 import {
   sumAwardsCardAction,
@@ -41,6 +40,7 @@ const CardFooter = ({ ...taskInfo }) => {
   };
 
   const handleChangePlanningTask = ({ target }) => {
+    dispatch(taskPlanningChangeAction(target.id));
     // console.log('target.id :', target.id);
     // console.log('target.checked :', target.checked);
   };

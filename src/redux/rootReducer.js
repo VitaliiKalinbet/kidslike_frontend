@@ -5,7 +5,6 @@ import authReducers from './auth/authReducer';
 import tasksReducer from './tasks/tasksReducer';
 import globalReducer from './global/globalReducer';
 import awardsReducer from './awards/awardsReducer';
-// import taskReducer from './tasks/taskReducer';
 
 const persistAuth = {
   key: 'auth',
@@ -18,16 +17,6 @@ const rootReducer = combineReducers({
   global: globalReducer,
   tasks: tasksReducer,
   awards: awardsReducer,
-  // state: taskReducer,
-  // tasks: {
-  //   items: [
-  //     [
-  //       {
-  //         isActive: taskReducer,
-  //       },
-  //     ],
-  //   ],
-  // },
 });
 
 export default rootReducer;

@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import types from '../types';
+import { setPlanningTask } from '../../components/CardsList/CardsListModule';
 import totalWeekPlanPoints from '../../utils/totalweekPlanPoints';
 
 const initialState = {
@@ -39,6 +40,12 @@ const tasks = (state = initialState, { type, payload }) => {
         items: payload.items,
       };
     }
+
+    case types.TASK_PLANNING_CHANGE:
+      return {
+        ...state,
+        items: setPlanningTask(state.items, payload),
+      };
 
     case types.SUCCESS_CREATE_TASK:
       return {
