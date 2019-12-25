@@ -19,28 +19,9 @@
     url('../../assets/images/auth_page/mobile/auth-bck.png') no-repeat;
   width: auto;
   background-position: 0px 0px, bottom;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 90px;
-}
-
-@media (max-width: 767px) {
-  .bck__color > div:last-of-type {
-    display: none;
-  }
-}
-
-@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
-  .auth__bck {
-    background: linear-gradient(
-        to right,
-        rgba(240, 232, 213, 0.3),
-        rgba(240, 232, 213, 0.3)
-      ),
-      url('../../assets/images/auth_page/mobile/auth-bck@2x.png') no-repeat;
-    background-size: cover;
-    width: auto;
-    background-position: center;
-  }
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {
@@ -71,19 +52,6 @@
     width: 485px;
     height: 480px;
   }
-
-  @media (max-width: 1279px) {
-    .bck__color > div:last-of-type {
-      position: absolute;
-      bottom: -50px;
-    }
-  }
-
-  @media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) {
-    .auth__bck {
-      background: url('../../assets/images/auth_page/tablet/Layer0@2x.png');
-    }
-  }
 }
 
 @media (min-width: 1280px) {
@@ -91,10 +59,11 @@
     margin: 0 auto;
     width: 1280px;
     background: url('../../assets/images/auth_page/desktop/pic.png') no-repeat;
-    background-position: 0 10px;
+    background-position: left;
     display: flex;
     justify-content: flex-end;
-    padding-bottom: 10px;
+    align-items: center;
+    padding-bottom: 120px;
   }
 
   .bck__color {
@@ -104,7 +73,7 @@
 
   .container {
     width: 405px;
-    margin: 83px 126px 0px 126px;
+    margin: 150px 126px 0px 126px;
   }
 
   .auth__title {
