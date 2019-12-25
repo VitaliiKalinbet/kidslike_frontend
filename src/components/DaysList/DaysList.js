@@ -6,11 +6,17 @@ import { ReactComponent as Done } from '../../assets/icons/done/check-mark-black
 
 const DaysList = ({ id, days }) => {
   const renderDays = days.map(day => {
-    const key = `${id}_${shortid.generate()}`;
+    const key = `${id}_${day.date}`;
     return (
       <li key={key}>
         <label className={style.container_checkbox} htmlFor={`${key}`}>
-          <input id={`${key}`} type="checkbox" className={style.input} />
+          <input
+            id={`${key}`}
+            type="checkbox"
+            className={style.input}
+            name={`${day.name}`}
+            checked={!day.isActive}
+          />
           {day.title}
           <span className={style.checkmark}>
             <Done className={style.checkmark_icon} width="15px" height="15px" />

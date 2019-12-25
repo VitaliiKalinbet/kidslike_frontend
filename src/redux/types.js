@@ -51,7 +51,7 @@ const types = {
   SET_USER_AVATAR_TO_STORE: 'SET_USER_AVATAR_TO_STORE',
 
   // -------Change task's isDone status -------
-  TOGGLE_CARD: 'TOGGLE_CARD',
+  TOGGLE_CARD_STATUS: 'TOGGLE_CARD_STATUS',
 };
 
 export default types;
