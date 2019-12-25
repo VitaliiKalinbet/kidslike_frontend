@@ -22,7 +22,7 @@ const UserInfo = ({ isModalLogoutOpen }) => (
 );
 
 UserInfo.propTypes = {
-  isModalLogoutOpen: PropTypes.bool.isRequired,
+  isModalLogoutOpen: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
