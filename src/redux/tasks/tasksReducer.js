@@ -27,11 +27,14 @@ const tasks = (state = initialState, { type, payload }) => {
     case types.SUCCESS_REFRESH_USER:
       return {
         items: payload.data.tasks,
-        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.user.tasks),
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
       };
 
     case types.SUCCESS_CREATE_TASK:
-      return payload.tasks;
+      return {
+        items: payload.tasks,
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.tasks),
+      };
 
     default:
       return state;
