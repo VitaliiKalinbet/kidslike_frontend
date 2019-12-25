@@ -4,9 +4,13 @@ import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
 import { getIsActive } from '../../redux/tasks/tasksSelector';
 import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
+import {
+  sumAwardsCardAction,
+  toggleSelectedCardAction,
+} from '../../redux/awards/awardsAction';
+import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -23,23 +27,23 @@ const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
   const { _id, title, taskPoints, days, isDone, isSelected, date } = taskInfo;
   const dispatch = useDispatch();
-  const tasks = useSelector(store => store.tasks);
+
   useEffect(() => {}, [search]);
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
     dispatch(sumAwardsCardAction(value));
+    dispatch(sumAwardsCardAction(value));
   };
 
-  const handleChangeTaskToday = ({ target }) => {
-    console.log('target.id :', target.id);
+  const handleChangeTaskToday = (e, taskId) => {
+    dispatch(changeTaskTodayOperation(taskId));
   };
 
-  const handleChangePlanningTask = useCallback(() => ({ target }) => {
-    getIsActive(tasks, target.id);
+  const handleChangePlanningTask = ({ target }) => {
     // console.log('target.id :', target.id);
     // console.log('target.checked :', target.checked);
-  });
+  };
 
   const renderElement = () => {
     let url;
@@ -65,6 +69,7 @@ const CardFooter = ({ ...taskInfo }) => {
       return (
         <TaskToggle
           id={`${_id}_${date}`}
+          taskId={_id}
           onChange={handleChangeTaskToday}
           value={isDone}
         />

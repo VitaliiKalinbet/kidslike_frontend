@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import types from '../types';
 import totalWeekPlanPoints from '../../utils/totalweekPlanPoints';
 
@@ -29,6 +30,15 @@ const tasks = (state = initialState, { type, payload }) => {
         items: payload.data.tasks,
         weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
       };
+
+    case types.SUCCESS_CHANGE_CARD_STATUS: {
+      // console.log('payload.taskId', payload.taskId);
+      // console.log('payload.day', payload.day);
+      return {
+        ...state,
+        items: payload.items,
+      };
+    }
 
     case types.SUCCESS_CREATE_TASK:
       return {

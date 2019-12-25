@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 // import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
@@ -11,7 +12,7 @@ import { getToken } from '../auth/authSelectors';
 
 toast.configure();
 
-const createTaskOperation = task => (dispatch, getState) => {
+export const createTaskOperation = task => (dispatch, getState) => {
   const token = getToken(getState());
 
   if (!token) return;
@@ -30,4 +31,11 @@ const createTaskOperation = task => (dispatch, getState) => {
     });
 };
 
-export default createTaskOperation;
+export const changeTaskTodayOperation = taskId => (dispatch, getState) => {
+  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
+  console.log('taskInfo', taskInfo);
+  const updateTaskDays = [...taskInfo.days];
+  const dayIndex = new Date(1577272964056).getDay() - 1;
+  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
+  console.log('updateTaskDays', updateTaskDays);
+};
