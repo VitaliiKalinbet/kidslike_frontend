@@ -36,7 +36,7 @@ const CurrentWeekRange = () => {
   return (
     <div className={s.wrapper}>
       <p className={s.week}>
-        Тиждень: {Number(startOfWeek) + 1}-{Number(endOfWeek) + 1} {month}
+        Тиждень: {Number(startOfWeek)}-{Number(endOfWeek)} {month}
       </p>
     </div>
   );
