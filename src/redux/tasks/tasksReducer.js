@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import types from '../types';
 
 const tasks = (state = null, { type, payload }) => {
@@ -15,8 +16,21 @@ const tasks = (state = null, { type, payload }) => {
     case types.SUCCESS_REFRESH_USER:
       return payload.data.tasks;
 
-    case types.TOGGLE_CARD:
-      return payload.data.tasks.isDone;
+    case types.CHANGE_CARD_STATUS: {
+      // console.log('payload.taskId', payload.taskId);
+      // console.log('payload.day', payload.day);
+      return state.map(el => {
+        if (el._id === payload.taskId) {
+          const days = [...el.days];
+          days[payload.day - 1].isDone = !days[payload.day - 1].isDone;
+          return { ...el, days };
+        }
+        return el;
+      });
+    }
+
+    case types.SUCCESS_CREATE_TASK:
+      return payload.tasks;
 
     default:
       return state;

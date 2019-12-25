@@ -6,12 +6,17 @@ export const startCreateTaskAction = () => ({
 export const successCreateTaskAction = data => ({
   type: types.SUCCESS_CREATE_TASK,
   payload: {
-    task: data,
+    tasks: data,
   },
 });
-export const errorCreateTaskAction = err => ({
+export const errorCreateTaskAction = () => ({
   type: types.ERROR_CREATE_TASK,
+});
+
+export const changeTaskTodayAction = (taskId, day) => ({
+  type: types.CHANGE_CARD_STATUS,
   payload: {
-    error: err,
+    taskId,
+    day,
   },
 });
