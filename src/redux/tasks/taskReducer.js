@@ -1,11 +1,15 @@
 import types from '../types';
+import { getIsActive } from './tasksSelector';
 
-const task = (isActive, { type, payload }) => {
+const task = (state, { type, payload }) => {
   switch (type) {
     case types.TASK_PLANNING_CHANGE:
-      return payload.isActive;
+      return {
+        ...state,
+        items: getIsActive(state.items, payload),
+      };
     default:
-      return isActive;
+      return state;
   }
 };
 

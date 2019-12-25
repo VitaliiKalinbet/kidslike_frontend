@@ -13,9 +13,10 @@ export const errorCreateTaskAction = () => ({
   type: types.ERROR_CREATE_TASK,
 });
 
-export const taskPlanningChangeAction = value => ({
+export const taskPlanningChangeAction = (id, date) => ({
   type: types.TASK_PLANNING_CHANGE,
   payload: {
-    isActive: value,
+    id,
+    date,
   },
 });
