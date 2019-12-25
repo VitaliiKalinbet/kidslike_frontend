@@ -19,12 +19,15 @@ const tasks = (state = initialState, { type, payload }) => {
     case types.ERROR_LOGIN:
     case types.SUCCESS_LOGOUT:
     case types.ERROR_REFRESH_USER:
-      return null;
+      return {
+        items: null,
+        weekPlanTaskPoints: null,
+      };
 
     case types.SUCCESS_REFRESH_USER:
       return {
         items: payload.data.tasks,
-        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.data.user.tasks),
       };
 
     default:
