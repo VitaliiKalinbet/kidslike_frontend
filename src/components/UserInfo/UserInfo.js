@@ -16,7 +16,7 @@ const UserInfo = ({ isModalLogoutOpen, user }) => {
           src={user.avatar || defaultuserlogo}
         />
         <p className={styles.userinfoname}>
-          {user.name || defaultName.slice(0, defaultName.indexOf('@'))}
+          {user.name || defaultName.slice(0, defaultName.indexOf('.'))}
         </p>
         <button
           onClick={isModalLogoutOpen}
