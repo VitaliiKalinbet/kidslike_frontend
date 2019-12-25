@@ -38,13 +38,14 @@ const types = {
   MODAL_LOGOUT_OPEN: 'MODAL_LOGOUT_OPEN',
   MODAL_LOGOUT_CLOSED: 'MODAL_LOGOUT_CLOSED',
 
-  // -----------Set Token to Store------------
+  // -----------Set GoogleToken to Store------------
   SET_TOKEN_IN_STORE: 'SET_TOKEN_IN_STORE ',
 
   // ----------Awards Card-------------------
   ADD_AWARDS_SELECTED: 'ADD_AWARDS_SELECTED',
   REMOVE_AWARDS_SELECTED: 'REMOVE_AWARDS_SELECTED',
   SUM_AWARDS_SELECTED: 'SUM_AWARDS_SELECTED',
+  AWARDS_CHANGES_TOGGLE_SELECTED: 'AWARDS_CHANGES_TOGGLE_SELECTED',
 
   // -------Add name and photo to store-------
   SET_USER_NAME_TO_STORE: 'SET_USER_NAME_TO_STORE',

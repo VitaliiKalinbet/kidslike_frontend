@@ -18,3 +18,10 @@ export const sumAwardsCardAction = value => ({
     value,
   },
 });
+
+export const toggleSelectedCardAction = id => ({
+  type: types.AWARDS_CHANGES_TOGGLE_SELECTED,
+  payload: {
+    id,
+  },
+});
