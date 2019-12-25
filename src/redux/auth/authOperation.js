@@ -19,7 +19,6 @@ export const register = data => dispatch => {
       dispatch(authActions.successRegister(res.data));
     })
     .catch(error => {
-      // console.dir(error);
       dispatch(authActions.errorRegister(error.response.data.error));
     });
 };
@@ -32,7 +31,6 @@ export const login = data => dispatch => {
       dispatch(authActions.successLogin(res.data));
     })
     .catch(error => {
-      // console.dir(error);
       dispatch(authActions.errorLogin(error.response.data.error));
     });
 };
@@ -49,12 +47,12 @@ export const logout = () => dispatch => {
 };
 
 export const refresh = () => (dispatch, getState) => {
-  dispatch(authActions.startRefreshUser());
   const { token } = getState().auth;
-
   if (!token) {
     return;
   }
+
+  dispatch(authActions.startRefreshUser());
 
   setToken(token);
 

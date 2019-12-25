@@ -10,6 +10,7 @@ import { ReactComponent as IconGoogle } from '../../assets/icons/icon google/ico
 import 'react-toastify/dist/ReactToastify.css';
 import * as authSelectors from '../../redux/auth/authSelectors';
 import * as authActions from '../../redux/auth/authActions';
+import Loader from '../Loader/Loader';
 
 const validationRules = {
   email: 'required|email',
@@ -25,11 +26,16 @@ const validationMessages = {
 };
 
 class AuthForm extends Component {
+  static defaultProps = {
+    serverError: null,
+  };
+
   static propTypes = {
     onLogin: PropTypes.func.isRequired,
     onRegister: PropTypes.func.isRequired,
     cleanError: PropTypes.func.isRequired,
-    serverError: PropTypes.func.isRequired,
+    serverError: PropTypes.string,
+    serverIsLoading: PropTypes.bool.isRequired,
   };
 
   state = { email: '', password: '', error: null, typeSubmit: '' };
@@ -39,13 +45,53 @@ class AuthForm extends Component {
     passwordId: shortid.generate(),
   };
 
+  componentDidUpdate(prevProps) {
+    const { serverError, serverIsLoading } = this.props;
+
+    if (
+      prevProps.serverError !== serverError &&
+      !serverIsLoading &&
+      serverError
+    ) {
+      switch (serverError) {
+        case 'users was not saved':
+          toast.error(
+            'Користувач з такою электронную поштою вже зареєстрований!',
+            { position: toast.POSITION.TOP_CENTER },
+          );
+          break;
+
+        case 'User in not defined':
+          toast.error(
+            'Користувач з такою электронную поштою не зареєстрований!!',
+            {
+              position: toast.POSITION.TOP_CENTER,
+            },
+          );
+          break;
+
+        case 'Password is invalid':
+          toast.error('Введений пароль невірний!', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
+
   setTypeSubmit = type => this.setState({ typeSubmit: type });
 
   handleChange = e => {
-    const { cleanError, serverError } = this.props;
-    if (serverError) cleanError(null);
-
+    this.cleanErr();
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  cleanErr = () => {
+    const { cleanError, serverError } = this.props;
+    if (serverError) cleanError('');
   };
 
   handleSubmit = e => {
@@ -53,7 +99,8 @@ class AuthForm extends Component {
     const { typeSubmit, email, password } = this.state;
     const { onLogin, onRegister } = this.props;
 
-    // валидация
+    this.cleanErr();
+
     validateAll({ email, password }, validationRules, validationMessages)
       .then(() => {
         if (typeSubmit === 'register') {
@@ -69,8 +116,6 @@ class AuthForm extends Component {
       .catch(errors => {
         const formatedErrors = {};
         errors.forEach(error => {
-          // console.log('error', error);
-
           formatedErrors[error.field] = error.message;
         });
         this.setState({
@@ -81,36 +126,8 @@ class AuthForm extends Component {
 
   render() {
     const { email, password, error } = this.state;
-    const { serverError } = this.props;
-    if (serverError) {
-      switch (serverError) {
-        case 'users was not saved':
-          toast.error(
-            'Користувач з такою электронную поштою вже зареєстрований!',
-            { position: toast.POSITION.TOP_CENTER },
-          );
-          break;
+    const { serverIsLoading } = this.props;
 
-        case 'User in not defined':
-          toast.error(
-            'Користувач з такою электронную поштою не зареєстрований!!',
-            {
-              position: toast.POSITION.TOP_CENTER,
-              // autoClose: 900,
-            },
-          );
-          break;
-
-        case 'Password is invalid':
-          toast.error('Введений пароль невірний!', {
-            position: toast.POSITION.TOP_CENTER,
-          });
-          break;
-
-        default:
-          console.log('success');
-      }
-    }
     return (
       <>
         <div className={s.auth}>
@@ -142,7 +159,6 @@ class AuthForm extends Component {
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    // required
                     value={email}
                     onChange={this.handleChange}
                   />
@@ -157,10 +173,6 @@ class AuthForm extends Component {
                     type="password"
                     name="password"
                     placeholder="Enter your password"
-                    // required
-                    // minLength="6"
-                    // maxLength="12"
-                    // size="6"
                     value={password}
                     onChange={this.handleChange}
                   />
@@ -188,19 +200,21 @@ class AuthForm extends Component {
           </div>
         </div>
         <ToastContainer />
+        {serverIsLoading && <Loader />}
       </>
     );
   }
 }
 
+const mapStateToProps = store => ({
+  serverError: authSelectors.getServerError(store),
+  serverIsLoading: authSelectors.getServerIsLoading(store),
+});
+
 const mapDispatchToProps = dispatch => ({
   onRegister: data => dispatch(authOperation.register(data)),
   onLogin: data => dispatch(authOperation.login(data)),
   cleanError: data => dispatch(authActions.errorRegister(data)),
-});
-
-const mapStateToProps = store => ({
-  serverError: authSelectors.getServerError(store),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);
