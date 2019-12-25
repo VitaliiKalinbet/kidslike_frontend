@@ -5,8 +5,11 @@ import types from '../types';
 const loaderReducer = (state = false, action) => {
   switch (action.type) {
     case types.LOADER_START:
+    case types.START_CREATE_TASK:
       return true;
     case types.LOADER__STOP:
+    case types.SUCCESS_CREATE_TASK:
+    case types.ERROR_CREATE_TASK:
       return false;
 
     default:

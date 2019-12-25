@@ -1,26 +1,39 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
 import ContainerList from '../../components/CardsList';
 import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
-const AwardsPage = () => {
+const AwardsPage = ({ isOpen }) => {
   const awards = useSelector(state => state.awards.arrayAwards);
 
   return (
     <div className={style.wrapper_awards}>
-      <div className={style.present_items}>
-        <AwardsTitle />
-        <ProgressBar />
-      </div>
+      {isOpen && <ModalCongrats />}
       <div className={style.present_cards}>
-        {awards && <ContainerList arr={awards} />}
+        <div className={style.present_items}>
+          <AwardsTitle />
+          <ProgressBar />
+        </div>
+        <div className={style.card_list_wrapper}>
+          {awards && <ContainerList arr={awards} />}
+        </div>
+        <AwardsSubmitButton />
       </div>
-      <AwardsSubmitButton />
     </div>
   );
 };
 
-export default AwardsPage;
+AwardsPage.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  isOpen: state.global.isModalCongratsOpen,
+});
+
+export default connect(mapStateToProps)(AwardsPage);

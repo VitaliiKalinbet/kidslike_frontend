@@ -30,6 +30,9 @@ const tasks = (state = initialState, { type, payload }) => {
         weekPlanTaskPoints: totalWeekPlanPoints(payload.data.user.tasks),
       };
 
+    case types.SUCCESS_CREATE_TASK:
+      return payload.tasks;
+
     default:
       return state;
   }

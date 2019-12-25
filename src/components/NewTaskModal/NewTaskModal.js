@@ -6,8 +6,8 @@ import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
 import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.svg';
 import style from './NewTaskModal.module.css';
-import createTaskOperation from '../../redux/newTask/newTaskOperations';
 import { NewTaskModalClosed } from '../../redux/global/globalActions';
+import createTaskOperation from '../../redux/tasks/tasksOperations';
 
 const validationRules = {
   title: 'max:20|required',
@@ -17,7 +17,6 @@ const validationRules = {
 const validationMessages = {
   'title.required': "Це обов'язкове поле",
   'taskPoints.required': "Це обов'язкове поле",
-  // 'title.min': 'не менше 4 символів',npm
   'title.max': 'не більше 20 символів',
   'taskPoints.range': 'має бути від 1 до 9 балів',
 };
@@ -155,4 +154,5 @@ const mapDispatchProps = dispatch => ({
   onSave: data => dispatch(createTaskOperation(data)),
   closeModal: () => dispatch(NewTaskModalClosed()),
 });
+
 export default connect(null, mapDispatchProps)(NewTaskModal);
