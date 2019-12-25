@@ -1,58 +1,46 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-else-return */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
-import Card from '../Card';
-import s from './CardsList.module.css';
 
-let url;
+import CardsList from './CardsList';
 
-const CardsList = ({ tasks = [] }) => {
+const momentObj = moment();
+
+const ContainerList = ({ arr }) => {
   const { search, pathname } = useLocation();
 
-  const getCurrentTasks = taskArr => {
-    const urlDay = new URLSearchParams(search).get('day');
-    if (urlDay) {
-      url = moment()
-        .day(urlDay)
-        .weekday();
+  const currentCards = cardsArr => {
+    if (pathname === '/') {
+      let url;
+      const result = [];
+      const urlDay = new URLSearchParams(search).get('day');
 
-      console.log('yes');
+      if (urlDay) {
+        url = momentObj.day(urlDay).isoWeekday();
 
-      return taskArr.map(el => ({
-        id: el._id,
-        title: el.title,
-        taskPoints: el.taskPoints,
-        imgName: el.imgName,
-        isDone: el.days[url].isDone,
-      }));
-    } else {
-      console.log('no');
-      return taskArr;
+        cardsArr.forEach(el => {
+          const { _id, title, imgName, taskPoints } = el;
+          const day = el.days[url - 1];
+          const transit = { ...day, _id, title, imgName, taskPoints };
+
+          !day.isActive && result.push(transit);
+        });
+      }
+      return result;
     }
+    return cardsArr;
   };
 
-  useEffect(() => {}, [search, tasks]);
+  const cards = currentCards(arr);
 
-  const currentTasks = getCurrentTasks(tasks);
-
-  return (
-    currentTasks && (
-      <ul className={s.cards_list}>
-        {currentTasks.map(el => {
-          const { id, ...task } = el;
-          return (
-            <li key={id} className={s.card}>
-              <Card {...task} />
-            </li>
-          );
-        })}
-      </ul>
-    )
+  return cards.length ? (
+    <CardsList tasks={cards} />
+  ) : (
+    <h3>Where are tasks? </h3>
   );
 };
 
-export default CardsList;
+export default ContainerList;

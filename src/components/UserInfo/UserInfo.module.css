@@ -1,38 +1,43 @@
-@media (min-width: 320px) {
-  .box {
-    position: fixed;
-    background: white;
-    width: auto;
-    height: 64px;
-    padding: 0px 0px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-  }
-  .name {
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 600;
-    text-transform: none;
-    color: #858598;
-  }
-  .logo {
-    display: none;
-  }
-  .button {
-    width: 30px;
-    height: 30px;
-    display: block;
-  }
+.userinfobox {
+  margin-right: 15px;
+  background: white;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.userinfoname {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: none;
+  color: #858598;
+}
+.userinfologo {
+  display: none;
 }
 
+.userinfobutton {
+  text-decoration: none;
+  text-align: center;
+  padding: 40px, 60px;
+  border: none;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  background: #f5f7fa;
+  -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+  -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+  box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+}
 @media (min-width: 768px) {
-  .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+  .userinfologo {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 10px;
   }
-}
-
-@media (min-width: 1280px) {
 }

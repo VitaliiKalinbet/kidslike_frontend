@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
+import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -11,37 +13,49 @@ import TaskStatus from '../TaskStatus/TaskStatus';
 
 import s from './CardFooter.module.css';
 
-const today = moment().day();
-let url;
+const today = moment().isoWeekday();
+const momentObj = moment();
+// console.log('today :', today);
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+  const dispatch = useDispatch();
+  const { _id, title, taskPoints, days, isDone, isSelected } = taskInfo;
+  useEffect(() => {}, [search]);
 
-  // console.log('taskInfo :', taskInfo);
-  const { days, title, taskPoints } = taskInfo;
+  const handleChangeAwards = ({ target }) => {
+    const value = target.checked ? taskPoints : 0 - taskPoints;
+    dispatch(sumAwardsCardAction(value));
+    // console.log('target.id :', target.id);
+    // console.log('value :', value);
+  };
 
   const renderElement = () => {
+    let url;
+
     const urlDay = new URLSearchParams(search).get('day');
+
     if (urlDay) {
-      url = moment()
-        .day(urlDay)
-        .isoWeekday();
+      url = momentObj.day(urlDay).isoWeekday();
     }
+
     if (pathname === '/planning') {
-      return <SelectDays />;
+      return <SelectDays id={_id} days={days} />; // onChange && connect to store
     }
 
     if (pathname === '/awards') {
-      return <TaskToggle />;
+      return (
+        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
+      );
     }
     if (today === url) {
-      return <TaskToggle />;
+      return <TaskToggle mainValue={isDone} />;
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus />;
+      return <TaskStatus mainValue={isDone} />;
     }
   };
 

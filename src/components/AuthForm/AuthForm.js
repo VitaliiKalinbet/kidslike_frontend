@@ -53,7 +53,7 @@ class AuthForm extends Component {
             </p>
             <a
               className={s.auth__link__google}
-              href="http://localhost:8080/api/auth/google"
+              href="https://kidslike.herokuapp.com/api/auth/google"
             >
               <div className={s.auth__link__wrapper}>
                 <IconGoogle width="28" height="28" />
