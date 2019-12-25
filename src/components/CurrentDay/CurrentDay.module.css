@@ -20,15 +20,16 @@
 .wrapper {
   margin: 0 auto;
   letter-spacing: 0.16em;
+  margin-bottom: 30px;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 768px) {
   .wrapper {
-    /* width: 760px; */
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0;
+  }
+  .task {
+    margin-right: 5px;
   }
 }
 @media (min-width: 1280px) {
@@ -36,5 +37,7 @@
     width: 400px;
     justify-content: start;
     font-size: 12px;
+    padding: 20px 0;
+    margin: 0;
   }
 }

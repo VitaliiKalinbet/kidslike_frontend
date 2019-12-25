@@ -20,8 +20,7 @@ const momentObj = moment();
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
   const dispatch = useDispatch();
-  const { id, title, taskPoints, days } = taskInfo;
-
+  const { _id, title, taskPoints, days, isDone, isSelected } = taskInfo;
   useEffect(() => {}, [search]);
 
   const handleChangeAwards = ({ target }) => {
@@ -35,28 +34,28 @@ const CardFooter = ({ ...taskInfo }) => {
     let url;
 
     const urlDay = new URLSearchParams(search).get('day');
-    // console.log('urlDay :', urlDay);
 
     if (urlDay) {
       url = momentObj.day(urlDay).isoWeekday();
     }
-    // console.log('url :', url);
 
     if (pathname === '/planning') {
-      return <SelectDays id={id} days={days} />;
+      return <SelectDays id={_id} days={days} />; // onChange && connect to store
     }
 
     if (pathname === '/awards') {
-      return <TaskToggle onChange={handleChangeAwards} id={id} />;
+      return (
+        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
+      );
     }
     if (today === url) {
-      return <TaskToggle />;
+      return <TaskToggle mainValue={isDone} />;
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus />;
+      return <TaskStatus mainValue={isDone} />;
     }
   };
 
