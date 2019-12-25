@@ -12,11 +12,9 @@ export const removeAwardsCardAction = id => ({
   },
 });
 
-const sumAwardsCardAction = points => ({
+export const sumAwardsCardAction = value => ({
   type: types.SUM_AWARDS_SELECTED,
   payload: {
-    points,
+    value,
   },
 });
-
-export default sumAwardsCardAction;

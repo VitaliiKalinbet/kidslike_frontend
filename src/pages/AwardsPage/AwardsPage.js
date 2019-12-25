@@ -3,13 +3,14 @@ import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './AwardsPage.module.css';
 import AwardsTitle from '../../components/AwardsTitle/AwardsTitle';
-import CardsList from '../../components/CardsList';
+import ContainerList from '../../components/CardsList';
 import AwardsSubmitButton from '../../components/AwardsSubmitButton/AwardsSubmitButton';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 
 const AwardsPage = ({ isOpen }) => {
   const awards = useSelector(state => state.awards.arrayAwards);
+
   return (
     <div className={style.wrapper_awards}>
       {isOpen && <ModalCongrats />}
@@ -19,7 +20,7 @@ const AwardsPage = ({ isOpen }) => {
           <ProgressBar />
         </div>
         <div className={style.card_list_wrapper}>
-          <CardsList tasks={awards} />
+          {awards && <ContainerList arr={awards} />}
         </div>
         <AwardsSubmitButton />
       </div>

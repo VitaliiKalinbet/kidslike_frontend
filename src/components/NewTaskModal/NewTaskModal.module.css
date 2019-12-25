@@ -24,12 +24,12 @@
 
 .taskForm {
   background-color: #ffbc33;
-  height: 150px;
+  height: 190px;
   position: relative;
 }
 
 .form {
-  padding-bottom: 25px;
+  /* padding-bottom: 25px; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -42,20 +42,44 @@
   /* appearance: none; */
   border: none;
   border-bottom: 1px solid #fff;
-  margin-top: 25px;
+  margin-top: 20px;
   text-align: center;
   width: 224px;
   font-style: italic;
+  margin-bottom: 30px;
 }
+
 ::placeholder {
   color: #ffffff;
 }
 
+.taskPoints {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: transparent;
+  appearance: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+
+  text-align: center;
+  width: 224px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
 .taskIconEdit {
   position: absolute;
-  top: 20px;
-  left: 29px;
-  /* color: #ffffff; */
+  top: 15px;
+  left: 20px;
+
+  filter: invert(1);
+}
+
+.gradeIconEdit {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+
   filter: invert(1);
 }
 
@@ -68,8 +92,9 @@
   text-align: center;
   margin: 0 auto;
   display: block;
-  margin-top: 25px;
+  margin-top: 10px;
   font-weight: 500;
+  margin-bottom: 15px;
 }
 
 .overlay {
@@ -78,9 +103,45 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #c8c8c8;
+  background-color: rgba(44, 44, 44, 0.719);
   display: flex;
   justify-content: center;
   align-content: center;
-  z-index: 999;
+  z-index: 2;
+}
+
+/* ============== */
+.pointError {
+  top: 15px;
+  display: block;
+  color: #ef6537;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -1rem;
+  font-size: 8px;
+  margin-left: 30px;
+}
+
+.titleError {
+  display: block;
+  color: #ef6537;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -1rem;
+  font-size: 8px;
+  margin-left: 30px;
+
+  top: 35px;
+}
+
+.form label .error::first-letter {
+  text-transform: uppercase;
+}
+
+.textSection {
+  position: relative;
+}
+
+.pointsSection {
+  position: relative;
 }

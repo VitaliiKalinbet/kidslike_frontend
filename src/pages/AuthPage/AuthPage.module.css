@@ -13,8 +13,8 @@
 .auth__bck {
   background: linear-gradient(
       to right,
-      rgba(240, 232, 213, 0.3),
-      rgba(240, 232, 213, 0.3)
+      rgba(240, 232, 213, 0),
+      rgba(240, 232, 213, 0)
     ),
     url('../../assets/images/auth_page/mobile/auth-bck.png') no-repeat;
   width: auto;
@@ -75,7 +75,7 @@
   @media (max-width: 1279px) {
     .bck__color > div:last-of-type {
       position: absolute;
-      bottom: -210px;
+      bottom: -50px;
     }
   }
 
