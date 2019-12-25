@@ -26,6 +26,12 @@ const user = (state = null, { type, payload }) => {
         points: payload.data.points,
       };
 
+    case types.SET_USER_NAME_TO_STORE:
+      return { ...state, name: payload.name };
+
+    case types.SET_USER_AVATAR_TO_STORE:
+      return { ...state, avatar: payload.avatar };
+
     default:
       return state;
   }
@@ -41,6 +47,9 @@ const token = (state = null, { type, payload }) => {
     case types.ERROR_LOGIN:
     case types.SUCCESS_LOGOUT:
       return null;
+
+    case types.SET_TOKEN_IN_STORE:
+      return payload.token;
 
     default:
       return state;

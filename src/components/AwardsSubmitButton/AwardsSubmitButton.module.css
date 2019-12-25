@@ -1,7 +1,6 @@
 .present_button {
   display: flex;
   justify-content: center;
-  padding-bottom: 50px;
 }
 
 .button {
@@ -19,7 +18,7 @@
 
 @media (min-width: 768px) {
   .present_button {
-    padding-bottom: 55px;
+    /* padding-bottom: 55px; */
   }
 }
 
