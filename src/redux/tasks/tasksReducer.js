@@ -31,19 +31,12 @@ const tasks = (state = initialState, { type, payload }) => {
         weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
       };
 
-    case types.CHANGE_CARD_STATUS: {
+    case types.SUCCESS_CHANGE_CARD_STATUS: {
       // console.log('payload.taskId', payload.taskId);
       // console.log('payload.day', payload.day);
       return {
         ...state,
-        items: state.items.map(el => {
-          if (el._id === payload.taskId) {
-            const days = [...el.days];
-            days[payload.day - 1].isDone = !days[payload.day - 1].isDone;
-            return { ...el, days };
-          }
-          return el;
-        }),
+        items: payload.items,
       };
     }
 
