@@ -6,10 +6,7 @@ import PropTypes from 'prop-types';
 import style from './ProgressBar.module.css';
 
 const ProgressBar = ({ userPoints, weekPoints }) => {
-  const points = { userPoints };
-  const pointsMax = { weekPoints };
-
-  const percent = (points / pointsMax) * 100;
+  const percent = parseFloat((userPoints / weekPoints) * 100);
 
   return (
     <>
@@ -19,7 +16,7 @@ const ProgressBar = ({ userPoints, weekPoints }) => {
           <p className={style.progressNumbers}>
             <span>{userPoints}</span>
           </p>
-          {<Progress percent={points} /> || <Progress percent={percent} />}
+          <Progress percent={percent} />
         </div>
       </div>
     </>
@@ -33,6 +30,7 @@ ProgressBar.propTypes = {
 
 const mapStateToProps = state => ({
   userPoints: state.auth.user.points,
+  weekPoints: state.tasks.weekPlanPoints,
 });
 
 export default connect(mapStateToProps, null)(ProgressBar);
