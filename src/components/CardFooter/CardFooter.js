@@ -16,17 +16,16 @@ const momentObj = moment();
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
-  const { _id, title, taskPoints, days, isDone, isSelected } = taskInfo;
+  const { _id, title, taskPoints, days, isDone, isSelected, date } = taskInfo;
 
   useEffect(() => {}, [search]);
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
-    console.log('target :', target);
   };
 
   const handleChangeTaskToday = ({ target }) => {
-    console.log('target.id :', target);
+    console.log('target.id :', target.id);
   };
 
   const renderElement = () => {
@@ -44,15 +43,17 @@ const CardFooter = ({ ...taskInfo }) => {
 
     if (pathname === '/awards') {
       return (
-        <TaskToggle
-          onChange={handleChangeAwards}
-          id={_id}
-          awardsValue={isSelected}
-        />
+        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
       );
     }
     if (today === url) {
-      return <TaskToggle onChange={handleChangeTaskToday} value={isDone} />;
+      return (
+        <TaskToggle
+          id={`${_id}_${date}`}
+          onChange={handleChangeTaskToday}
+          value={isDone}
+        />
+      );
     }
     if (url > today) {
       return null;
