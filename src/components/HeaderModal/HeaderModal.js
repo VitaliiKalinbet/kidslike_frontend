@@ -33,6 +33,7 @@ const HeaderModal = ({ isAuth, onClose }) => {
   const menuItemsRender = renderLinks.map(el => (
     <li key={el.path} className={styles.navigationItem}>
       <NavLink
+        onClick={onClose}
         exact
         className={styles.widgetListNav}
         activeStyle={{ color: 'black' }}
