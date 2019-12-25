@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import Member1 from '../assets/images/MembersImages/Member1.png';
 import Member2 from '../assets/images/MembersImages/Member2.png';
 import Member3 from '../assets/images/MembersImages/Member3.png';
@@ -9,8 +10,8 @@ import Member8 from '../assets/images/MembersImages/Member8.png';
 import Member9 from '../assets/images/MembersImages/Member9.png';
 import Member10 from '../assets/images/MembersImages/Member10.png';
 import Member11 from '../assets/images/MembersImages/Member11.png';
-import Member12 from '../assets/images/MembersImages/Member12.png';
-import Member13 from '../assets/images/MembersImages/Member13.png';
+import Member12 from '../assets/images/MembersImages/imageRobot.png';
+import Member13 from '../assets/images/MembersImages/imageRobot.png';
 import Member14 from '../assets/images/MembersImages/Member14.png';
 import Member15 from '../assets/images/MembersImages/Member15.png';
 import Member16 from '../assets/images/MembersImages/Member16.png';
@@ -54,7 +55,7 @@ const contactsInfoArr = [
     name: 'Artem Rybachuk',
     position: 'Front-End Developer',
     description: 'CardsList and all childrens',
-    contacts: 'artem.rybachuk@gmail.com CardsList and all childrens.',
+    contacts: 'artem.rybachuk@gmail.com',
     id: 5,
   },
   {
@@ -117,8 +118,8 @@ const contactsInfoArr = [
     avatar: Member13,
     name: 'Nataliia Korneiko',
     position: 'Front-End Developer',
-    description: '',
-    contacts: '',
+    description: 'User authorization development',
+    contacts: 'korneyko_ns@ukr.net',
     id: 13,
   },
   {
@@ -149,7 +150,7 @@ const contactsInfoArr = [
   {
     avatar: Member17,
     name: 'Olga Korolenko',
-    position: 'Front-End Developer',
+    position: 'Project Manager',
     description: 'Product backlog, Sprint planning, Daily meetings',
     contacts: 'o.korolenko2013@gmail.com',
     id: 17,
