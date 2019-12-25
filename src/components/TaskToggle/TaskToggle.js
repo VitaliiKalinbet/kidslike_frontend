@@ -5,6 +5,8 @@ import { ReactComponent as CheckSymbol } from '../../assets/icons/card/check-sym
 import { ReactComponent as Attention } from '../../assets/icons/card/attention.svg';
 
 const TaskToggle = ({ id, onChange, value }) => {
+  console.log('onChange :', onChange);
+  console.log('value :', value);
   return (
     <label htmlFor={id} className={s.switch}>
       <input
