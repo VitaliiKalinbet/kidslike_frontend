@@ -15,6 +15,9 @@ const tasks = (state = null, { type, payload }) => {
     case types.SUCCESS_REFRESH_USER:
       return payload.data.tasks;
 
+    case types.TOGGLE_CARD:
+      return payload.data.tasks.isDone;
+
     default:
       return state;
   }
