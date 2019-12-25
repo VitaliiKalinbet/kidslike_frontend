@@ -13,8 +13,9 @@
 
 .modal {
   padding: 16px;
-  max-width: 480px;
-  width: 100%;
-  /* min-height: 320px; */
+  max-width: 90vh;
+  min-width: 320px;
+  width: 80vh;
+  min-height: 320px;
   background-color: #fff;
 }
