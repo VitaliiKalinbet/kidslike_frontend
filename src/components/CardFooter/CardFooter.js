@@ -8,6 +8,7 @@ import {
   sumAwardsCardAction,
   toggleSelectedCardAction,
 } from '../../redux/awards/awardsAction';
+import { changeTaskTodayAction } from '../../redux/tasks/tasksActions';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -22,16 +23,20 @@ const momentObj = moment();
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+  const { _id, title, taskPoints, days, isDone, isSelected, date } = taskInfo;
   const dispatch = useDispatch();
-  const { _id, title, taskPoints, days, isDone, isSelected } = taskInfo;
   useEffect(() => {}, [search]);
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
-    console.log(dispatch(sumAwardsCardAction(value)));
     console.log(dispatch(toggleSelectedCardAction(_id)));
     // console.log('target.id :', target.id);
     // console.log('value :', value);
+    dispatch(sumAwardsCardAction(value));
+  };
+
+  const handleChangeTaskToday = (e, taskId) => {
+    dispatch(changeTaskTodayAction(taskId, new Date(1577272964056).getDay()));
   };
 
   const renderElement = () => {
@@ -53,13 +58,20 @@ const CardFooter = ({ ...taskInfo }) => {
       );
     }
     if (today === url) {
-      return <TaskToggle mainValue={isDone} />;
+      return (
+        <TaskToggle
+          id={`${_id}_${date}`}
+          taskId={_id}
+          onChange={handleChangeTaskToday}
+          value={isDone}
+        />
+      );
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus mainValue={isDone} />;
+      return <TaskStatus value={isDone} />;
     }
   };
 

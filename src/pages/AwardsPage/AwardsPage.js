@@ -20,7 +20,7 @@ const AwardsPage = ({ isOpen, modalOpen, onClose }) => {
   // };
   return (
     <div className={style.wrapper_awards}>
-      {isOpen && <ModalCongrats onClose={onClose} />}
+      {isOpen && <ModalCongrats onClose={onClose} awards={awards} />}
       <div className={style.present_cards}>
         <div className={style.present_items}>
           <AwardsTitle />

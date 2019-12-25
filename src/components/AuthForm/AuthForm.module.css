@@ -3,6 +3,7 @@
   padding-top: 35px;
   padding-bottom: 55px;
   width: 280px;
+  background-color: var(--bg-color-white);
 }
 
 .auth__wrapper {
@@ -56,10 +57,17 @@
 }
 
 .auth__label {
+  position: relative;
+  display: block;
   color: var(--text-color-gray);
   font-size: 10px;
   line-height: 1.2;
   font-weight: 400;
+}
+
+.auth__label::before {
+  content: '* ';
+  color: #ef6537;
 }
 
 .auth__input {
@@ -84,6 +92,21 @@
   font-size: 13px;
   font-weight: 400;
   color: #a6abb9;
+}
+
+.error {
+  display: block;
+  color: #ef6537;
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  z-index: 1;
+  width: 100%;
+  font-weight: 500;
+}
+
+.error::first-letter {
+  text-transform: uppercase;
 }
 
 .auth__buttons {
