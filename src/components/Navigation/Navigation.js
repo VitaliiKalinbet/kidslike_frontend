@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
 import styles from './Navigation.module.css';
 
-const Navigation = ({ isAuth = true }) => {
+const Navigation = ({ isAuth }) => {
   const currentDay = moment().format('dddd');
   const menuItemsArr = [
     {
@@ -48,10 +49,11 @@ const Navigation = ({ isAuth = true }) => {
   );
 };
 Navigation.propTypes = {
-  isAuth: PropTypes.bool,
-};
-Navigation.defaultProps = {
-  isAuth: PropTypes.bool,
+  isAuth: PropTypes.bool.isRequired,
 };
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps)(Navigation);
