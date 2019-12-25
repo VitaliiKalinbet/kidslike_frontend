@@ -6,7 +6,7 @@ import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
 import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.svg';
 import style from './NewTaskModal.module.css';
-import createTaskOperation from '../../redux/newTask/newTaskOperations';
+import createTaskOperation from '../../redux/tasks/tasksOperations';
 
 const validationRules = {
   title: 'max:20|required',
@@ -49,6 +49,7 @@ class NewTaskModal extends Component {
     validateAll({ title, taskPoints }, validationRules, validationMessages)
       .then(data => {
         // this.props.onSave(data);
+        console.log('data :', data);
         this.props.onSave(data);
         this.setState({ title: '', taskPoints: '', error: null });
         const { onClose } = this.props;
@@ -153,4 +154,5 @@ class NewTaskModal extends Component {
 const mapDispatchProps = dispatch => ({
   onSave: data => dispatch(createTaskOperation(data)),
 });
+
 export default connect(null, mapDispatchProps)(NewTaskModal);

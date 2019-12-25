@@ -4,7 +4,7 @@ import {
   startCreateTaskAction,
   successCreateTaskAction,
   errorCreateTaskAction,
-} from './newTaskActions';
+} from './tasksActions';
 import { postTask } from '../../services/api';
 import 'react-toastify/dist/ReactToastify.css';
 import { getToken } from '../auth/authSelectors';
@@ -12,19 +12,19 @@ import { getToken } from '../auth/authSelectors';
 toast.configure();
 
 const createTaskOperation = task => (dispatch, getState) => {
-  dispatch(startCreateTaskAction());
   const token = getToken(getState());
 
   if (!token) return;
+  dispatch(startCreateTaskAction());
 
   postTask(task, token)
     .then(res => {
-      dispatch(successCreateTaskAction(res.data));
+      dispatch(successCreateTaskAction(res.data.tasks));
       toast.success('Завдання додано');
     })
-    .catch(err => {
-      toast.error();
-      return dispatch(errorCreateTaskAction(err));
+    .catch(() => {
+      toast.error('Завдання не додано помилка');
+      return dispatch(errorCreateTaskAction());
     });
 };
 
