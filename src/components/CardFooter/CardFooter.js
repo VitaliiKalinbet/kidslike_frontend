@@ -22,6 +22,11 @@ const CardFooter = ({ ...taskInfo }) => {
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
+    console.log('target :', target);
+  };
+
+  const handleChangeTaskToday = ({ target }) => {
+    console.log('target.id :', target);
   };
 
   const renderElement = () => {
@@ -39,17 +44,21 @@ const CardFooter = ({ ...taskInfo }) => {
 
     if (pathname === '/awards') {
       return (
-        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
+        <TaskToggle
+          onChange={handleChangeAwards}
+          id={_id}
+          awardsValue={isSelected}
+        />
       );
     }
     if (today === url) {
-      return <TaskToggle mainValue={isDone} />;
+      return <TaskToggle onChange={handleChangeTaskToday} value={isDone} />;
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus mainValue={isDone} />;
+      return <TaskStatus value={isDone} />;
     }
   };
 
