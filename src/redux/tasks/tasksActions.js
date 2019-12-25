@@ -12,3 +12,10 @@ export const successCreateTaskAction = data => ({
 export const errorCreateTaskAction = () => ({
   type: types.ERROR_CREATE_TASK,
 });
+
+export const taskPlanningChangeAction = value => ({
+  type: types.TASK_PLANNING_CHANGE,
+  payload: {
+    isActive: value,
+  },
+});
