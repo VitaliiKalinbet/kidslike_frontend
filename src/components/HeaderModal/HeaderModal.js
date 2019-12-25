@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
@@ -55,8 +56,8 @@ HeaderModal.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-HeaderModal.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
-};
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuth,
+});
 
-export default HeaderModal;
+export default connect(mapStateToProps)(HeaderModal);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
 import routes from '../../routes/routes';
@@ -51,4 +52,8 @@ Navigation.propTypes = {
   isAuth: PropTypes.bool.isRequired,
 };
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps)(Navigation);
