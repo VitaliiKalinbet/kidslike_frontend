@@ -20,10 +20,12 @@ const createTaskOperation = task => (dispatch, getState) => {
   postTask(task, token)
     .then(res => {
       dispatch(successCreateTaskAction(res.data.tasks));
-      toast.success('Завдання додано!');
+      toast.info('🦄 Завдання додано!', {
+        autoClose: 2000,
+      });
     })
     .catch(() => {
-      toast.error('Завдання не додано! Помилка!');
+      toast.error('🙈 Завдання не додано! Помилка!');
       return dispatch(errorCreateTaskAction());
     });
 };
