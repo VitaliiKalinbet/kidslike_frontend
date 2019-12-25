@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
-import { changeTaskTodayAction } from '../../redux/tasks/tasksActions';
+import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -30,7 +30,7 @@ const CardFooter = ({ ...taskInfo }) => {
   };
 
   const handleChangeTaskToday = (e, taskId) => {
-    dispatch(changeTaskTodayAction(taskId, new Date(1577272964056).getDay()));
+    dispatch(changeTaskTodayOperation(taskId));
   };
 
   const renderElement = () => {
