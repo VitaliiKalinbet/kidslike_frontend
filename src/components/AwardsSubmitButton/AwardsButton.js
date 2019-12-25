@@ -2,23 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './AwardsSubmitButton.module.css';
 
-const AwardsSubmitButton = ({ onClick, buttonText }) => {
+const AwardsButton = ({ onClick }) => {
   return (
     <div className={style.present_button}>
       <button onClick={onClick} className={style.button} type="submit">
-        {buttonText}
+        ОК
       </button>
     </div>
   );
 };
 
-AwardsSubmitButton.propTypes = {
+AwardsButton.propTypes = {
   onClick: PropTypes.func.isRequired,
-  buttonText: PropTypes.string,
 };
 
-AwardsSubmitButton.defaultProps = {
-  buttonText: 'OK',
-};
-
-export default AwardsSubmitButton;
+export default AwardsButton;

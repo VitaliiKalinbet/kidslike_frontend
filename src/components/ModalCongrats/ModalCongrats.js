@@ -59,7 +59,7 @@ const ModalCongrats = ({ onClose }) => {
             {/* <button className={styleModalLogout.point_amount_long}>
               <p className={styleModalLogout.point_amount_p}>Підтвердити!</p>
             </button> */}
-            <AwardsSubmitButton />
+            <AwardsSubmitButton buttonText="Підтвердити" onClick={onClose} />
           </div>
         </div>
       </ModalBackdrop>
