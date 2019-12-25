@@ -46,6 +46,7 @@ export const logout = () => dispatch => {
 export const refresh = () => (dispatch, getState) => {
   dispatch(authActions.startRefreshUser());
   const { token } = getState().auth;
+
   if (!token) {
     return;
   }

@@ -15,6 +15,9 @@ const tasks = (state = null, { type, payload }) => {
     case types.SUCCESS_REFRESH_USER:
       return payload.data.tasks;
 
+    case types.SUCCESS_CREATE_TASK:
+      return payload.tasks;
+
     default:
       return state;
   }

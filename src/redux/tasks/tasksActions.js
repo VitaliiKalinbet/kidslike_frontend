@@ -6,12 +6,9 @@ export const startCreateTaskAction = () => ({
 export const successCreateTaskAction = data => ({
   type: types.SUCCESS_CREATE_TASK,
   payload: {
-    task: data,
+    tasks: data,
   },
 });
-export const errorCreateTaskAction = err => ({
+export const errorCreateTaskAction = () => ({
   type: types.ERROR_CREATE_TASK,
-  payload: {
-    error: err,
-  },
 });
