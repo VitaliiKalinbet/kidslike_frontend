@@ -19,14 +19,9 @@
     url('../../assets/images/auth_page/mobile/auth-bck.png') no-repeat;
   width: auto;
   background-position: 0px 0px, bottom;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 90px;
-}
-
-@media (max-width: 767px) {
-  .bck__color > div:last-of-type {
-    display: none;
-  }
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {

@@ -6,7 +6,6 @@ import { refresh } from '../../redux/auth/authOperation';
 import styles from './AuthPage.module.css';
 import AuthForm from '../../components/AuthForm/AuthForm';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
-import Footer from '../../components/Footer/Footer';
 
 const AuthPage = props => {
   const { location, setToken } = props;
@@ -27,7 +26,6 @@ const AuthPage = props => {
             <AuthForm />
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );
