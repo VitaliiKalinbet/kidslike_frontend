@@ -1,7 +1,10 @@
 .userinfobox {
+  margin-right: 15px;
   background: white;
+  width: 150px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 .userinfoname {
   font-size: 12px;
@@ -9,7 +12,6 @@
   font-weight: 600;
   text-transform: none;
   color: #858598;
-  margin-right: 10px;
 }
 .userinfologo {
   display: none;
@@ -34,12 +36,12 @@
 @media (min-width: 768px) {
   .userinfologo {
     display: block;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 40px;
+    max-height: 40px;
     border-radius: 10px;
   }
 }
-
+/*
 .userinfobox {
   margin-right: 15px;
   background: white;
@@ -81,4 +83,4 @@
     max-height: 100px;
     border-radius: 10px;
   }
-}
+} */
