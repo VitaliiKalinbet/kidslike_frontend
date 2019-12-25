@@ -12,11 +12,11 @@ const PlanningPage = () => {
 
   return (
     <div className={styles.planningContainer}>
+      <CurrentWeekPlaning />
       <div className={styles.list}>
         {tasks && <ContainerList arr={tasks} />}
       </div>
       <div className={styles.pointsTaskContainer}>
-        <CurrentWeekPlaning />
         <AddCustomTask />
         <PlanningPoints />
       </div>

@@ -2,7 +2,7 @@
   margin: 0 auto;
   max-width: 100%;
   min-height: 100vh;
-  background-color: #fafafa;
+  background-color: var(--bg-color-gray);
 }
 
 .planningWrapper {
@@ -43,7 +43,7 @@
 }
 
 .list {
-  padding-top: 115px;
+  padding-top: 180px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -76,6 +76,7 @@
 
 .pointsTaskContainer {
   margin: 0 auto;
+  margin-bottom: 15px;
   position: relative;
   width: 100%;
   height: 60px;
@@ -102,8 +103,8 @@
 
   .list {
     margin: 0 auto;
-    width: 582px;
-    padding-top: 214px;
+    width: 600px;
+    padding-top: 280px;
     justify-content: space-between;
   }
 
