@@ -49,9 +49,6 @@ const types = {
   // -------Add name and photo to store-------
   SET_USER_NAME_TO_STORE: 'SET_USER_NAME_TO_STORE',
   SET_USER_AVATAR_TO_STORE: 'SET_USER_AVATAR_TO_STORE',
-
-  // ----- Count total week plan points -----
-  COUNT_WEEK_PLAN_POINTS: 'COUNT_WEEK_PLAN_POINTS',
 };
 
 export default types;
