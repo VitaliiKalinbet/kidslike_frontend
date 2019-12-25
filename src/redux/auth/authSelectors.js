@@ -1,3 +1,3 @@
 export const getIsAuth = store => store.auth.isAuth;
 
-export const w = () => {};
+export const getServerError = store => store.auth.error;
