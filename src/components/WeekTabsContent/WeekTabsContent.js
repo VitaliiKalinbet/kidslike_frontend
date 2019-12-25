@@ -17,7 +17,7 @@ const momentObj = moment();
 
 const WeekTabsContent = () => {
   const { search } = useLocation();
-  const tasks = useSelector(state => state.tasks);
+  const tasks = useSelector(state => state.tasks.items);
 
   const getWeekDay = () => {
     let url;
