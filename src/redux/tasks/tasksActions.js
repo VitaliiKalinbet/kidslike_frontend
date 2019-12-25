@@ -14,7 +14,7 @@ export const errorCreateTaskAction = () => ({
 });
 
 export const taskPlanningChangeAction = data => ({
-  type: types.TASK_PLANNING_CHANGE,
+  type: types.TASKS_PLANNING_CHANGE,
   payload: {
     data,
   },

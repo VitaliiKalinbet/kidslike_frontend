@@ -57,7 +57,7 @@ const CardFooter = ({ ...taskInfo }) => {
     if (pathname === '/planning') {
       return (
         <SelectDays id={_id} days={days} onChange={handleChangePlanningTask} />
-      ); // onChange && connect to store
+      );
     }
 
     if (pathname === '/awards') {

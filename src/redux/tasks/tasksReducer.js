@@ -41,7 +41,7 @@ const tasks = (state = initialState, { type, payload }) => {
       };
     }
 
-    case types.TASK_PLANNING_CHANGE:
+    case types.TASKS_PLANNING_CHANGE:
       return {
         ...state,
         items: setPlanningTask(state.items, payload),
