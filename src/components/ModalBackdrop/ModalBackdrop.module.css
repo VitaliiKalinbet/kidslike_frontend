@@ -15,6 +15,7 @@
   padding: 16px;
   max-width: 480px;
   width: 100%;
-  /* min-height: 320px; */
+
   background-color: #fff;
+  border-radius: 6px;
 }
