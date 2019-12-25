@@ -48,8 +48,6 @@ class NewTaskModal extends Component {
 
     validateAll({ title, taskPoints }, validationRules, validationMessages)
       .then(data => {
-        // this.props.onSave(data);
-        console.log('data :', data);
         this.props.onSave(data);
         this.setState({ title: '', taskPoints: '', error: null });
         const { onClose } = this.props;
