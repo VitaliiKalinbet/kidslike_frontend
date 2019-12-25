@@ -1,13 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CardBody from '../CardBody/CardBody';
 import catTop from '../../assets/images/Modal/catTransparent.png';
 import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
-import AwardsSubmitButton from '../AwardsSubmitButton/AwardsSubmitButton.module.css';
 import styleModalCongrats from './ModalCongrats.module.css';
-import { ModalCongratsClosed } from '../../redux/global/globalActions';
+import AwardsSubmitButton from '../AwardsSubmitButton/AwardsSubmitButton';
 
 const ModalCongrats = ({ onClose, awards }) => {
   // console.log(awards);
@@ -50,32 +48,20 @@ const ModalCongrats = ({ onClose, awards }) => {
           </p>
 
           <div className={styleModalCongrats.buttonContainer}>
-            <div className={AwardsSubmitButton.present_button}>
-              <button
-                className={AwardsSubmitButton.button}
-                type="submit"
-                onClick={onClose}
-              >
-                ОК
-              </button>
-            </div>
+            {/* <button className={styleModalLogout.point_amount_long}>
+              <p className={styleModalLogout.point_amount_p}>Підтвердити!</p>
+            </button> */}
+            <AwardsSubmitButton buttonText="Підтвердити" onClick={onClose} />
           </div>
         </div>
       </ModalBackdrop>
     </>
   );
 };
-const mapStateToProps = state => ({
-  awards: state.awards.arrayAwards,
-});
-
-const mapDispatchToProps = dispatch => ({
-  onClose: () => dispatch(ModalCongratsClosed()),
-});
 
 ModalCongrats.propTypes = {
   onClose: PropTypes.func.isRequired,
   awards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalCongrats);
+export default ModalCongrats;

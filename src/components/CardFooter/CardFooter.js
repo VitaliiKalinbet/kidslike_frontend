@@ -4,7 +4,10 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
+import {
+  sumAwardsCardAction,
+  toggleSelectedCardAction,
+} from '../../redux/awards/awardsAction';
 import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -26,6 +29,9 @@ const CardFooter = ({ ...taskInfo }) => {
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
+    console.log(dispatch(toggleSelectedCardAction(_id)));
+    // console.log('target.id :', target.id);
+    // console.log('value :', value);
     dispatch(sumAwardsCardAction(value));
   };
 
