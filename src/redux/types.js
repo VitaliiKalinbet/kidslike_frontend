@@ -49,6 +49,9 @@ const types = {
   // -------Add name and photo to store-------
   SET_USER_NAME_TO_STORE: 'SET_USER_NAME_TO_STORE',
   SET_USER_AVATAR_TO_STORE: 'SET_USER_AVATAR_TO_STORE',
+
+  // --------Planning page----------------
+  TASK_PLANNING_CHANGE: 'TASK_PLANNING_CHANGE',
 };
 
 export default types;
