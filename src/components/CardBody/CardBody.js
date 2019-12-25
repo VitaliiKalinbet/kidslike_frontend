@@ -6,9 +6,9 @@ import s from './CardBody.module.css';
 
 const image = new ImageModule();
 
-const CardBody = ({ img, alt }) => (
+const CardBody = ({ img, alt, addClass = '' }) => (
   <img
-    className={s.CardBody}
+    className={`${s.CardBody} ${addClass}`}
     src={`${image.getImg(img)}`}
     alt={`${alt}`}
     width="280"

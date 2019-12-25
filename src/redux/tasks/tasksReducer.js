@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import types from '../types';
 import totalWeekPlanPoints from '../../utils/totalweekPlanPoints';
 
@@ -29,6 +30,19 @@ const tasks = (state = initialState, { type, payload }) => {
         items: payload.data.tasks,
         weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
       };
+
+    case types.CHANGE_CARD_STATUS: {
+      // console.log('payload.taskId', payload.taskId);
+      // console.log('payload.day', payload.day);
+      return state.map(el => {
+        if (el._id === payload.taskId) {
+          const days = [...el.days];
+          days[payload.day - 1].isDone = !days[payload.day - 1].isDone;
+          return { ...el, days };
+        }
+        return el;
+      });
+    }
 
     case types.SUCCESS_CREATE_TASK:
       return {
