@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import routes from '../routes/routes';
 import * as authOperations from '../redux/auth/authOperation';
 import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 import * as globalSelectors from '../redux/global/globalSelectors';
 import Loader from './Loader/Loader';
@@ -50,6 +51,7 @@ class App extends Component {
           />
           <Redirect to={routes.AUTH_PAGE.path} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     );
   }

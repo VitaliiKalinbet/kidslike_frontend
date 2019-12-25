@@ -17,7 +17,6 @@ class Header extends Component {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
     isModalLogoutOpen: PropTypes.bool.isRequired,
-    onLogout: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -30,7 +29,6 @@ class Header extends Component {
 
   render() {
     const { isModalOpen } = this.state;
-    const { onLogout } = this.props;
     const unixDate = Date.now();
     const currentDay = moment().format('dddd');
     const { isAuth } = this.props;
@@ -40,7 +38,7 @@ class Header extends Component {
       <>
         <CSSTransition
           in={isModalOpen}
-          timeout={1000}
+          timeout={2000}
           unmountOnExit
           classNames={slideTransition}
         >
@@ -68,9 +66,6 @@ class Header extends Component {
               </button>
             </div>
           </div>
-          <button type="button" onClick={onLogout}>
-            Вийти
-          </button>
         </header>
         {isModalLogoutOpen && <ModalLogout />}
       </>
