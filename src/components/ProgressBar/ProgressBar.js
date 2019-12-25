@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Progress } from 'react-sweet-progress';
-import 'react-sweet-progress/lib/style.css';
 import PropTypes from 'prop-types';
+import { Progress } from 'react-sweet-progress';
+import getWeekPlanPoints from '../../redux/tasks/taskSelector';
+import 'react-sweet-progress/lib/style.css';
 import style from './ProgressBar.module.css';
 
-const ProgressBar = ({ userPoints, weekPoints }) => {
-  const percent = parseFloat((userPoints / weekPoints) * 100);
+const ProgressBar = ({ userPoints, countPoints }) => {
+  const percent = parseFloat((userPoints / countPoints) * 100);
 
   return (
     <>
@@ -14,7 +15,9 @@ const ProgressBar = ({ userPoints, weekPoints }) => {
         <p className={style.progressText}>Набрано балiв: </p>
         <div className={style.progressBarDiv}>
           <p className={style.progressNumbers}>
-            <span>{userPoints}</span>
+            <span>
+              {userPoints} / {countPoints}
+            </span>
           </p>
           <Progress percent={percent} />
         </div>
@@ -25,12 +28,12 @@ const ProgressBar = ({ userPoints, weekPoints }) => {
 
 ProgressBar.propTypes = {
   userPoints: PropTypes.number.isRequired,
-  weekPoints: PropTypes.number.isRequired,
+  countPoints: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   userPoints: state.auth.user.points,
-  weekPoints: state.tasks.weekPlanPoints,
+  countPoints: getWeekPlanPoints(state),
 });
 
 export default connect(mapStateToProps, null)(ProgressBar);
