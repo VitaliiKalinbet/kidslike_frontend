@@ -51,6 +51,7 @@
     display: none;
   }
   .navControls {
-    max-width: 600px;
+    min-width: 700px;
+    place-content: flex-end;
   }
 }

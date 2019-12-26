@@ -6,6 +6,8 @@
   justify-content: space-around;
 }
 .userinfoname {
+  pointer-events: none;
+  overflow: hidden;
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
@@ -15,9 +17,11 @@
 }
 .userinfologo {
   display: none;
+  pointer-events: none;
 }
 
 .userinfobutton {
+  display: none;
   text-decoration: none;
   text-align: center;
   border: none;
@@ -39,9 +43,22 @@
   .userinfobox {
     min-width: 210px;
   }
+  .userData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .userinfobox {
-    min-width: 220px;
+    min-width: 250px;
+  }
+  .userinfobutton {
+    display: block;
+  }
+  .userData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
