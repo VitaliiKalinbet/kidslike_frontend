@@ -5,7 +5,7 @@ axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
-axios.defaults.baseURL = 'http://kidslike.herokuapp.com/api';
+axios.defaults.baseURL = 'https://kidslike.herokuapp.com/api';
 
 export const setToken = token => ({
   headers: {
@@ -32,7 +32,7 @@ export const taskUpdate = (id, task) => {
     `tasks/${id}`,
     task,
     setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI5MzZkM2M4MmU5MDAyNDQxNDEyZCIsImlhdCI6MTU3NzMwNjY3NiwiZXhwIjoxNTc3OTExNDc2fQ.xYHFRBJCFw3Dt_sRBSd6IQI9Bl53wKsJnZ2AJvzb6TM',
+      '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDFkNGFkZDQzZDkwMDAyNDEwZjhkNSIsImlhdCI6MTU3NzE3ODI4NSwiZXhwIjoxNTc3NzgzMDg1fQ.FPwXPM2ebc_AwSFwPIMUZ-_x-A3sffcnylQHYHfYVgM"',
     ),
   );
 };
