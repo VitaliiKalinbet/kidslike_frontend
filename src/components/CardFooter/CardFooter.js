@@ -30,14 +30,14 @@ const CardFooter = ({ ...taskInfo }) => {
 
   useEffect(() => {}, [search]);
 
-  const handleChangeAwards = throttle(3000, ({ target }) => {
+  const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
     dispatch(toggleSelectedCardAction(_id));
     // console.log('target.id :', target.id);
     // console.log('value :', value);
     // dispatch(sumAwardsCardAction(value));
     dispatch(sumAwardsCardAction(value));
-  });
+  };
 
   const withThrottle = fn =>
     throttle(10000, () => {
