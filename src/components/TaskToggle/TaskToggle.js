@@ -21,5 +21,4 @@ const TaskToggle = ({ id, taskId, onChange, mainValue, value }) => {
     </label>
   );
 };
-
 export default TaskToggle;
