@@ -8,7 +8,6 @@ import {
 } from './tasksActions';
 import { postTask, taskUpdate } from '../../services/api';
 import { fetchingTask } from '../../components/CardsList/CardsListModule';
-
 import 'react-toastify/dist/ReactToastify.css';
 import { getToken } from '../auth/authSelectors';
 import { getTasks } from './tasksSelector';
