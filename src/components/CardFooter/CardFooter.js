@@ -32,7 +32,7 @@ const CardFooter = ({ ...taskInfo }) => {
     console.log(dispatch(toggleSelectedCardAction(_id)));
     // console.log('target.id :', target.id);
     // console.log('value :', value);
-    dispatch(sumAwardsCardAction(value));
+    // dispatch(sumAwardsCardAction(value));
   };
 
   const handleChangeTaskToday = (e, taskId) => {

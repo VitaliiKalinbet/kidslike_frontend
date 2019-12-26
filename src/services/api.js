@@ -24,4 +24,5 @@ export const logoutUser = () => axios.get('/auth/logout');
 
 export const refreshUser = () => axios.get('/auth/current');
 
-// export conts submitButton =data =>
+export const submitPointsButton = (data, token) =>
+  axios.put('/users/points/userID', data, setToken(token));
