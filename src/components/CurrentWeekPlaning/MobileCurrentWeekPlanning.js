@@ -1,7 +1,7 @@
 import React from 'react';
 import * as moment from 'moment';
 import 'moment/locale/uk';
-import s from './CurrentWeekPlaning.module.css';
+import s from './MobileCurrentWeekPlanning.module.css';
 
 const CurrentWeekPlaning = () => {
   const startOfWeek = moment()

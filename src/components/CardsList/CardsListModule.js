@@ -17,8 +17,8 @@ export const setPlanningTask = (array, { data }) => {
   return result;
 };
 
-export const fetchingTask = (arr, id) => {
-  let putBody = { items: null };
-  arr.forEach(el => (el._id === id ? (putBody = { items: el }) : null));
+export const fetchingTask = (id, arr) => {
+  let putBody;
+  arr.forEach(el => (el._id === id ? (putBody = { days: el.days }) : null));
   return putBody;
 };
