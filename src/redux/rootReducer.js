@@ -12,11 +12,16 @@ const persistAuth = {
   whitelist: ['token'],
 };
 
+const persistAwards = {
+  key: 'awards',
+  storage,
+};
+
 const rootReducer = combineReducers({
   auth: persistReducer(persistAuth, authReducers),
   global: globalReducer,
   tasks: tasksReducer,
-  awards: awardsReducer,
+  awards: persistReducer(persistAwards, awardsReducer),
 });
 
 export default rootReducer;

@@ -6,10 +6,13 @@ const loaderReducer = (state = false, action) => {
   switch (action.type) {
     case types.LOADER_START:
     case types.START_CREATE_TASK:
+    case types.START_REMOVE_POINTS_USER:
       return true;
     case types.LOADER__STOP:
     case types.SUCCESS_CREATE_TASK:
     case types.ERROR_CREATE_TASK:
+    case types.SUCCESS_REMOVE_POINTS_USER:
+    case types.ERROR_REMOVE_POINTS_USER:
       return false;
 
     default:
