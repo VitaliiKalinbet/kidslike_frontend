@@ -1,14 +1,14 @@
+.planningContainer {
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color-gray);
+}
+
 @media (min-width: 768px) {
   .customWrapper {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-  }
-
-  .planningContainer {
-    max-width: 100%;
-    min-height: 100vh;
-    background-color: var(--bg-color-gray);
   }
 
   .pointsTaskContainer {
@@ -66,11 +66,6 @@
     font-weight: 500;
     color: #fff;
   }
-
-  /* .list {
-    height: calc(100vh - 290px);
-    overflow: auto;
-  } */
 }
 
 @media (min-width: 1280px) {
@@ -79,7 +74,7 @@
     flex-direction: inherit;
     justify-content: space-between;
     width: 1186px;
-    padding-bottom: 40px;
+    padding-bottom: 0;
   }
 
   .secondTaskContainer {
@@ -90,8 +85,8 @@
   }
 
   .list {
-    /* height: calc(10vh - 270px);
-    overflow: auto; */
-    padding-bottom: 42px;
+    padding-top: 40px;
+    height: calc(100vh - 290px);
+    overflow: auto;
   }
 }
