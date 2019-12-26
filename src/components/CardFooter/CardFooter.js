@@ -4,6 +4,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
+import { throttle } from 'throttle-debounce';
 import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
 import {
   sumAwardsCardAction,
@@ -62,7 +63,11 @@ const CardFooter = ({ ...taskInfo }) => {
 
     if (pathname === '/awards') {
       return (
-        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
+        <TaskToggle
+          onChange={throttle(3000, () => handleChangeAwards)}
+          id={_id}
+          value={isSelected}
+        />
       );
     }
     if (today === url) {
@@ -70,7 +75,7 @@ const CardFooter = ({ ...taskInfo }) => {
         <TaskToggle
           id={`${_id}_${date}`}
           taskId={_id}
-          onChange={handleChangeTaskToday}
+          onChange={throttle(3000, () => handleChangeTaskToday)}
           value={isDone}
         />
       );
