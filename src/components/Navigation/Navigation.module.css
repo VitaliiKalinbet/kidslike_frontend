@@ -13,7 +13,7 @@
     display: block;
     padding: 5px 5px;
     display: flex;
-    /* width: 420px; */
+    max-width: 420px;
     justify-content: space-between;
     list-style: none;
   }
