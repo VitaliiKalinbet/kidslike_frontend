@@ -39,14 +39,12 @@ const CardFooter = ({ ...taskInfo }) => {
     dispatch(sumAwardsCardAction(value));
   };
 
-  const withThrottle = fn =>
-    throttle(10000, () => {
-      fn();
-    });
-
   const handleChangeTaskToday = (e, taskId) => {
     dispatch(changeTaskTodayOperation(taskId));
   };
+  const throttled = throttle(1500, (e, taskId) => {
+    handleChangeTaskToday(e, taskId);
+  });
 
   const handleChangePlanningTask = ({ target }) => {
     dispatch(taskPlanningChangeAction(target.id));
@@ -71,11 +69,7 @@ const CardFooter = ({ ...taskInfo }) => {
 
     if (pathname === '/awards') {
       return (
-        <TaskToggle
-          onChange={() => withThrottle(console.log('Hello'))}
-          id={_id}
-          value={isSelected}
-        />
+        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
       );
     }
     if (today === url) {
@@ -83,7 +77,7 @@ const CardFooter = ({ ...taskInfo }) => {
         <TaskToggle
           id={`${_id}_${date}`}
           taskId={_id}
-          onChange={handleChangeTaskToday}
+          onChange={e => throttled(e, _id)}
           value={isDone}
         />
       );
