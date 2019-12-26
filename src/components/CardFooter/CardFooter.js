@@ -6,10 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
-import {
-  sumAwardsCardAction,
-  toggleSelectedCardAction,
-} from '../../redux/awards/awardsAction';
+import { toggleSelectedCardAction } from '../../redux/awards/awardsAction';
 import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -39,7 +36,7 @@ const CardFooter = ({ ...taskInfo }) => {
     } else {
       dispatch(toggleSelectedCardAction(_id));
     }
-    dispatch(sumAwardsCardAction(value));
+    // dispatch(sumAwardsCardAction(value));
   };
 
   const handleChangeTaskToday = (e, taskId) => {
