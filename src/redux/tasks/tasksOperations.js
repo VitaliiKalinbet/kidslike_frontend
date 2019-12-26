@@ -39,3 +39,13 @@ export const changeTaskTodayOperation = taskId => (dispatch, getState) => {
   updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
   console.log('updateTaskDays', updateTaskDays);
 };
+
+export const changeTasksPlanningOperation = taskId => (dispatch, getState) => {
+  console.log('start');
+  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
+  console.log('taskInfo', taskInfo);
+  const updateTaskDays = [...taskInfo.days];
+  const dayIndex = new Date(1577272964056).getDay() - 1;
+  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
+  console.log('updateTaskDays', updateTaskDays);
+};
