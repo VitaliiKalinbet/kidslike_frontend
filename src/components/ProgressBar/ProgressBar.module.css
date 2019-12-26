@@ -1,24 +1,7 @@
 .Progress {
-  min-width: 142px;
+  width: 280px;
   padding: 10px 0;
-  /* display: flex; */
   justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .Progress {
-    min-width: 400px;
-    display: flex;
-    padding: 30px 0;
-  }
-}
-
-@media (min-width: 1280px) {
-  .Progress {
-    min-width: 380px;
-    display: block;
-    padding: 0;
-  }
 }
 
 .progressBarDiv {
@@ -39,6 +22,39 @@ span {
 }
 
 .progressNumbers {
-  width: 150px;
+  width: 64px;
   font-size: 14px;
+}
+@media (min-width: 768px) {
+  .Progress {
+    width: 470px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 30px 0;
+    margin: 0 auto;
+  }
+
+  .progressBarDiv {
+    width: 360px;
+  }
+
+  .progressNumbers {
+    width: 55px;
+  }
+
+  .progressNumbers {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Progress {
+    width: 350px;
+    display: block;
+    padding: 0;
+  }
+
+  .progressNumbers {
+    width: 150px;
+  }
 }
