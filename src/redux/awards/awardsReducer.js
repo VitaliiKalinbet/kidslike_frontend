@@ -18,7 +18,7 @@ const awardsReducer = (state = awards, { type, payload }) => {
 const awardsSelectedReducer = (state = 0, { type, payload }) => {
   switch (type) {
     case types.SUM_AWARDS_SELECTED:
-      return state.awards.totalPoints + payload.points;
+      return awards.totalPoints + payload.points;
 
     default:
       return state;
