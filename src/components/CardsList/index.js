@@ -26,7 +26,7 @@ const ContainerList = ({ arr }) => {
           const day = el.days[url - 1];
           const transit = { ...day, _id, title, imgName, taskPoints };
 
-          !day.isActive && result.push(transit);
+          day.isActive && result.push(transit);
         });
       }
       return result;
@@ -36,11 +36,7 @@ const ContainerList = ({ arr }) => {
 
   const cards = currentCards(arr);
 
-  return cards.length ? (
-    <CardsList tasks={cards} />
-  ) : (
-    <h3>Where are tasks? </h3>
-  );
+  return cards.length ? <CardsList tasks={cards} /> : <h3>Day of relax</h3>;
 };
 
 export default ContainerList;

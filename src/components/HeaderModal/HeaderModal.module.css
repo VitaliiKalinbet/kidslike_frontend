@@ -7,7 +7,7 @@
     right: 0;
     padding: 40px 10px;
     background: #eeb844;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
     border-radius: 6px;
     z-index: 1000;
   }
@@ -37,7 +37,7 @@
     letter-spacing: 1px;
     font-weight: 500;
     color: #fff;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
   }
   .close {
     border: none;
@@ -67,5 +67,17 @@
   }
   .close:after {
     transform: rotate(-45deg);
+  }
+  .exitButton {
+    background: none;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
   }
 }
