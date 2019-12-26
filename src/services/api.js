@@ -5,7 +5,7 @@ axios.defaults.headers.get['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 axios.defaults.headers.patch['Content-Type'] = 'application/json';
 
-axios.defaults.baseURL = 'http://kidslike.herokuapp.com/api';
+axios.defaults.baseURL = 'https://kidslike.herokuapp.com/api';
 
 export const setToken = token => ({
   headers: {

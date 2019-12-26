@@ -90,7 +90,8 @@
   }
 
   .list {
-    height: calc(100vh - 270px);
-    overflow: auto;
+    /* height: calc(10vh - 270px);
+    overflow: auto; */
+    padding-bottom: 42px;
   }
 }
