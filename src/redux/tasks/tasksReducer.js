@@ -1,4 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 import types from '../types';
+import { setPlanningTask } from '../../components/CardsList/CardsListModule';
 import totalWeekPlanPoints from '../../utils/totalweekPlanPoints';
 
 const initialState = {
@@ -28,6 +30,21 @@ const tasks = (state = initialState, { type, payload }) => {
       return {
         items: payload.data.tasks,
         weekPlanTaskPoints: totalWeekPlanPoints(payload.data.tasks),
+      };
+
+    case types.SUCCESS_CHANGE_CARD_STATUS: {
+      // console.log('payload.taskId', payload.taskId);
+      // console.log('payload.day', payload.day);
+      return {
+        ...state,
+        items: payload.items,
+      };
+    }
+
+    case types.TASKS_PLANNING_CHANGE:
+      return {
+        ...state,
+        items: setPlanningTask(state.items, payload),
       };
 
     case types.SUCCESS_CREATE_TASK:

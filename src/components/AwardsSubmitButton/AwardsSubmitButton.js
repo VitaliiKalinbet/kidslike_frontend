@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import style from './AwardsSubmitButton.module.css';
-import { ModalCongratsOpen } from '../../redux/global/globalActions';
 
-const AwardsSubmitButton = ({ isOpen }) => {
+const AwardsSubmitButton = ({ onClick, buttonText }) => {
   return (
     <div className={style.present_button}>
-      <button onClick={isOpen} className={style.button} type="submit">
-        ОК
+      <button onClick={onClick} className={style.button} type="submit">
+        {buttonText}
       </button>
     </div>
   );
 };
 
 AwardsSubmitButton.propTypes = {
-  isOpen: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  buttonText: PropTypes.string,
 };
 
-const mapDispatchToProps = dispatch => ({
-  isOpen: () => dispatch(ModalCongratsOpen()),
-});
+AwardsSubmitButton.defaultProps = {
+  buttonText: 'OK',
+};
 
-export default connect(null, mapDispatchToProps)(AwardsSubmitButton);
+export default AwardsSubmitButton;
