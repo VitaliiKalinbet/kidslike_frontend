@@ -32,7 +32,7 @@ export const taskUpdate = (id, task) => {
     `tasks/${id}`,
     task,
     setToken(
-      '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDFkNGFkZDQzZDkwMDAyNDEwZjhkNSIsImlhdCI6MTU3NzE3ODI4NSwiZXhwIjoxNTc3NzgzMDg1fQ.FPwXPM2ebc_AwSFwPIMUZ-_x-A3sffcnylQHYHfYVgM"',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDFkNGFkZDQzZDkwMDAyNDEwZjhkNSIsImlhdCI6MTU3NzM2NTQ2NiwiZXhwIjoxNTc3OTcwMjY2fQ.dfmH80kxKWCZ4ZAdoeZUzLxehiUqz1vc-junt7QCaCs',
     ),
   );
 };
