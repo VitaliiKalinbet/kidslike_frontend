@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  padding: 15px;
+  background-color: var(--bg-color-gray);
 }
+
 .footerText {
   font-size: 9px;
   line-height: 2.333;
@@ -17,7 +18,7 @@
   line-height: 2.333;
   color: rgba(133, 133, 152, 255);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {
@@ -26,8 +27,10 @@
     display: flex;
     margin: 0 auto;
   }
+
   .Logo_IMG {
   }
+
   .footerText {
     margin-left: 10px;
   }
@@ -41,6 +44,7 @@
     opacity: 0.3;
     margin: 0 10px;
   }
+
   .footerSpan::before {
     content: '';
     display: inline-block;
@@ -54,9 +58,12 @@
 
 @media (min-width: 1280px) {
   .footer {
+    margin-top: -50px;
     width: 360px;
     display: flex;
     margin-right: 0;
     justify-content: right;
+    position: absolute;
+    right: 0;
   }
 }

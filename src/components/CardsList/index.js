@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -11,34 +9,36 @@ import CardsList from './CardsList';
 const momentObj = moment();
 
 const ContainerList = ({ arr }) => {
-  const { pathname, search } = useLocation();
+  const { search, pathname } = useLocation();
 
   const currentCards = cardsArr => {
     if (pathname === '/') {
       let url;
-
+      const result = [];
       const urlDay = new URLSearchParams(search).get('day');
 
       if (urlDay) {
         url = momentObj.day(urlDay).isoWeekday();
-        const step1 = cardsArr.map(el => {
-          console.log('el :', el.days[url - 1]);
-          return {
-            ...el,
-            days: el.days.filter(elem => !elem.isActive),
-          };
+
+        cardsArr.forEach(el => {
+          const { _id, title, imgName, taskPoints } = el;
+          const day = el.days[url - 1];
+          const transit = { ...day, _id, title, imgName, taskPoints };
+
+          !day.isActive && result.push(transit);
         });
-        return transit.filter(el => el.days.length);
       }
+      return result;
     }
     return cardsArr;
   };
 
   const cards = currentCards(arr);
+
   return cards.length ? (
     <CardsList tasks={cards} />
   ) : (
-    <h3>Nothing to render</h3>
+    <h3>Where are tasks? </h3>
   );
 };
 

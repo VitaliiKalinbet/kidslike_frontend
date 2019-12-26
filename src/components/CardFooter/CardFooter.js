@@ -4,7 +4,11 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
+import {
+  sumAwardsCardAction,
+  toggleSelectedCardAction,
+} from '../../redux/awards/awardsAction';
+import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -15,20 +19,24 @@ import s from './CardFooter.module.css';
 
 const today = moment().isoWeekday();
 const momentObj = moment();
+// console.log('today :', today);
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+  const { _id, title, taskPoints, days, isDone, isSelected, date } = taskInfo;
   const dispatch = useDispatch();
-  const { id, title, taskPoints, days } = taskInfo;
-  const { isActive } = days;
-  // console.log('days :', days);
+  useEffect(() => {}, [search]);
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
-    // console.log('value :', value);
-    // dispatch(sumAwardsCardAction(value));
+    console.log(dispatch(toggleSelectedCardAction(_id)));
     // console.log('target.id :', target.id);
     // console.log('value :', value);
+    dispatch(sumAwardsCardAction(value));
+  };
+
+  const handleChangeTaskToday = (e, taskId) => {
+    dispatch(changeTaskTodayOperation(taskId));
   };
 
   const renderElement = () => {
@@ -41,20 +49,29 @@ const CardFooter = ({ ...taskInfo }) => {
     }
 
     if (pathname === '/planning') {
-      return <SelectDays id={id} days={days} />;
+      return <SelectDays id={_id} days={days} />; // onChange && connect to store
     }
 
     if (pathname === '/awards') {
-      return <TaskToggle onChange={handleChangeAwards} id={id} />;
+      return (
+        <TaskToggle onChange={handleChangeAwards} id={_id} value={isSelected} />
+      );
     }
     if (today === url) {
-      return <TaskToggle />;
+      return (
+        <TaskToggle
+          id={`${_id}_${date}`}
+          taskId={_id}
+          onChange={handleChangeTaskToday}
+          value={isDone}
+        />
+      );
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus active={days} id={id} />;
+      return <TaskStatus value={isDone} />;
     }
   };
 
