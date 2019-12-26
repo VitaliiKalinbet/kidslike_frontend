@@ -7,7 +7,7 @@ import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
 import styleModalCongrats from './ModalCongrats.module.css';
 import AwardsSubmitButton from '../AwardsSubmitButton/AwardsSubmitButton';
 
-const ModalCongrats = ({ onClose, awards }) => {
+const ModalCongrats = ({ onClose, awards, userPoints }) => {
   // console.log(awards);
   const filteredAwards = awards.filter(award => award.isSelected);
   const result = filteredAwards.reduce((acc, el) => acc + el.taskPoints, 0);
@@ -51,7 +51,7 @@ const ModalCongrats = ({ onClose, awards }) => {
             {/* <button className={styleModalLogout.point_amount_long}>
               <p className={styleModalLogout.point_amount_p}>Підтвердити!</p>
             </button> */}
-            <AwardsSubmitButton buttonText="Підтвердити" onClick={onClose} />
+            <AwardsSubmitButton buttonText="Підтвердити" onClick={userPoints} />
           </div>
         </div>
       </ModalBackdrop>
@@ -61,6 +61,7 @@ const ModalCongrats = ({ onClose, awards }) => {
 
 ModalCongrats.propTypes = {
   onClose: PropTypes.func.isRequired,
+  userPoints: PropTypes.func.isRequired,
   awards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
