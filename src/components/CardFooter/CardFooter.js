@@ -5,6 +5,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
+import { throttle } from 'throttle-debounce';
 import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
 import {
   sumAwardsCardAction,
@@ -21,7 +22,6 @@ import s from './CardFooter.module.css';
 
 const today = moment().isoWeekday();
 const momentObj = moment();
-// console.log('today :', today);
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
@@ -45,6 +45,9 @@ const CardFooter = ({ ...taskInfo }) => {
   const handleChangeTaskToday = (e, taskId) => {
     dispatch(changeTaskTodayOperation(taskId));
   };
+  const throttled = throttle(1500, (e, taskId) => {
+    handleChangeTaskToday(e, taskId);
+  });
 
   const handleChangePlanningTask = ({ target }) => {
     dispatch(taskPlanningChangeAction(target.id));
@@ -77,7 +80,7 @@ const CardFooter = ({ ...taskInfo }) => {
         <TaskToggle
           id={`${_id}_${date}`}
           taskId={_id}
-          onChange={handleChangeTaskToday}
+          onChange={e => throttled(e, _id)}
           value={isDone}
         />
       );
