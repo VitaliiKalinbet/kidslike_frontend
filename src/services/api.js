@@ -24,6 +24,9 @@ export const logoutUser = () => axios.get('/auth/logout');
 
 export const refreshUser = () => axios.get('/auth/current');
 
+export const submitPointsButton = (data, token) =>
+  axios.put('/users/points/userID', data, setToken(token));
+
 export const taskUpdate = (id, task) => {
   axios.put(
     `tasks/${id}`,
@@ -33,5 +36,3 @@ export const taskUpdate = (id, task) => {
     ),
   );
 };
-
-// export conts submitButton =data =>

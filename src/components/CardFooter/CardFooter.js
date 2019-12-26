@@ -32,7 +32,10 @@ const CardFooter = ({ ...taskInfo }) => {
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
-    dispatch(sumAwardsCardAction(value));
+    dispatch(toggleSelectedCardAction(_id));
+    // console.log('target.id :', target.id);
+    // console.log('value :', value);
+    // dispatch(sumAwardsCardAction(value));
     dispatch(sumAwardsCardAction(value));
   };
 
