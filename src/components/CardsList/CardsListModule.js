@@ -20,6 +20,5 @@ export const setPlanningTask = (array, { data }) => {
 export const fetchingTask = (id, arr) => {
   let putBody;
   arr.forEach(el => (el._id === id ? (putBody = { days: el.days }) : null));
-  console.log('putBody :', putBody);
   return putBody;
 };

@@ -21,7 +21,6 @@ import s from './CardFooter.module.css';
 
 const today = moment().isoWeekday();
 const momentObj = moment();
-// console.log('today :', today);
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();

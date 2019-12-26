@@ -27,12 +27,6 @@ export const refreshUser = () => axios.get('/auth/current');
 export const submitPointsButton = (data, token) =>
   axios.put('/users/points/userID', data, setToken(token));
 
-export const taskUpdate = (id, task) => {
-  axios.put(
-    `tasks/${id}`,
-    task,
-    setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDFkNGFkZDQzZDkwMDAyNDEwZjhkNSIsImlhdCI6MTU3NzM2NTQ2NiwiZXhwIjoxNTc3OTcwMjY2fQ.dfmH80kxKWCZ4ZAdoeZUzLxehiUqz1vc-junt7QCaCs',
-    ),
-  );
+export const taskUpdate = (id, task, token) => {
+  axios.put(`tasks/${id}`, task, setToken(token));
 };
