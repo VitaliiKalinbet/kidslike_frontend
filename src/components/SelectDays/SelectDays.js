@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { changeTasksPlanningOperation } from '../../redux/tasks/tasksOperations';
-// import { taskUpdate } from '../../services/api';
-// import { fetchingTask } from '../CardsList/CardsListModule';
+import { taskUpdate } from '../../services/api';
+import { fetchingTask } from '../CardsList/CardsListModule';
 import DaysList from '../DaysList/DaysList';
 import s from './SelectDays.module.css';
 import { ReactComponent as AddPlusButton } from '../../assets/icons/card/add-plus-button.svg';
 
 const SelectDays = props => {
   const [showDayList, setShowDayList] = useState(false);
-  // const items = useSelector(store => store.tasks.items);
+  const items = useSelector(store => store.tasks.items);
   const { id } = props;
 
   const toggleDayList = () => {
@@ -20,6 +20,12 @@ const SelectDays = props => {
   const onHandleClick = taskId => {
     toggleDayList();
     console.log('id :', taskId);
+    console.log('items :', items);
+
+    const result = fetchingTask(id, items);
+    console.log('result :', result);
+
+    taskUpdate(taskId, result);
 
     // const taskInfo = items.find(el => el._id === id);
     // const updateTaskDays = [...taskInfo.days];

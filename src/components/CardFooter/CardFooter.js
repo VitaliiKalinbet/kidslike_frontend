@@ -30,14 +30,19 @@ const CardFooter = ({ ...taskInfo }) => {
 
   useEffect(() => {}, [search]);
 
-  const handleChangeAwards = ({ target }) => {
+  const handleChangeAwards = throttle(3000, ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
     dispatch(toggleSelectedCardAction(_id));
     // console.log('target.id :', target.id);
     // console.log('value :', value);
     // dispatch(sumAwardsCardAction(value));
     dispatch(sumAwardsCardAction(value));
-  };
+  });
+
+  const withThrottle = fn =>
+    throttle(10000, () => {
+      fn();
+    });
 
   const handleChangeTaskToday = (e, taskId) => {
     dispatch(changeTaskTodayOperation(taskId));
@@ -67,7 +72,7 @@ const CardFooter = ({ ...taskInfo }) => {
     if (pathname === '/awards') {
       return (
         <TaskToggle
-          onChange={throttle(3000, () => handleChangeAwards)}
+          onChange={() => withThrottle(console.log('Hello'))}
           id={_id}
           value={isSelected}
         />
@@ -78,7 +83,7 @@ const CardFooter = ({ ...taskInfo }) => {
         <TaskToggle
           id={`${_id}_${date}`}
           taskId={_id}
-          onChange={throttle(3000, () => handleChangeTaskToday)}
+          onChange={handleChangeTaskToday}
           value={isDone}
         />
       );
