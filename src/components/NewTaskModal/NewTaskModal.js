@@ -7,7 +7,7 @@ import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
 import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.svg';
 import style from './NewTaskModal.module.css';
 import { NewTaskModalClosed } from '../../redux/global/globalActions';
-import createTaskOperation from '../../redux/tasks/tasksOperations';
+import { createTaskOperation } from '../../redux/tasks/tasksOperations';
 
 const validationRules = {
   title: 'max:20|required',
