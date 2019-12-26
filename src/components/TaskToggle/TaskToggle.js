@@ -4,7 +4,7 @@ import s from './TaskToggle.module.css';
 import { ReactComponent as CheckSymbol } from '../../assets/icons/card/check-symbol.svg';
 import { ReactComponent as Attention } from '../../assets/icons/card/attention.svg';
 
-const TaskToggle = ({ id, taskId, onChange, value }) => {
+const TaskToggle = ({ id, onChange, value }) => {
   return (
     <label htmlFor={id} className={s.switch}>
       <input
@@ -12,7 +12,7 @@ const TaskToggle = ({ id, taskId, onChange, value }) => {
         className={s.checkbox}
         type="checkbox"
         checked={value}
-        onChange={e => onChange(e, taskId)}
+        onChange={onChange}
       />
       <span className={`${s.slider} ${s.round}`}>
         <CheckSymbol className={s.check_symbol} width="12" height="12" />

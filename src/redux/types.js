@@ -59,6 +59,11 @@ const types = {
 
   // -------Change task's isDone status -------
   CHANGE_CARD_STATUS: 'CHANGE_CARD_STATUS',
+
+  // -------Points Remove -------
+  START_REMOVE_POINTS_USER: 'START_REMOVE_POINTS_USER',
+  SUCCESS_REMOVE_POINTS_USER: 'SUCCESS_REMOVE_POINTS_USER',
+  ERROR_REMOVE_POINTS_USER: 'ERROR_REMOVE_POINTS_USER',
 };
 
 export default types;

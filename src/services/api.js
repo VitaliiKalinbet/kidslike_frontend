@@ -24,15 +24,9 @@ export const logoutUser = () => axios.get('/auth/logout');
 
 export const refreshUser = () => axios.get('/auth/current');
 
-export const submitPointsButton = (data, token) =>
-  axios.put('/users/points/userID', data, setToken(token));
+export const submitPointsButton = (id, data, token) =>
+  axios.put(`/users/points/${id}`, data, setToken(token));
 
-export const taskUpdate = (id, task) => {
-  axios.put(
-    `tasks/${id}`,
-    task,
-    setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDI5MzZkM2M4MmU5MDAyNDQxNDEyZCIsImlhdCI6MTU3NzMwNjY3NiwiZXhwIjoxNTc3OTExNDc2fQ.xYHFRBJCFw3Dt_sRBSd6IQI9Bl53wKsJnZ2AJvzb6TM',
-    ),
-  );
+export const taskUpdate = (id, task, token) => {
+  axios.put(`tasks/${id}`, task, setToken(token));
 };
