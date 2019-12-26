@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -41,6 +40,7 @@ const AwardsPage = ({ isOpen, modalOpen, onClose, userPoints }) => {
 };
 
 AwardsPage.propTypes = {
+  userPoints: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   modalOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.bool.isRequired,
