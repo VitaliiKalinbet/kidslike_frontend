@@ -11,7 +11,7 @@ import Member9 from '../assets/images/MembersImages/Member9.png';
 import Member10 from '../assets/images/MembersImages/Member10.png';
 import Member11 from '../assets/images/MembersImages/Member11.png';
 import Member12 from '../assets/images/MembersImages/imageRobot.png';
-import Member13 from '../assets/images/MembersImages/imageRobot.png';
+import Member13 from '../assets/images/MembersImages/Member13.png';
 import Member14 from '../assets/images/MembersImages/Member14.png';
 import Member15 from '../assets/images/MembersImages/Member15.png';
 import Member16 from '../assets/images/MembersImages/Member16.png';
