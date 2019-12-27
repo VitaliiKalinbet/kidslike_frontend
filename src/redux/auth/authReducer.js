@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import types from '../types';
 
-const user = (state = null, { type, payload }) => {
+const user = (state = { points: 0 }, { type, payload }) => {
   switch (type) {
     case types.SUCCESS_REGISTER:
     case types.SUCCESS_LOGIN:
@@ -16,7 +16,7 @@ const user = (state = null, { type, payload }) => {
     case types.ERROR_LOGIN:
     case types.SUCCESS_LOGOUT:
     case types.ERROR_REFRESH_USER:
-      return null;
+      return { points: 0 };
 
     case types.SUCCESS_REFRESH_USER:
       return {
@@ -31,6 +31,9 @@ const user = (state = null, { type, payload }) => {
 
     case types.SET_USER_AVATAR_TO_STORE:
       return { ...state, avatar: payload.avatar };
+
+    case types.SUCCESS_REMOVE_POINTS_USER:
+      return { ...state, points: payload.newPoints };
 
     default:
       return state;

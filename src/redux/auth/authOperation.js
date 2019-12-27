@@ -18,18 +18,21 @@ export const register = data => dispatch => {
       setToken(res.data.token);
       dispatch(authActions.successRegister(res.data));
     })
-    .catch(error => dispatch(authActions.errorRegister(error)));
+    .catch(error => {
+      dispatch(authActions.errorRegister(error.response.data.error));
+    });
 };
 
 export const login = data => dispatch => {
   dispatch(authActions.startLogin());
-
   API.loginUser(data)
     .then(res => {
       setToken(res.data.token);
       dispatch(authActions.successLogin(res.data));
     })
-    .catch(error => dispatch(authActions.errorLogin(error)));
+    .catch(error => {
+      dispatch(authActions.errorLogin(error.response.data.error));
+    });
 };
 
 export const logout = () => dispatch => {
@@ -44,12 +47,12 @@ export const logout = () => dispatch => {
 };
 
 export const refresh = () => (dispatch, getState) => {
-  dispatch(authActions.startRefreshUser());
   const { token } = getState().auth;
-
   if (!token) {
     return;
   }
+
+  dispatch(authActions.startRefreshUser());
 
   setToken(token);
 

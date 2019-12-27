@@ -22,7 +22,7 @@
 }
 
 .card_list_wrapper {
-  height: calc(100vh - 250px);
+  max-height: calc(100vh - 250px);
   overflow: auto;
   margin-bottom: 15px;
 }
@@ -36,6 +36,6 @@
 
 @media (min-width: 1280px) {
   .present_items {
-    max-width: 1184px;
+    min-width: 1184px;
   }
 }

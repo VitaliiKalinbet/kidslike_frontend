@@ -2,7 +2,7 @@
   max-width: 100%;
   text-align: center;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 105px;
   padding-bottom: 50px;
   background-color: #ffffff;
 }
@@ -10,6 +10,7 @@
   display: flex;
   margin: 0 auto;
   flex-direction: column;
+  border-radius: 60px;
 }
 .contacts_main_tittle {
   font-family: 'Montserrat';
@@ -35,23 +36,21 @@
   text-align: left;
   list-style: none;
   margin-bottom: 40px;
-  border-radius: 20px;
 }
 
 .contacts_card:hover {
   transform: translateX(-8px);
-  border-color: #fff;
   background-color: #e7e7e7;
-  color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 8px 4px rgba(1, 20, 82, 0.7);
+  border-radius: 7px;
 }
 
 .contacts_img {
   margin-bottom: 20px;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
+  width: 100%;
+  border-radius: 7px;
 }
 .contacts_name {
   font-size: 11px;
@@ -63,26 +62,33 @@
   margin-left: 30px;
   font-weight: 600;
 }
-
 .contacts_possition {
+  padding-bottom: 0px;
+}
+.contacts_possition,
+.contacts_mail {
   font-size: 11px;
   font-family: 'Montserrat';
   font-style: normal;
   color: #858598;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   margin-left: 30px;
   font-weight: 400;
 }
 .contacts_possition_describe {
-  font-size: 11px;
+  font-size: 12px;
   font-family: 'Montserrat';
   font-style: normal;
   color: #000000;
   margin-left: 30px;
-  font-weight: 300;
-  padding-bottom: 15px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 @media (min-width: 768px) {
+  .contacts {
+    padding-top: 125px;
+  }
   .contacts_all_card {
     width: 600px;
     flex-direction: row;
@@ -96,6 +102,9 @@
   }
 }
 @media (min-width: 1280px) {
+  .contacts {
+    padding-top: 130px;
+  }
   .contacts_all_card {
     width: 1180px;
     flex-direction: row;

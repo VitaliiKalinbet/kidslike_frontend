@@ -10,14 +10,19 @@ const UserInfo = ({ isModalLogoutOpen, user }) => {
   return (
     <div>
       <div className={styles.userinfobox}>
-        <img
-          className={styles.userinfologo}
-          alt="userlogo"
-          src={user.avatar || defaultuserlogo}
-        />
-        <p className={styles.userinfoname}>
-          {user.name || defaultName.slice(0, defaultName.indexOf('.'))}
-        </p>
+        <div className={styles.userData}>
+          <img
+            className={styles.userinfologo}
+            alt="userlogo"
+            src={user.avatar || defaultuserlogo}
+          />
+          <p className={styles.userinfoname}>
+            {user.name ||
+              defaultName.slice(0, defaultName.indexOf('@')) ||
+              defaultName.slice(0, defaultName.indexOf(' ')) ||
+              defaultName.slice(0, defaultName.indexOf('_'))}
+          </p>
+        </div>
         <button
           onClick={isModalLogoutOpen}
           type="button"

@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from '../../pages/PlanningPage/Planning.module.css';
+import styles from './MobilePlanningPoints.module.css';
 import getWeekPlanPoints from '../../redux/tasks/taskSelector';
 
 const PlanningPoints = ({ countPoints }) => (
   <p className={styles.pointsText}>
-    <span className={styles.hiddenSpan}>Визначено завдань на</span>
     <span className={styles.pointsAmount}>{countPoints}</span>
     бали
   </p>

@@ -13,7 +13,7 @@ const Footer = () => {
         <div className={s.footerText}>
           Робимо життя батьків і дітей ізі &#9786;
         </div>
-        <p className={s.footerSpan}>2009</p>
+        <p className={s.footerSpan}>2019</p>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 // import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
@@ -5,13 +6,15 @@ import {
   successCreateTaskAction,
   errorCreateTaskAction,
 } from './tasksActions';
-import { postTask } from '../../services/api';
+import { postTask, taskUpdate } from '../../services/api';
+import { fetchingTask } from '../../components/CardsList/CardsListModule';
 import 'react-toastify/dist/ReactToastify.css';
 import { getToken } from '../auth/authSelectors';
+import { getTasks } from './tasksSelector';
 
 toast.configure();
 
-const createTaskOperation = task => (dispatch, getState) => {
+export const createTaskOperation = task => (dispatch, getState) => {
   const token = getToken(getState());
 
   if (!token) return;
@@ -30,4 +33,19 @@ const createTaskOperation = task => (dispatch, getState) => {
     });
 };
 
-export default createTaskOperation;
+export const changeTaskTodayOperation = taskId => (dispatch, getState) => {
+  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
+  console.log('taskInfo', taskInfo);
+  const updateTaskDays = [...taskInfo.days];
+  const dayIndex = new Date(1577272964056).getDay() - 1;
+  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
+  console.log('updateTaskDays', updateTaskDays);
+};
+
+export const changeTasksPlanningOperation = id => (dispatch, getState) => {
+  const token = getToken(getState());
+  const items = getTasks(getState());
+  const taskToUpdate = fetchingTask(id, items);
+
+  taskUpdate(id, taskToUpdate, token);
+};

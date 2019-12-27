@@ -1,39 +1,38 @@
 .userinfobox {
   background: white;
-  width: auto;
+  min-width: 160px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
 }
 .userinfoname {
-  font-size: 14px;
-  padding: 5px;
+  pointer-events: none;
+  overflow: hidden;
+  font-size: 12px;
   line-height: 16px;
   font-weight: 600;
-  text-transform: none;
+  font-style: italic;
+  text-transform: uppercase;
   color: #858598;
 }
 .userinfologo {
   display: none;
+  pointer-events: none;
 }
 
 .userinfobutton {
+  display: none;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  padding: 4px 12px;
-  border: solid 1px #ffffff;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
+  border: none;
   font-size: 12px;
-  font-weight: bold;
+  line-height: 16px;
+  font-weight: 600;
   color: #858598;
-  background: #eeb844;
-  -webkit-box-shadow: 0px 0px 2px #ffffff, inset 0px 0px 1px #ffffff;
-  -moz-box-shadow: 0px 0px 2px #ffffff, inset 0px 0px 1px #ffffff;
-  box-shadow: 0px 0px 2px #ffffff, inset 0px 0px 1px #ffffff;
+  background: none;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
@@ -42,5 +41,26 @@
     height: 40px;
     width: 40px;
     border-radius: 10px;
+  }
+  .userinfobox {
+    min-width: 210px;
+  }
+  .userData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
+  .userinfobox {
+    min-width: 250px;
+  }
+  .userinfobutton {
+    display: block;
+  }
+  .userData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

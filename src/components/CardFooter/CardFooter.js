@@ -1,10 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
-import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { sumAwardsCardAction } from '../../redux/awards/awardsAction';
+import { throttle } from 'throttle-debounce';
+import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
+import {
+  sumAwardsCardAction,
+  toggleSelectedCardAction,
+} from '../../redux/awards/awardsAction';
+import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
 import SelectDays from '../SelectDays/SelectDays';
@@ -15,19 +22,37 @@ import s from './CardFooter.module.css';
 
 const today = moment().isoWeekday();
 const momentObj = moment();
-// console.log('today :', today);
 
 const CardFooter = ({ ...taskInfo }) => {
   const { search, pathname } = useLocation();
+  const { _id, title, taskPoints, days, isDone, isSelected, date } = taskInfo;
   const dispatch = useDispatch();
-  const { _id, title, taskPoints, days, isDone, isSelected } = taskInfo;
   useEffect(() => {}, [search]);
+  const totalPoints = useSelector(state => state.awards.totalPoints);
+  const userPoints = useSelector(state => state.auth.user.points);
 
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
+
+    if (userPoints - totalPoints - value < 0) {
+      toast.error('Балів не достатньо');
+    } else {
+      dispatch(toggleSelectedCardAction(_id));
+    }
     dispatch(sumAwardsCardAction(value));
+  };
+
+  const handleChangeTaskToday = (e, taskId) => {
+    dispatch(changeTaskTodayOperation(taskId));
+  };
+  const throttled = throttle(1500, (e, taskId) => {
+    handleChangeTaskToday(e, taskId);
+  });
+
+  const handleChangePlanningTask = ({ target }) => {
+    dispatch(taskPlanningChangeAction(target.id));
     // console.log('target.id :', target.id);
-    // console.log('value :', value);
+    // console.log('target.checked :', target.checked);
   };
 
   const renderElement = () => {
@@ -40,7 +65,9 @@ const CardFooter = ({ ...taskInfo }) => {
     }
 
     if (pathname === '/planning') {
-      return <SelectDays id={_id} days={days} />; // onChange && connect to store
+      return (
+        <SelectDays id={_id} days={days} onChange={handleChangePlanningTask} />
+      );
     }
 
     if (pathname === '/awards') {
@@ -49,13 +76,20 @@ const CardFooter = ({ ...taskInfo }) => {
       );
     }
     if (today === url) {
-      return <TaskToggle mainValue={isDone} />;
+      return (
+        <TaskToggle
+          id={`${_id}_${date}`}
+          taskId={_id}
+          onChange={e => throttled(e, _id)}
+          value={isDone}
+        />
+      );
     }
     if (url > today) {
       return null;
     }
     if (url < today) {
-      return <TaskStatus mainValue={isDone} />;
+      return <TaskStatus value={isDone} />;
     }
   };
 
