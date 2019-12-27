@@ -8,13 +8,16 @@
   display: flex;
   font-size: 12px;
   line-height: 21px;
+  justify-content: center;
 }
 
 .progressText {
-  display: block;
+  display: flex;
+  margin: 0 auto;
   font-size: 12px;
   line-height: 21px;
   margin-right: 10px;
+  justify-content: center;
 }
 
 span {
@@ -29,12 +32,13 @@ span {
   .Progress {
     width: 470px;
     display: flex;
+    justify-content: center;
     padding: 30px 0;
-    margin: 0 auto;
   }
 
   .progressBarDiv {
-    width: 360px;
+    width: 100px;
+    justify-content: center;
   }
 
   .progressNumbers {
@@ -44,13 +48,17 @@ span {
 
 @media (min-width: 1280px) {
   .Progress {
-    width: 350px;
+    width: 250px;
     display: block;
     padding: 0;
-    margin: 0;
   }
 
   .progressNumbers {
     width: 150px;
+  }
+
+  .progressText {
+    display: flex;
+    justify-content: start;
   }
 }

@@ -41,7 +41,7 @@ export const logout = () => dispatch => {
   API.logoutUser()
     .then(() => {
       unsetToken();
-      dispatch(authActions.successLogout());
+      setTimeout(() => dispatch(authActions.successLogout()), 500);
     })
     .catch(error => dispatch(authActions.errorLogout(error)));
 };
