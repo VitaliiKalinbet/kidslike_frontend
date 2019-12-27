@@ -35,6 +35,7 @@ span {
 
   .progressBarDiv {
     width: 360px;
+    align-items: center;
   }
 
   .progressNumbers {

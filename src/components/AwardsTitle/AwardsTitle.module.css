@@ -5,13 +5,14 @@
 }
 
 .title {
-  width: 100px;
+  width: 50px;
   text-transform: uppercase;
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 12px;
   line-height: 21px;
-  margin-left: 30px;
+  /* add */
+  margin: 0px 30px;
 }
 
 .box {
@@ -19,6 +20,7 @@
   width: 25px;
   height: 25px;
   fill: var(--color-orange);
+  /* add */
   bottom: 2px;
 }
 
