@@ -40,19 +40,12 @@ const awardsReducer = (
       };
     }
 
+    case types.SUCCESS_REMOVE_POINTS_USER:
+      return { arrayAwards: awards, totalPoints: 0 };
+
     default:
       return state;
   }
 };
-
-// const awardsSelectedReducer = (state = 0, { type, payload }) => {
-//   switch (type) {
-//     case types.SUM_AWARDS_SELECTED:
-//       return state + payload.value;
-
-//     default:
-//       return state;
-//   }
-// };
 
 export default awardsReducer;
