@@ -6,11 +6,15 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { throttle } from 'throttle-debounce';
-import { taskPlanningChangeAction } from '../../redux/tasks/tasksActions';
+import {
+  taskPlanningChangeAction,
+  taskDoneChangeAction,
+} from '../../redux/tasks/tasksActions';
 import {
   sumAwardsCardAction,
   toggleSelectedCardAction,
 } from '../../redux/awards/awardsAction';
+import { submitAwardOperation } from '../../redux/awards/awardsOperation';
 import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -42,17 +46,19 @@ const CardFooter = ({ ...taskInfo }) => {
     dispatch(sumAwardsCardAction(value));
   };
 
-  const handleChangeTaskToday = (e, taskId) => {
-    dispatch(changeTaskTodayOperation(taskId));
+  const handleChangeTaskToday = id => {
+    dispatch(taskDoneChangeAction(id));
+    dispatch(changeTaskTodayOperation(_id));
+    dispatch(submitAwardOperation());
   };
-  const throttled = throttle(1500, (e, taskId) => {
-    handleChangeTaskToday(e, taskId);
+
+  const throttled = throttle(5000, id => {
+    handleChangeTaskToday(id);
   });
 
   const handleChangePlanningTask = ({ target }) => {
     dispatch(taskPlanningChangeAction(target.id));
-    // console.log('target.id :', target.id);
-    // console.log('target.checked :', target.checked);
+    dispatch(submitAwardOperation());
   };
 
   const renderElement = () => {
@@ -79,8 +85,7 @@ const CardFooter = ({ ...taskInfo }) => {
       return (
         <TaskToggle
           id={`${_id}_${date}`}
-          taskId={_id}
-          onChange={e => throttled(e, _id)}
+          onChange={() => throttled(`${_id}_${date}`)}
           value={isDone}
         />
       );
