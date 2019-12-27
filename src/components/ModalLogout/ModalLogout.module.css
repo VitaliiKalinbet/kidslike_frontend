@@ -55,3 +55,13 @@
   border-radius: 3px;
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .modalSize {
+    width: 280px;
+  }
+
+  .buttonContainer {
+    width: 280px;
+  }
+}
