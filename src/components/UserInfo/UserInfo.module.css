@@ -59,6 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 1rem;
   }
 }
 @media (min-width: 1280px) {
@@ -69,5 +70,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 3rem;
   }
 }

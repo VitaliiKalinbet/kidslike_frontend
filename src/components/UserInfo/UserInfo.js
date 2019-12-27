@@ -7,6 +7,7 @@ import defaultuserlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
 
 // eslint-disable-next-line consistent-return
 const changeUserName = name => {
+  // const name = oldName.length > 10 ? oldName.slice(0, 10) : oldName;
   if (name.indexOf('_') !== -1) {
     return name.slice(0, name.indexOf('_'));
   }
@@ -15,9 +16,6 @@ const changeUserName = name => {
   }
   if (name.indexOf(' ') !== -1) {
     return name.slice(0, name.indexOf(' '));
-  }
-  if (name.indexOf('.') !== 1) {
-    return name.slice(0, name.indexOf('.'));
   }
   if (name.indexOf('@') !== -1) {
     return name.slice(0, name.indexOf('@'));
