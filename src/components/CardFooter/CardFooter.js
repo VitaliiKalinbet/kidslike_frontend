@@ -43,7 +43,6 @@ const CardFooter = ({ ...taskInfo }) => {
     } else {
       dispatch(toggleSelectedCardAction(_id));
     }
-    // dispatch(sumAwardsCardAction(value));
   };
 
   const changeUserPoints = isDoneTask => {
