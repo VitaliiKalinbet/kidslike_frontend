@@ -22,6 +22,7 @@ const ContactsPage = () => {
             />
             <p className={styles.contacts_name}>{el.name}</p>
             <p className={styles.contacts_possition}>{el.position}</p>
+            <p className={styles.contacts_mail}>{el.contacts}</p>
             <p className={styles.contacts_possition_describe}>
               {el.description}
             </p>
