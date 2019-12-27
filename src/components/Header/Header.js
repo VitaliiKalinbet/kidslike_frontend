@@ -38,7 +38,7 @@ class Header extends Component {
       <>
         <CSSTransition
           in={isModalOpen}
-          timeout={2000}
+          timeout={1000}
           unmountOnExit
           classNames={slideTransition}
         >

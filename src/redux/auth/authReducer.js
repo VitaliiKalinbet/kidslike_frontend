@@ -32,6 +32,9 @@ const user = (state = { points: 0 }, { type, payload }) => {
     case types.SET_USER_AVATAR_TO_STORE:
       return { ...state, avatar: payload.avatar };
 
+    case types.SUCCESS_REMOVE_POINTS_USER:
+      return { ...state, points: payload.newPoints };
+
     default:
       return state;
   }

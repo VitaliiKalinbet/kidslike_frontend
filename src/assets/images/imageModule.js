@@ -23,7 +23,7 @@ export default class CurrentImg {
     if (keys.includes(name)) {
       return this[name];
     }
-    return this[robot];
+    return this.robot;
   };
 
   bed = bed;

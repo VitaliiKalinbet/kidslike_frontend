@@ -7,10 +7,11 @@
     right: 0;
     padding: 40px 10px;
     background: #eeb844;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
     border-radius: 6px;
     z-index: 1000;
   }
+
   .widgetTitle {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -19,10 +20,12 @@
     padding-left: 15px;
     margin-bottom: 10px;
   }
+
   .widgetList {
     padding: 0;
     list-style: none;
   }
+
   .navigationItem {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
@@ -37,8 +40,9 @@
     letter-spacing: 1px;
     font-weight: 500;
     color: #fff;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
   }
+
   .close {
     border: none;
     background: none;
@@ -49,9 +53,11 @@
     height: 20px;
     opacity: 0.5;
   }
+
   .close:hover {
     opacity: 1;
   }
+
   .close:before,
   .close:after {
     position: absolute;
@@ -62,10 +68,38 @@
     width: 2px;
     background-color: #333;
   }
+
   .close:before {
     transform: rotate(45deg);
   }
+
   .close:after {
     transform: rotate(-45deg);
   }
+
+  .exitButton {
+    background: none;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(44, 44, 44, 0.719);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 53;
 }
