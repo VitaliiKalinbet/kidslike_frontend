@@ -43,14 +43,14 @@ span {
   }
 
   .progressText {
-    width: 205px;
+    width: 165px;
     text-align: center;
   }
 }
 
 @media (min-width: 1280px) {
   .Progress {
-    width: 500px;
+    width: 510px;
     padding: 0;
     margin: 0;
   }

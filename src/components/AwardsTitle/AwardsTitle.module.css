@@ -11,7 +11,6 @@
   font-weight: bold;
   font-size: 12px;
   line-height: 21px;
-  /* add */
   margin: 0px 30px;
 }
 
@@ -20,7 +19,6 @@
   width: 25px;
   height: 25px;
   fill: var(--color-orange);
-  /* add */
   bottom: 2px;
 }
 
