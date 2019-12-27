@@ -10,11 +10,11 @@ import {
   taskPlanningChangeAction,
   taskDoneChangeAction,
 } from '../../redux/tasks/tasksActions';
+import { toggleSelectedCardAction } from '../../redux/awards/awardsAction';
 import {
-  sumAwardsCardAction,
-  toggleSelectedCardAction,
-} from '../../redux/awards/awardsAction';
-import { submitAwardOperation } from '../../redux/awards/awardsOperation';
+  submitAwardOperation,
+  changeUserPointsOperation,
+} from '../../redux/awards/awardsOperation';
 import { changeTaskTodayOperation } from '../../redux/tasks/tasksOperations';
 import PointAmount from '../PointAmount/PointAmount';
 import CardTitle from '../CardTitle/CardTitle';
@@ -43,13 +43,21 @@ const CardFooter = ({ ...taskInfo }) => {
     } else {
       dispatch(toggleSelectedCardAction(_id));
     }
-    dispatch(sumAwardsCardAction(value));
+    // dispatch(sumAwardsCardAction(value));
+  };
+
+  const changeUserPoints = isDoneTask => {
+    if (isDoneTask) {
+      dispatch(changeUserPointsOperation({ points: userPoints - taskPoints }));
+    } else {
+      dispatch(changeUserPointsOperation({ points: userPoints + taskPoints }));
+    }
   };
 
   const handleChangeTaskToday = id => {
     dispatch(taskDoneChangeAction(id));
     dispatch(changeTaskTodayOperation(_id));
-    dispatch(submitAwardOperation());
+    changeUserPoints(isDone);
   };
 
   const throttled = throttle(5000, id => {

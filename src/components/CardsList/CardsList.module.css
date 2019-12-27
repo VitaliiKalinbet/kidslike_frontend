@@ -1,6 +1,7 @@
 .cards_list {
   max-width: 280px;
-  margin: 0px auto 40px;
+  padding-bottom: 40px;
+  margin: 0 auto 0;
   list-style: none;
 }
 
@@ -37,6 +38,7 @@
 @media (min-width: 1280px) {
   .cards_list {
     max-width: 1186px;
+    justify-content: start;
   }
 
   .cards_list li:nth-last-child(-n + 4) {

@@ -1,7 +1,6 @@
 .weekDays {
   background-color: var(--color-orange);
   width: 25%;
-  height: 100vh;
   position: relative;
 }
 
