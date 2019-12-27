@@ -38,7 +38,9 @@ export const changeTaskTodayOperation = id => (dispatch, getState) => {
   const items = getTasks(getState());
   const taskToUpdate = fetchingTask(id, items);
 
-  taskUpdate(id, taskToUpdate, token);
+  if (token) {
+    taskUpdate(id, taskToUpdate, token);
+  }
 };
 
 export const changeTasksPlanningOperation = id => (dispatch, getState) => {

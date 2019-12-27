@@ -17,6 +17,9 @@ const changeUserName = name => {
   if (name.indexOf(' ') !== -1) {
     return name.slice(0, name.indexOf(' '));
   }
+  if (name.indexOf('.') !== -1) {
+    return name.slice(0, name.indexOf('.'));
+  }
   if (name.indexOf('@') !== -1) {
     return name.slice(0, name.indexOf('@'));
   }
