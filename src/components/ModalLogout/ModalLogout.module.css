@@ -56,6 +56,12 @@
   text-align: center;
 }
 
-.blink-1 {
-  animation: blink-1 0.6s linear backwards;
+@media (max-width: 767px) {
+  .modalSize {
+    width: 280px;
+  }
+
+  .buttonContainer {
+    width: 280px;
+  }
 }
