@@ -44,13 +44,21 @@ const tasks = (state = initialState, { type, payload }) => {
 
     case types.TASKS_PLANNING_CHANGE:
       return {
-        ...state,
         items: setPlanningTask(state.items, payload),
+        weekPlanTaskPoints: totalWeekPlanPoints(
+          setPlanningTask(state.items, payload),
+        ),
       };
 
     case types.SUCCESS_CREATE_TASK:
       return {
         items: payload.tasks,
+        weekPlanTaskPoints: totalWeekPlanPoints(payload.tasks),
+      };
+
+    case types.ADD_WEEK_PLAN_TASK_POINTS:
+      return {
+        items: [...payload.tasks],
         weekPlanTaskPoints: totalWeekPlanPoints(payload.tasks),
       };
 
