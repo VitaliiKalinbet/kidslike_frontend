@@ -34,3 +34,8 @@ export const taskPlanningStartRefreshAction = () => ({
 export const taskPlanningErrorRefreshAction = () => ({
   type: types.ERROR_REFRESH_TASKS_PLANNING,
 });
+
+export const setWeekPlanTaskPoints = tasks => ({
+  type: types.ADD_WEEK_PLAN_TASK_POINTS,
+  payload: { tasks },
+});
