@@ -12,14 +12,16 @@ const ProgressBar = ({ userPoints, countPoints }) => {
   return (
     <>
       <div className={style.Progress}>
-        <p className={style.progressText}>Набрано балiв: </p>
+        <p className={style.progressText}>
+          Балiв за весь перiод / Заплановано завдань на поточний тиждень
+        </p>
         <div className={style.progressBarDiv}>
           <p className={style.progressNumbers}>
             <span>
               {userPoints} / {countPoints}
             </span>
           </p>
-          <Progress percent={percent} />
+          <Progress percent={percent} width="100px" />
         </div>
       </div>
     </>
