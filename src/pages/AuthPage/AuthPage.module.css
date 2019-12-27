@@ -1,13 +1,14 @@
 .container {
-  min-width: 280px;
   margin: 0 auto;
+  width: 280px;
+  height: 100vh;
 }
 
 .auth__title {
   font-family: 'Montserrat';
   font-size: 18px;
   text-align: center;
-  padding: 0 22px 0 22px;
+  padding: 0 22px 22px;
 }
 
 .auth__bck {
@@ -20,8 +21,8 @@
   width: 100%;
   background-position: 0px 0px, bottom;
   padding-bottom: 90px;
-  background-size: 100% 13%;
-  background-color: #fafafa;
+  background-size: 100% 10%;
+  padding-top: 100px;
 }
 
 @media (min-width: 768px) {
@@ -39,10 +40,10 @@
 
   .auth__bck {
     background: url('../../assets/images/auth_page/tablet/Layer0.png') no-repeat;
-    background-color: #fafafa;
+    background-color: var(--bg-color-gray);
     background-position: bottom;
     padding-bottom: 250px;
-    background-size: 100% 28%;
+    background-size: 100% 24%;
   }
 
   .auth__reg {
@@ -64,11 +65,12 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
+    padding-top: 0px;
   }
 
   .bck__color {
-    background-color: #fafafa;
+    background-color: var(--bg-color-gray);
     min-height: 100vh;
   }
 

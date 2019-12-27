@@ -4,14 +4,16 @@
   margin: 0 auto;
   padding-top: 105px;
   padding-bottom: 50px;
-  background-color: #ffffff;
+  background-color: var(--bg-color-gray);
 }
+
 .contacts_all_card {
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   border-radius: 60px;
 }
+
 .contacts_main_tittle {
   font-family: 'Montserrat';
   font-style: normal;
@@ -20,6 +22,7 @@
   font-weight: 400;
   margin-bottom: 10px;
 }
+
 .contacts_second_tittle {
   font-family: 'Montserrat';
   font-style: normal;
@@ -28,6 +31,7 @@
   font-weight: 400;
   margin-bottom: 30px;
 }
+
 .contacts_card {
   width: 280px;
   text-align: center;
@@ -52,6 +56,7 @@
   width: 100%;
   border-radius: 7px;
 }
+
 .contacts_name {
   font-size: 11px;
   font-family: 'Montserrat';
@@ -62,9 +67,11 @@
   margin-left: 30px;
   font-weight: 600;
 }
+
 .contacts_possition {
   padding-bottom: 0px;
 }
+
 .contacts_possition,
 .contacts_mail {
   font-size: 11px;
@@ -75,6 +82,7 @@
   margin-left: 30px;
   font-weight: 400;
 }
+
 .contacts_possition_describe {
   font-size: 12px;
   font-family: 'Montserrat';
@@ -85,34 +93,42 @@
   margin-bottom: 15px;
   margin-top: 5px;
 }
+
 @media (min-width: 768px) {
   .contacts {
     padding-top: 125px;
   }
+
   .contacts_all_card {
     width: 600px;
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .contacts_main_tittle {
     font-size: 36px;
   }
+
   .contacts_second_tittle {
     font-size: 18px;
   }
 }
+
 @media (min-width: 1280px) {
   .contacts {
     padding-top: 130px;
   }
+
   .contacts_all_card {
     width: 1180px;
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .contacts_main_tittle {
     font-size: 36px;
   }
+
   .contacts_second_tittle {
     font-size: 18px;
   }
