@@ -15,6 +15,7 @@ import { submitAwardOperation } from '../../redux/awards/awardsOperation';
 
 const AwardsPage = ({ isOpen, modalOpen, onClose, userPoints }) => {
   const awards = useSelector(state => state.awards.arrayAwards);
+  const activeButton = useSelector(state => state.awards.totalPoints);
 
   return (
     <div className={style.wrapper_awards}>
@@ -33,7 +34,7 @@ const AwardsPage = ({ isOpen, modalOpen, onClose, userPoints }) => {
         <div className={style.card_list_wrapper}>
           {awards && <ContainerList arr={awards} />}
         </div>
-        <AwardsSubmitButton onClick={modalOpen} />
+        {activeButton > 0 && <AwardsSubmitButton onClick={modalOpen} />}
       </div>
     </div>
   );
@@ -43,7 +44,7 @@ AwardsPage.propTypes = {
   userPoints: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
   modalOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
