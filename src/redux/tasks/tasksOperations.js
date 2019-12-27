@@ -6,9 +6,11 @@ import {
   successCreateTaskAction,
   errorCreateTaskAction,
 } from './tasksActions';
-import { postTask } from '../../services/api';
+import { postTask, taskUpdate } from '../../services/api';
+import { fetchingTask } from '../../components/CardsList/CardsListModule';
 import 'react-toastify/dist/ReactToastify.css';
 import { getToken } from '../auth/authSelectors';
+import { getTasks } from './tasksSelector';
 
 toast.configure();
 
@@ -31,24 +33,18 @@ export const createTaskOperation = task => (dispatch, getState) => {
     });
 };
 
-export const changeTaskTodayOperation = taskId => (dispatch, getState) => {
-  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
-  // console.log('taskInfo', taskInfo);
-  const updateTaskDays = [...taskInfo.days];
-  const dayIndex = new Date().getDay() - 1;
-  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
-  // console.log('updateTaskDays', updateTaskDays);
-  // const a = new Date().getDay();
-  // console.log(a);
-  console.log('updateTaskDays[dayIndex]', updateTaskDays[dayIndex]);
+export const changeTaskTodayOperation = id => (dispatch, getState) => {
+  const token = getToken(getState());
+  const items = getTasks(getState());
+  const taskToUpdate = fetchingTask(id, items);
+
+  taskUpdate(id, taskToUpdate, token);
 };
 
-export const changeTasksPlanningOperation = taskId => (dispatch, getState) => {
-  console.log('start');
-  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
-  console.log('taskInfo', taskInfo);
-  const updateTaskDays = [...taskInfo.days];
-  const dayIndex = new Date(1577272964056).getDay() - 1;
-  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
-  console.log('updateTaskDays', updateTaskDays);
+export const changeTasksPlanningOperation = id => (dispatch, getState) => {
+  const token = getToken(getState());
+  const items = getTasks(getState());
+  const taskToUpdate = fetchingTask(id, items);
+
+  taskUpdate(id, taskToUpdate, token);
 };

@@ -25,3 +25,16 @@ export const toggleSelectedCardAction = id => ({
     id,
   },
 });
+
+export const startRemoveUserPointsAction = () => ({
+  type: types.START_REMOVE_POINTS_USER,
+});
+
+export const successRemoveUserPointsAction = newPoints => ({
+  type: types.SUCCESS_REMOVE_POINTS_USER,
+  payload: { newPoints },
+});
+
+export const errorRemoveUserPointsAction = () => ({
+  type: types.ERROR_REMOVE_POINTS_USER,
+});

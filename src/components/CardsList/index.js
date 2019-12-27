@@ -4,7 +4,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
-
 import CardsList from './CardsList';
 
 const momentObj = moment();

@@ -1,3 +1,3 @@
 export const getToken = store => store.auth.token;
 
-export const e = () => {};
+export const getTasks = store => store.tasks.items;
