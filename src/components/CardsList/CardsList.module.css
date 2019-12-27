@@ -83,10 +83,6 @@
     justify-content: start;
   }
 
-  .cards_list li:nth-last-child(-n + 4) {
-    margin-bottom: 0px;
-  }
-
   .cards_list_planer {
     background: url('../../assets/images/CardsList/planer.png') no-repeat;
     background-size: contain;
