@@ -41,7 +41,7 @@
     justify-content: start;
   }
 
-  .cards_list li:nth-last-child(-n + 4) {
+  /* .cards_list li:nth-last-child(-n + 4) {
     margin-bottom: 0px;
-  }
+  } */
 }
