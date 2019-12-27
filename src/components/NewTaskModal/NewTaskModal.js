@@ -2,7 +2,6 @@ import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { validateAll } from 'indicative/validator';
 import PropTypes from 'prop-types';
-
 import imageRobot from '../../assets/images/imageRobot.png';
 import { ReactComponent as Cancel } from '../../assets/icons/close/cancel.svg';
 import { ReactComponent as Edit } from '../../assets/icons/icon edit/edit-24px.svg';
@@ -10,7 +9,6 @@ import style from './NewTaskModal.module.css';
 import { NewTaskModalClosed } from '../../redux/global/globalActions';
 import { createTaskOperation } from '../../redux/tasks/tasksOperations';
 
-// =============
 const validationRules = {
   title: 'max:20|required',
   taskPoints: 'number|integer|range:1,9|required',
@@ -141,10 +139,7 @@ class NewTaskModal extends Component {
                   </span>
                 )}
               </label>
-              <button
-                className={`${style.blink} ${style.taskSubmitButton}`}
-                type="submit"
-              >
+              <button className={style.taskSubmitButton} type="submit">
                 Ок
               </button>
             </form>
