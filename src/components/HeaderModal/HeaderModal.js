@@ -49,20 +49,31 @@ const HeaderModal = ({ isAuth, onClose, isModalLogoutOpen }) => {
       </NavLink>
     </li>
   ));
-
+  const closeModalOverlay = e => {
+    if (e.currentTarget && e.target !== e.currentTarget) {
+      return;
+    }
+    onClose();
+  };
   return (
-    <div className={styles.widget}>
-      <button className={styles.close} onClick={onClose} type="button" />
-      <ul className={styles.widgetList}>{menuItemsRender}</ul>
-      {isAuth && (
-        <button
-          className={styles.exitButton}
-          type="button"
-          onClick={handleMenuClose}
-        >
-          Вийти
-        </button>
-      )}
+    <div
+      onClick={closeModalOverlay}
+      role="presentation"
+      className={styles.overlay}
+    >
+      <div className={styles.widget}>
+        <button className={styles.close} onClick={onClose} type="button" />
+        <ul className={styles.widgetList}>{menuItemsRender}</ul>
+        {isAuth && (
+          <button
+            className={styles.exitButton}
+            type="button"
+            onClick={handleMenuClose}
+          >
+            Вийти
+          </button>
+        )}
+      </div>
     </div>
   );
 };
