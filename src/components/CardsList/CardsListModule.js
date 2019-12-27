@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-return-assign */
+
 export const setPlanningTask = (array, { data }) => {
   const result = array.map(el => {
     const { _id: id } = el;

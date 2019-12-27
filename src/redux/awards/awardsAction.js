@@ -12,12 +12,12 @@ export const removeAwardsCardAction = id => ({
   },
 });
 
-export const sumAwardsCardAction = value => ({
-  type: types.SUM_AWARDS_SELECTED,
-  payload: {
-    value,
-  },
-});
+// export const sumAwardsCardAction = value => ({
+//   type: types.SUM_AWARDS_SELECTED,
+//   payload: {
+//     value,
+//   },
+// });
 
 export const toggleSelectedCardAction = id => ({
   type: types.AWARDS_CHANGES_TOGGLE_SELECTED,

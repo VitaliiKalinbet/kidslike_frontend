@@ -1,5 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import windowWidth from '../../utils/windowWidth';
 import styles from './Planning.module.css';
 import mobileStyles from './PlanningMobile.module.css';
@@ -10,9 +12,20 @@ import CurrentWeekPlaning from '../../components/CurrentWeekPlaning/CurrentWeekP
 import MobileCurrentWeekPlaning from '../../components/CurrentWeekPlaning/MobileCurrentWeekPlanning';
 import AddCustomTask from '../../components/PlanningPage/AddCustomTask';
 import MobileAddCustomTask from '../../components/PlanningPage/MobileAddCustomTask';
+import { changeTasksPlanningOperation } from '../../redux/tasks/tasksOperations';
 
 const PlanningPage = () => {
   const tasks = useSelector(state => state.tasks.items);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      tasks.forEach(({ _id }) => {
+        dispatch(changeTasksPlanningOperation(_id));
+      });
+    };
+  }, [history]);
 
   return (
     <div className={styles.planningContainer}>
