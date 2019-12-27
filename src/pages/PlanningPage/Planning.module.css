@@ -86,7 +86,7 @@
 
   .list {
     padding-top: 40px;
-    height: calc(100vh - 290px);
+    height: calc(100vh - 230px);
     overflow: auto;
   }
 }

@@ -1,6 +1,6 @@
 .cards_list {
   max-width: 280px;
-  margin: 0px auto 40px;
+  margin: 0 auto 40px;
   list-style: none;
 }
 
@@ -20,6 +20,8 @@
 @media (min-width: 768px) {
   .cards_list {
     max-width: 600px;
+    margin: 0 auto 0;
+    padding-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
