@@ -29,4 +29,18 @@ export const submitAwardOperation = () => (dispatch, getState) => {
     });
 };
 
-export const x = 2;
+export const changeUserPointsOperation = data => (dispatch, getState) => {
+  const token = getToken(getState());
+  const userId = getUserId(getState());
+  if (!token) return;
+  dispatch(startRemoveUserPointsAction());
+  submitPointsButton(userId, data, token)
+    .then(res => {
+      dispatch(successRemoveUserPointsAction(res.data.user.points));
+      dispatch(ModalCongratsClosed());
+    })
+    .catch(() => {
+      toast.error('🙈 Бали не списані. Спробуй ще раз!');
+      dispatch(errorRemoveUserPointsAction());
+    });
+};

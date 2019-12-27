@@ -41,9 +41,9 @@ const AwardsPage = ({ isOpen, modalOpen, onClose, userPoints }) => {
 };
 
 AwardsPage.propTypes = {
-  userPoints: PropTypes.number.isRequired,
+  userPoints: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  modalOpen: PropTypes.bool.isRequired,
+  modalOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
