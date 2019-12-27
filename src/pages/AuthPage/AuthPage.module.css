@@ -21,6 +21,7 @@
   background-position: 0px 0px, bottom;
   padding-bottom: 90px;
   background-size: 100% 13%;
+  background-color: #fafafa;
 }
 
 @media (min-width: 768px) {
