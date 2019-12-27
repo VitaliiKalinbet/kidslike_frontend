@@ -1,6 +1,6 @@
 .userinfobox {
   background: white;
-  min-width: 160px;
+  min-width: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,10 +15,14 @@
   font-style: italic;
   text-transform: uppercase;
   color: #858598;
+  padding-left: 6px;
+  padding-top: 2px;
+  padding-right: 6px;
 }
 .userinfologo {
   display: none;
   pointer-events: none;
+  /* padding-left: 2px; */
 }
 
 .userinfobutton {
@@ -34,6 +38,9 @@
   background: none;
   text-transform: uppercase;
 }
+.userinfobutton {
+  display: block;
+}
 
 @media (min-width: 768px) {
   .userinfologo {
@@ -43,7 +50,10 @@
     border-radius: 10px;
   }
   .userinfobox {
-    min-width: 210px;
+    min-width: auto;
+    padding-left: 6px;
+    /* padding-top: 2px; */
+    padding-right: 6px;
   }
   .userData {
     display: flex;
@@ -53,10 +63,7 @@
 }
 @media (min-width: 1280px) {
   .userinfobox {
-    min-width: 250px;
-  }
-  .userinfobutton {
-    display: block;
+    min-width: auto;
   }
   .userData {
     display: flex;
