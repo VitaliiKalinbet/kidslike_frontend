@@ -38,6 +38,7 @@
 @media (min-width: 1280px) {
   .cards_list {
     max-width: 1186px;
+    justify-content: start;
   }
 
   .cards_list li:nth-last-child(-n + 4) {
