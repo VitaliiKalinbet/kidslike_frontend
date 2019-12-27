@@ -1,9 +1,10 @@
 .userinfobox {
   background: white;
-  min-width: 160px;
+  min-width: auto;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  list-style: none;
 }
 .userinfoname {
   pointer-events: none;
@@ -14,15 +15,20 @@
   font-style: italic;
   text-transform: uppercase;
   color: #858598;
+  padding-left: 6px;
+  padding-top: 2px;
+  padding-right: 6px;
 }
 .userinfologo {
   display: none;
   pointer-events: none;
+  /* padding-left: 2px; */
 }
 
 .userinfobutton {
   display: none;
   text-decoration: none;
+  text-transform: uppercase;
   text-align: center;
   border: none;
   font-size: 12px;
@@ -32,33 +38,38 @@
   background: none;
   text-transform: uppercase;
 }
+.userinfobutton {
+  display: block;
+}
 
 @media (min-width: 768px) {
   .userinfologo {
-    display: block;
-    max-width: 40px;
-    max-height: 40px;
+    display: flex;
+    height: 40px;
+    width: 40px;
     border-radius: 10px;
   }
   .userinfobox {
-    min-width: 210px;
+    min-width: auto;
+    padding-left: 6px;
+    /* padding-top: 2px; */
+    padding-right: 6px;
   }
   .userData {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 1rem;
   }
 }
 @media (min-width: 1280px) {
   .userinfobox {
-    min-width: 250px;
-  }
-  .userinfobutton {
-    display: block;
+    min-width: auto;
   }
   .userData {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 3rem;
   }
 }
