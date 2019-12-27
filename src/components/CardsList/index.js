@@ -2,18 +2,19 @@
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import moment from 'moment';
+import styles from './CardsList.module.css';
 import CardsList from './CardsList';
 
 const momentObj = moment();
-
+const dayNow = momentObj.isoWeekday();
+let url;
 const ContainerList = ({ arr }) => {
   const { search, pathname } = useLocation();
 
   const currentCards = cardsArr => {
     if (pathname === '/') {
-      let url;
       const result = [];
       const urlDay = new URLSearchParams(search).get('day');
 
@@ -34,8 +35,22 @@ const ContainerList = ({ arr }) => {
   };
 
   const cards = currentCards(arr);
-
-  return cards.length ? <CardsList tasks={cards} /> : <h3>Day of relax</h3>;
+  return cards.length ? (
+    <CardsList tasks={cards} />
+  ) : (
+    <div className={styles.cards_list_planer}>
+      {dayNow <= url && (
+        <>
+          <h2 className={styles.no_tasks}>На сьогоднi завдань не має</h2>
+          <NavLink to="/planning">
+            <button type="button" className={styles.redirect_to_planer}>
+              Запланувати новi задачi
+            </button>
+          </NavLink>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default ContainerList;
