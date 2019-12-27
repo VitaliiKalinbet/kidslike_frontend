@@ -58,7 +58,6 @@ const CardFooter = ({ ...taskInfo }) => {
 
   const handleChangePlanningTask = ({ target }) => {
     dispatch(taskPlanningChangeAction(target.id));
-    dispatch(submitAwardOperation());
   };
 
   const renderElement = () => {
