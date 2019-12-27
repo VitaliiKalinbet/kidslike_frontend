@@ -1,7 +1,7 @@
 .Progress {
   width: 280px;
   padding: 10px 0;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .progressBarDiv {
@@ -25,6 +25,7 @@ span {
   width: 64px;
   font-size: 14px;
 }
+
 @media (min-width: 768px) {
   .Progress {
     width: 470px;
