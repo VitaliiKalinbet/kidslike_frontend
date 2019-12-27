@@ -1,5 +1,6 @@
 .weekDays {
   background-color: var(--bg-color-gray);
+  padding-top: 64px;
 }
 
 .weekDaysList {
@@ -9,8 +10,7 @@
   width: 272px;
   margin: 0 auto;
   font-weight: bold;
-  padding: 0 20px;
-  padding-top: 84px;
+  padding: 20px;
 }
 
 .weekDaysListLink {
