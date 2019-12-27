@@ -33,13 +33,12 @@ export const createTaskOperation = task => (dispatch, getState) => {
     });
 };
 
-export const changeTaskTodayOperation = taskId => (dispatch, getState) => {
-  const taskInfo = getState().tasks.items.find(el => el._id === taskId);
-  console.log('taskInfo', taskInfo);
-  const updateTaskDays = [...taskInfo.days];
-  const dayIndex = new Date(1577272964056).getDay() - 1;
-  updateTaskDays[dayIndex].isDone = !updateTaskDays[dayIndex].isDone;
-  console.log('updateTaskDays', updateTaskDays);
+export const changeTaskTodayOperation = id => (dispatch, getState) => {
+  const token = getToken(getState());
+  const items = getTasks(getState());
+  const taskToUpdate = fetchingTask(id, items);
+
+  taskUpdate(id, taskToUpdate, token);
 };
 
 export const changeTasksPlanningOperation = id => (dispatch, getState) => {

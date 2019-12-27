@@ -20,15 +20,15 @@ export const taskPlanningChangeAction = data => ({
   },
 });
 
-export const taskPlanningStartRefreshAction = () => ({
-  type: types.START_REFRESH_TASKS_PLANNING,
-});
-
-export const taskPlanningSuccessRefreshAction = data => ({
-  type: types.SUCCESS_REFRESH_TASKS_PLANNING,
+export const taskDoneChangeAction = data => ({
+  type: types.CHANGE_CARD_STATUS,
   payload: {
     data,
   },
+});
+
+export const taskPlanningStartRefreshAction = () => ({
+  type: types.START_REFRESH_TASKS_PLANNING,
 });
 
 export const taskPlanningErrorRefreshAction = () => ({
