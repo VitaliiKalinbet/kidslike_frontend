@@ -4,7 +4,7 @@ const awardsCards = [
   {
     title: 'Солодощі',
     imgName: 'sweets',
-    taskPoints: 40,
+    taskPoints: 15,
     _id: shortid.generate(),
     isSelected: false,
   },
