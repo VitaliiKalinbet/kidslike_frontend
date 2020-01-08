@@ -44,14 +44,14 @@
 @media (min-width: 1280px) {
   .present_items {
     min-width: 1184px;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 90px;
+    padding-bottom: 25px;
   }
 
   .card_list_wrapper {
     display: flex;
     justify-content: center;
-    min-height: calc(100vh - 450px);
+    min-height: calc(100vh - 300px);
     padding-top: 30px;
     margin-bottom: 15px;
   }
