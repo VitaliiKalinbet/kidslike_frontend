@@ -1,4 +1,6 @@
 .Progress {
+  display: flex;
+  justify-content: space-between;
   width: 280px;
   padding: 10px 0;
   margin: 0 auto;
@@ -12,6 +14,7 @@
 
 .progressText {
   display: block;
+  font-family: 'Montserrat';
   font-size: 12px;
   line-height: 21px;
   margin-right: 10px;
@@ -22,7 +25,7 @@ span {
 }
 
 .progressNumbers {
-  width: 64px;
+  width: 150px;
   font-size: 14px;
 }
 
@@ -30,28 +33,43 @@ span {
   .Progress {
     width: 470px;
     display: flex;
+    justify-content: center;
     padding: 30px 0;
     margin: 0 auto;
   }
 
   .progressBarDiv {
+    display: flex;
+    justify-content: space-between;
     width: 360px;
   }
 
   .progressNumbers {
-    width: 55px;
+    width: 250px;
+  }
+
+  .progressText {
+    width: 160px;
+    font-size: 12px;
+    line-height: 20px;
   }
 }
 
 @media (min-width: 1280px) {
   .Progress {
-    width: 350px;
+    width: 470px;
     display: block;
     padding: 0;
     margin: 0;
   }
 
+  .progressBarDiv {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
   .progressNumbers {
-    width: 150px;
+    width: 250px;
   }
 }

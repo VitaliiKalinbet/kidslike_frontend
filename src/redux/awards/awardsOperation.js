@@ -6,16 +6,15 @@ import {
   successRemoveUserPointsAction,
   errorRemoveUserPointsAction,
 } from './awardsAction';
-import { getUserId, getAwardsPoints, getUsersPoints } from './awardsSelector';
+import { getUserId, getUsersPoints } from './awardsSelector';
 import { ModalCongratsClosed } from '../global/globalActions';
 
 export const submitAwardOperation = () => (dispatch, getState) => {
   const token = getToken(getState());
   const userId = getUserId(getState());
-  const awardsPoints = getAwardsPoints(getState());
   const userPoints = getUsersPoints(getState());
-  const calcUserPoints = userPoints - awardsPoints;
-  const data = { points: calcUserPoints };
+
+  const data = { points: userPoints };
   if (!token) return;
   dispatch(startRemoveUserPointsAction());
   submitPointsButton(userId, data, token)

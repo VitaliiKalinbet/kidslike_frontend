@@ -14,6 +14,7 @@
 @media (min-width: 1280px) {
   .body {
     padding: 64px 70px 0 70px;
+    width: 1280px;
   }
   .div2 {
     display: flex;

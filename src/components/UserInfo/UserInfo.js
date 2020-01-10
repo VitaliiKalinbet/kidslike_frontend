@@ -5,7 +5,6 @@ import styles from './UserInfo.module.css';
 import { ModalLogoutOpen } from '../../redux/global/globalActions';
 import defaultuserlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
 
-// eslint-disable-next-line consistent-return
 const changeUserName = name => {
   // const name = oldName.length > 10 ? oldName.slice(0, 10) : oldName;
   if (name.indexOf('_') !== -1) {
@@ -23,8 +22,8 @@ const changeUserName = name => {
   if (name.indexOf('@') !== -1) {
     return name.slice(0, name.indexOf('@'));
   }
+  return name;
 };
-
 const UserInfo = ({ isModalLogoutOpen, user }) => {
   const defaultName = user.email;
   return (
