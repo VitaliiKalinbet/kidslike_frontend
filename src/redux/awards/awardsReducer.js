@@ -41,6 +41,8 @@ const awardsReducer = (
     }
 
     case types.SUCCESS_REMOVE_POINTS_USER:
+    case types.SUCCESS_REFRESH_USER:
+    case types.SUCCESS_LOGOUT:
       return { arrayAwards: awards, totalPoints: 0 };
 
     default:

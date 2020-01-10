@@ -19,10 +19,12 @@ export const removeAwardsCardAction = id => ({
 //   },
 // });
 
-export const toggleSelectedCardAction = id => ({
+export const toggleSelectedCardAction = (id, points, isSelected) => ({
   type: types.AWARDS_CHANGES_TOGGLE_SELECTED,
   payload: {
     id,
+    points,
+    isSelected,
   },
 });
 
