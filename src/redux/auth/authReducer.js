@@ -35,6 +35,13 @@ const user = (state = { points: 0 }, { type, payload }) => {
     case types.SUCCESS_REMOVE_POINTS_USER:
       return { ...state, points: payload.newPoints };
 
+    case types.AWARDS_CHANGES_TOGGLE_SELECTED:
+      return {
+        ...state,
+        points: payload.isSelected
+          ? state.points + payload.points
+          : state.points - payload.points,
+      };
     default:
       return state;
   }
@@ -82,16 +89,13 @@ const isLoading = (state = false, { type }) => {
   switch (type) {
     case types.START_REGISTER:
     case types.START_LOGIN:
-    case types.START_LOGOUT:
     case types.START_REFRESH_USER:
       return true;
 
     case types.SUCCESS_REGISTER:
     case types.SUCCESS_LOGIN:
-    case types.SUCCESS_LOGOUT:
     case types.ERROR_REGISTER:
     case types.ERROR_LOGIN:
-    case types.ERROR_LOGOUT:
     case types.SUCCESS_REFRESH_USER:
     case types.ERROR_REFRESH_USER:
       return false;
