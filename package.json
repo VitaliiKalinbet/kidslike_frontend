@@ -9,6 +9,7 @@
     "@types/react-transition-group": "^4.2.3",
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
+    "gh-pages": "^2.2.0",
     "indicative": "^7.4.2",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -34,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,5 +65,6 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "prop-types": "^15.7.2"
-  }
+  },
+  "homepage": "https://kidslike.goit.co.ua"
 }
