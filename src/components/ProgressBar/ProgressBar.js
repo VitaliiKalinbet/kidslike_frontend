@@ -7,7 +7,6 @@ import 'react-sweet-progress/lib/style.css';
 import style from './ProgressBar.module.css';
 
 const ProgressBar = ({ userPoints, countPoints }) => {
-  // const percent = parseFloat((userPoints / countPoints) * 100);
   let percent = 100;
   if (countPoints) {
     percent = parseFloat((userPoints / countPoints) * 100);
@@ -16,17 +15,23 @@ const ProgressBar = ({ userPoints, countPoints }) => {
     percent = 0;
   }
 
-  // const awardsPoints = useSelector(state => state.awards.totalPoints);
   return (
     <>
-      <div className={style.Progress}>
-        <p className={style.progressText}>Набрано балiв: </p>
-        <div className={style.progressBarDiv}>
-          <p className={style.progressNumbers}>
-            <span>
-              {userPoints} / {countPoints}
-            </span>
+      <div className={style.wrapper}>
+        <div className={style.info}>
+          <p className={style.progressText}>
+            Зароблено балів за весь період:
+            <span className={style.points}>{userPoints}</span>
           </p>
+          <p className={style.progressText}>
+            Заплановано балів на цей тиждень:
+            <span className={style.points}>{countPoints}</span>
+          </p>
+        </div>
+        <div className={style.progressLibrary_container}>
+          <span className={style.secondPoints}>
+            {userPoints}/{countPoints}
+          </span>
           <Progress percent={percent > 100 ? 100 : percent} />
         </div>
       </div>
