@@ -17,20 +17,21 @@ const ProgressBar = ({ userPoints, countPoints }) => {
 
   return (
     <>
-      <div className={style.Progress}>
-        <div className={style.progressBarDiv}>
-          <div className={style.progressNumbers}>
-            <p className={style.progressText}>
-              Балів за весь період: <span>{userPoints}</span>
-            </p>
-            <p className={style.progressText}>
-              Заплановано балів:
-              <span>{countPoints}</span>
-            </p>
-            {/* <span>
-              {userPoints} / {countPoints}
-            </span> */}
-          </div>
+      <div className={style.wrapper}>
+        <div className={style.info}>
+          <p className={style.progressText}>
+            Зароблено балів за весь період:
+            <span className={style.points}>{userPoints}</span>
+          </p>
+          <p className={style.progressText}>
+            Заплановано балів на цей тиждень:
+            <span className={style.points}>{countPoints}</span>
+          </p>
+        </div>
+        <div className={style.progressLibrary_container}>
+          <span className={style.secondPoints}>
+            {userPoints}/{countPoints}
+          </span>
           <Progress percent={percent > 100 ? 100 : percent} />
         </div>
       </div>

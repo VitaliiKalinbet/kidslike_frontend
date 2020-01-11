@@ -1,75 +1,46 @@
-.Progress {
+.wrapper {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   width: 280px;
   padding: 10px 0;
   margin: 0 auto;
 }
 
-.progressBarDiv {
-  display: flex;
-  font-size: 12px;
-  line-height: 21px;
+.info {
+  width: 100%;
 }
 
 .progressText {
-  display: block;
   font-family: 'Montserrat';
   font-size: 12px;
   line-height: 21px;
-  margin-right: 10px;
+  text-align: center;
 }
 
-span {
+.points {
   font-weight: bold;
+  margin-left: 5px;
 }
 
-.progressNumbers {
-  width: 150px;
-  font-size: 14px;
+.progressLibrary_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-@media (min-width: 768px) {
-  .Progress {
-    width: 470px;
-    display: flex;
-    justify-content: center;
-    padding: 30px 0;
-    margin: 0 auto;
-  }
+.progressLibrary_container > div {
+  width: 200px;
+}
 
-  .progressBarDiv {
-    display: flex;
-    justify-content: space-between;
-    width: 360px;
-  }
-
-  .progressNumbers {
-    width: 250px;
-  }
-
-  .progressText {
-    width: 160px;
-    font-size: 12px;
-    line-height: 20px;
-  }
+.secondPoints {
+  font-weight: bold;
+  margin-left: 31px;
 }
 
 @media (min-width: 1280px) {
-  .Progress {
-    width: 470px;
-    display: block;
-    padding: 0;
+  .wrapper {
     margin: 0;
-  }
-
-  .progressBarDiv {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
-
-  .progressNumbers {
-    width: 250px;
+    width: 280px;
   }
 }
