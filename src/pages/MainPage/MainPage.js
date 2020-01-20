@@ -39,8 +39,8 @@ import s from './MainPage.module.css';
 // }
 
 const setMainPath = () => {
-  const weekDay = moment().get('day');
-  const stringDay = days[weekDay - 1].url;
+  const weekDay = moment().get('day') + 6;
+  const stringDay = days[weekDay].url;
   return `?day=${stringDay}`;
 };
 

@@ -5,24 +5,12 @@ import styles from './UserInfo.module.css';
 import { ModalLogoutOpen } from '../../redux/global/globalActions';
 import defaultuserlogo from '../../assets/icons/userinfo/UserInfoLogo.jpg';
 
-// eslint-disable-next-line consistent-return
 const changeUserName = name => {
-  // const name = oldName.length > 10 ? oldName.slice(0, 10) : oldName;
-  if (name.indexOf('_') !== -1) {
-    return name.slice(0, name.indexOf('_'));
-  }
-  if (name.indexOf('_') !== -1) {
-    return name.slice(0, name.indexOf('_'));
-  }
-  if (name.indexOf(' ') !== -1) {
-    return name.slice(0, name.indexOf(' '));
-  }
-  if (name.indexOf('.') !== -1) {
-    return name.slice(0, name.indexOf('.'));
-  }
   if (name.indexOf('@') !== -1) {
+    name.slice(0, name.indexOf('@'));
     return name.slice(0, name.indexOf('@'));
   }
+  return name.length > 10 ? name.slice(0, 10) : name;
 };
 
 const UserInfo = ({ isModalLogoutOpen, user }) => {

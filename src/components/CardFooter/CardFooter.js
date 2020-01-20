@@ -38,12 +38,11 @@ const CardFooter = ({ ...taskInfo }) => {
   const handleChangeAwards = ({ target }) => {
     const value = target.checked ? taskPoints : 0 - taskPoints;
 
-    if (userPoints - totalPoints - value < 0) {
+    if (userPoints - value < 0) {
       toast.error('Балів не достатньо');
     } else {
-      dispatch(toggleSelectedCardAction(_id));
+      dispatch(toggleSelectedCardAction(_id, taskPoints, isSelected));
     }
-    // dispatch(sumAwardsCardAction(value));
   };
 
   const changeUserPoints = isDoneTask => {
